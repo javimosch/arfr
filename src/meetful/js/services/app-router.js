@@ -70,6 +70,9 @@ var app = angular.module('app_router', []).service('appRouter', ['$rootScope', '
     //ROUTING
     self.currentPath = window.location.href.substring(window.location.origin.length + 1);
     r.$on("$routeChangeStart", function(event, next, current) {
+        if(!next || !next.$$route){
+            return $log.warn('next.$$route expected', next);
+        }
         var nextPath = normalizePath(next.$$route.originalPath);
         var changeOk = true;
         for (var x in listeners) {
