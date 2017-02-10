@@ -1,0 +1,23 @@
+
+
+
+.image-button-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+
+.image-button {
+    width: 50px;
+    text-align: center;
+    background: white;
+}
+.image-button:hover{
+    cursor:pointer;
+}
+
+.gallery-wrapper:hover .image-button-wrapper{
+    display: block;
+}

@@ -1,0 +1,56 @@
+html { 
+  /*background: url(/images/background1.jpg) no-repeat center center fixed; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body{
+  background-color: transparent;
+}
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.wrap__content{
+  position:relative;
+}
+
+/*big bootstrap overwrite*/
+
+.row {
+    margin-right: 0px; 
+     margin-left: 0px; 
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+  background-size: cover;
+  background-image: url(/images/background3.jpg);
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: white;
+}

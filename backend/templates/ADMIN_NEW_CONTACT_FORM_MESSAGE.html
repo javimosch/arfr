@@ -1,0 +1,31 @@
+<style scoped>
+    .message {
+        font-style: italic;
+        font-size: 14px;
+        text-align: justify;
+        width: 90%;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        word-break: break-all
+    }
+</style>
+
+<p>Bonjour $USER_NAME, quelqu'un utiliser le formulaire de contact</p>
+<div style="padding:10px;">
+    <ul>
+        <li>Prénom Nom: $CLIENT_NAME</li>
+        <li>Email: $CLIENT_EMAIL</li>
+        <li>Phone: $CLIENT_PHONE</li>
+        <li>Message:</li>
+    </ul>
+</div>
+<p class="message">
+    $CLIENT_MESSAGE
+</p>
+<br>
+<br>
+<p>
+    A très vite,
+    <br>
+    <br> L'équipe Diagnostical
+</p>

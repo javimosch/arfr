@@ -1,0 +1,16 @@
+div#disqus_thread
+	script
+		|var disqus_shortname = 'misitioba';
+		|var disqus_url = '!{"http://misitioba.com/"+"posts/"}';
+		|(function(){
+		|var dsq = document.createElement('script');
+		|dsq.type = 'text/javascript';
+		|dsq.async=true;
+		|var url  = '//' + disqus_shortname + '.disqus.com/';
+		if page.comments
+			|url += 'embed.js';
+		else
+			|url += 'count.js';
+		|dsq.src= url;
+		| (document.querySelector('head') || document.querySelector('body')).appendChild(dsq);
+		|})();

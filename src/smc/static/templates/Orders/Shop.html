@@ -1,0 +1,34 @@
+<!-- HBSIGNORE -->
+<ion-view id="shop-order" title="Selection du magasin">
+    <ion-content overflow-scroll="true" padding="false" class="has-header">
+      <ion-list class="shop-list">
+        <div class="item star-filter">
+          Livreurs de type:
+          <span class="stars">
+            <i ng-class="{'icon-smc-star-filled': minimumStar < 1, 'icon-smc-star-filled yellow': minimumStar >= 1}" ng-click="setMinimumStar(1)"></i>
+            <i ng-class="{'icon-smc-star-filled': minimumStar < 2, 'icon-smc-star-filled yellow': minimumStar >= 2}" ng-click="setMinimumStar(2)"></i>
+            <i ng-class="{'icon-smc-star-filled': minimumStar < 3, 'icon-smc-star-filled yellow': minimumStar >= 3}" ng-click="setMinimumStar(3)"></i>
+            <i ng-class="{'icon-smc-star-filled': minimumStar < 4, 'icon-smc-star-filled yellow': minimumStar >= 4}" ng-click="setMinimumStar(4)"></i>
+            <i ng-class="{'icon-smc-star-filled': minimumStar < 5, 'icon-smc-star-filled yellow': minimumStar >= 5}" ng-click="setMinimumStar(5)"></i>
+          </span>
+          </div>
+          <div class="item item-divider">
+            Magasins les plus proches
+          </div>
+          <ion-item class="item-icon-right shop" ng-repeat="shop in shops">
+              <div ng-click="sendDeliveryRequest(shop)">
+                <div class="title">{{shop.name | capitalize:true}}</div>
+                <div class="distance"><i class="icon-smc-truck-checked"></i> {{shop.count}} livreur<span ng-if="shop.count > 1">s</span> disponible<span ng-if="shop.count > 1">s</span></div>
+                <div class="address"><i class="icon-smc-marker"></i> {{shop.address | capitalize:true}}</div>
+                <i class="icon ion-chevron-right"></i>
+              </div>
+          </ion-item>
+
+          <ion-item class="item" ng-show="(shops.length == 0)">
+            <p>
+              Aucun vendeur disponible n'a été trouvé à proximité.
+            </p>
+          </ion-item>
+      </ion-list>
+    </ion-content>
+</ion-view>

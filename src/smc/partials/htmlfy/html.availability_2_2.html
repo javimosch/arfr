@@ -1,0 +1,92 @@
+<div class="row relative">
+    <div class="title-bar">
+        <div class="col-md-4">
+            <h2 class="title-bar__title">Livrer</h2>
+        </div>
+        <div class="col-md-4 col-sm-offset-4">
+
+        </div>
+    </div>
+    <img class="booking__static-ad" src='/img/sample/static_ad.png'>
+</div>
+<div class="row section">
+    <div class="col-sm-12">
+    
+        <div class="row">
+            <p class="text-center section__centered-title">Votre calendrier disponible</p>
+        </div>
+
+
+
+
+
+        <div class="row col-margin-7">
+            <div class="col-md-8">
+
+                <div class="row">
+                    <div class="col-md-12 relative">
+                        <input type="text" class="date-picker form-control">
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-6 relative visible-md-block visible-lg-block">
+                        <div class="row">
+                            <hr>
+                            <label>Sélectionnez heure</label>
+                        </div>
+                        <div class="row">
+                            <ul class="hours">
+                                <li ng-repeat="(timeKey, time) in schedule.times" class="col-schedule schedule" ng-class="{'selected': isSelected(schedule.date, time)}" ng-click="selectTime(schedule.date, time)">08h - 10h</li>
+                                <li ng-repeat="(timeKey, time) in schedule.times" class="col-schedule schedule" ng-class="{'selected': isSelected(schedule.date, time)}" ng-click="selectTime(schedule.date, time)">10h - 12h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 relative" id="datePopup">
+
+                    </div>
+
+                    <div class="col-sm-6 relative visible-xs-block visible-sm-block">
+                        <div class="row">
+                            <hr>
+                            <label>Sélectionnez une heure</label>
+                        </div>
+                        <div class="row">
+                            <ul class="hours">
+                                <li ng-repeat="(timeKey, time) in schedule.times" class="col-schedule schedule" ng-class="{'selected': isSelected(schedule.date, time)}" ng-click="selectTime(schedule.date, time)">08h - 10h</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="debug__quote">[CALENDAR AND HOURS CONTAINS DYNAMIC BEHAVIOUR AND DEPENDS ON ANGULAR]</p>
+                    </div>
+                </div>
+
+               
+
+
+            </div>
+            <div class="col-md-4">
+                <img id="booking__hero" src="/img/hero_stand_pulgar.png">
+            </div>
+
+        </div>
+
+        <div class="row col-margin-3">
+            <div class="col-sm-7 col-md-10">
+                <a 
+                href="/html/availability_success.html"
+                class="link btn btn-lg btn-red" ng-disabled="!hasSelectedShops()" ng-click="hasSelectedShops() && setSelectedShop()">Enregistrer vos disponibilités</a>
+            </div>
+            <div class="col-sm-3 col-sm-offset-2 col-md-offset-0 col-md-2">
+                <label id="booking__bottom-rigth-label">Étape 2/2</label>
+            </div>
+        </div>
+
+    </div>
+</div>

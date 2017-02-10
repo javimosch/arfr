@@ -1,0 +1,17 @@
+image: mwallasch/docker-ruby-node
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  untracked: true
+before_script:
+  - gem install dpl
+test:
+  type: test
+  script:
+  - npm install
+  - npm run test
+dev:
+  type: deploy
+  script:
+  - dpl --provider=heroku --app=smc-dev-web --api-key=$HEROKU_API_KEY
+  only:
+  - staging

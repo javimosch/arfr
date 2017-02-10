@@ -1,0 +1,31 @@
+.header__navbar-collapse {
+    z-index: 10000;
+    position: relative;
+    border: 0px;
+    background: white;
+}
+
+
+/*collapse button*/
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: #7EA1D9;
+}
+
+.navbar-default .navbar-toggle:focus>.header__icon-bar,
+.navbar-default .navbar-toggle:hover>.header__icon-bar {
+    background-color: white;
+}
+
+.header__icon-bar {
+    background-color: #EB5151;
+}
+
+@media only screen and (min-width: 992px) {
+    /* BREAK */
+    /*same as nav collapse breakpoint*/
+    .header__navbar-collapse {
+        background: transparent;
+    }
+}

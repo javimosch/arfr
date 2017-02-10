@@ -1,0 +1,64 @@
+<div class="dynamic-table-wrapper">
+    <div class="row margin-none" ng-show="caption">
+        <h4 ng-bind="caption"></h4>
+    </div>
+    <div class="row margin-none">
+        <table-filter model="model"></table-filter>
+    </div>
+    <div class="row margin-none">
+        <div class="table-reponsive unselectable">
+
+            <h5 class="visible-xxs-block padding-left-one">
+             <span
+             ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" >{{c.label||c}} &nbsp;</span>
+             </h5>
+
+            <table class="table-dynamic table">
+                <!-- <caption ng-show="caption">{{caption}}</caption> -->
+                <thead>
+                    <tr>
+                        <th ng-if="model.remove"></th>
+                        <th ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" ng-class="c.labelCls&&c.labelCls()||{}">{{c.label||c}}</th>
+                    </tr>
+                </thead>
+                <!--ng-click="!hasMouse && console.log(hasMouse)"-->
+                <tbody>
+
+                    <!--track by $index-->
+                    <tr ng-repeat="(key,item) in model.items" ng-click="(!hasMouse && click(item,$index))" ng-dblclick="(hasMouse && click(item,$index))">
+                        <td ng-if="model.remove" ng-click="model.remove(item,$index)" class="link">
+                            <i class="fa fa-times"></i>
+                        </td>
+
+                        <td ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" ng-class="{link:true,'text-left':c.align==='left','text-right':c.align==='right','text-center':c.align==='center'}">
+                            <out ng-if="!c.format" html-content html="item[c.name||c]"></out>
+                            <out ng-if="c.format" bind-html-compile="c.format(item[c.name||c],item)">
+                                <!--{{c.format(item[c.name||c],item);}}-->
+                            </out>
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tfoot ng-if="model.tfoot" ng-include="model.tfoot">
+                </tfoot>
+            </table>
+            <uib-pagination ng-show="model.paginate" total-items="model.pagination.total" items-per-page="model.pagination.itemsPerPage" ng-model="model.pagination.currentPage" ng-change="model.pagination.changed()" max-size="model.pagination.maxSize" class="pagination-sm"
+                boundary-links="true"></uib-pagination>
+        </div>
+        <div ng-show="model.records && model.records.show" class="margin-bottom-one">
+            <ul class="form-tiny labelx2 center-block">
+                <li>
+                    <label>{{model.records.label}}</label>
+                    <input disabled ng-value="model.pagination.total" class="form-control max-w-60">
+                </li>
+        </div>
+
+        <div ng-if="buttons" class="button-group">
+            <button ng-repeat="(k,v) in buttons" ng-disabled="v.disabled && v.disabled()||false" ng-if="v.show==undefined || v.show==true" ng-class="v.type({
+            $index:$index,$first:$first
+        })||''" ng-click="v.click()">{{v.label}}</button>
+            <out ng-if="model.buttonsTpl" ng-include="model.buttonsTpl" include-replace></out>
+            <i ng-show="model.hideTooltip == undefined || model.hideTooltip != true" class="fa fa-question" tooltip-placement="top" uib-tooltip="Double click on a row to edit"></i>
+        </div>
+    </div>
+</div>

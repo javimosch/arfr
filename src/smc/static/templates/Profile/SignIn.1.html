@@ -1,0 +1,49 @@
+<!-- HBSIGNORE -->
+
+<div class="row signin" id="sigin">
+  <div class="col-sm-12">
+    <img src="/img/logo.png" class="logo"></i>
+
+    <div class="buttons-block">
+      <div id="socialBox"></div>
+      <p><b>Connexion avec</b></p>
+      <button class="btn btn-block btn-primary button-positive button-facebook" ng-click="handleSignInFacebookButton()">
+            Facebook
+          </button>
+      <button class="btn btn-block btn-primary button-google" ng-click="signInWithGoogle()">
+            Google
+          </button>
+
+
+      <hr>
+
+      <formname="signin">
+        <p><b>Ou utilisez votre email</b></p>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Email" ng-pattern="validation.email.pattern" required="required" autocomplete="off">
+        </div>
+
+        <div class="error-message" ng-show="signin.email.$error.pattern">
+          <span><i class="icon ion-close-circled"></i> {{validation.email.message}}</span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Mot de passe" ng-pattern="validation.password.pattern" required="required" autocomplete="off">
+        </div>
+
+        <div class="error-message" ng-show="signin.password.$error.pattern">
+          <span><i class="icon ion-close-circled"></i> {{validation.password.message}}</span>
+        </div>
+
+      </form>
+
+
+      <a ng-click="signInWithEmail()" class="btn btn-primary btn-block btn-lg" ng-disabled="signin.$invalid">Connexion</a>
+      <a ng-click="forgotPassword()" class="link forgot-pwd">Mot de passe oublié ?</a>
+    </div>
+
+  </div>
+</div>

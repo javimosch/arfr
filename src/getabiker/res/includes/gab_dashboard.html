@@ -1,0 +1,116 @@
+<div class="" ng-controller="gab_dashboard">
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <ol class="breadcrumb">
+                <li>Dashboard</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <div class="panel">
+                <h5>Welcome {{session().nickName || session().fullName || session().email}}</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <div class="panel">
+                <div class="row">
+                    <h2><i class="fa fa-bicycle"></i>YOUR OPTIONS</h2>
+                    <p>
+                        Straight to the point.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <a class="btn btn-primary btn-xxl center-block link" ng-click="route('tracking')">Ticket Tracking</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12" ng-show="userHasRole('biker')">
+                        <a class="btn btn-primary btn-xxl center-block link" ng-click="route('assignment')">Search new Assignments</a>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12">
+                        <a class="btn btn-primary btn-xxl center-block link" ng-click="route('profile')">MY PROFILE</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12">
+                        <a class="btn btn-primary btn-lg center-block link" ng-click="logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <div class="panel type-1">
+                <div class="row">
+                    <h2><i class="fa fa-bicycle"></i>CREATE YOUR OWN TICKET</h2>
+                    <p>
+                        Create an order takes one easy step.
+                    </p>
+                </div>
+                <div class="row margin-top-one">
+                    <div class="col-xs-12 ">
+                        <label for="type">Type*</label>
+                        <div class="btn-group" name="type">
+                            <a href="javascript:void(0)" class="btn btn-default btn-raised disabled" ng-bind="orderTypeLabel()"></a>
+                            <a disabled href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span><div class="ripple-container"></div></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="(code,label) in orderTypes">
+                                    <a class="link" ng-click="selectOrderType(code,label)" ng-bind="label"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="col-xs-12 ">
+                        <label for="type">Size*</label>
+                        <div class="btn-group" name="type">
+                            <a href="javascript:void(0)" class="btn btn-default btn-raised disabled" ng-bind="dropdownLabel('size',orderSizes)"></a>
+                            <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span><div class="ripple-container"></div></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="(code,label) in orderSizes">
+                                    <a class="link" ng-click="dropdownSelect('size',code,label)" ng-bind="label"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-top-one">
+                    <div class="col-xs-12 ">
+                        <label for="type">When*</label>
+                        <input pikaday="_order.when" class="form-control" theme="diags" ng-attr-min={{datepicker.minDate}} ng-attr-max={{datepicker.maxDate}} placeholder="departure date">
+                        <div class="alert  alert-info" ng-show="!validations.when">
+                            <strong>Heads up!</strong>
+                            <span>The minimum booking time needs to be one hour ahead the current time.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-top-one">
+                    <div class="col-xs-12 ">
+                        <label for="type">Adresse de départ / Pick up*</label>
+                        <input type="text" class="form-control" address model="_order" field="from" city="city" department="department" region="region" country="country" post-code="postCode" placeholder="">
+
+                        <input type="text" class="form-control" ng-model="_order.info.from" placeholder="Précisez code / escalier / étage">
+
+                    </div>
+                </div>
+                <div class="row margin-top-one">
+                    <div class="col-xs-12 ">
+                        <label for="type">Adresse de livraison / Drop it*</label>
+                        <input type="text" class="form-control" address model="_order" field="to" placeholder="" city="city" department="department" region="region" country="country" post-code="postCode">
+
+                        <input type="text" class="form-control" ng-model="_order.info.to" placeholder="Précisez code / escalier / étage">
+                    </div>
+                </div>
+                <div class="row margin-top-one">
+                    <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                        <a class="btn btn-primary btn-lg center-block link" ng-click="add()">Save Ticket as Draft</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

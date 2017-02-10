@@ -1,0 +1,13 @@
+{{#each CDN}}
+    <script src="{{this}}"></script>
+{{/each}}
+
+<!--VENDOR-JS-->
+{{#each VENDOR}}
+    <script src="/vendor/{{this}}"></script>
+{{/each}}
+<!--/VENDOR-JS-->
+
+    <script type="text/javascript" src="{{root}}js/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+{{> live-sync}}

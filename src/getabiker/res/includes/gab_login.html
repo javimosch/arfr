@@ -1,0 +1,36 @@
+<div class="row" ng-controller="gab_login" ng-show="show">
+    <div class="col-sm-12 col-md-12">
+        <div class="form">
+
+            <div class="row">
+                <h2><i class="fa fa-bicycle"></i>LOG IN</h2>
+                <p>
+                    Sign In to operate your Dashboard.
+                </p>
+            </div>
+            <div class="row margin-top-one type-1">
+                <input type="email" ng-model="_login.email" class="diags-input" placeholder="Adresse email">
+            </div>
+            <div class="row margin-top-one type-1">
+                <input type="password" ng-model="_login.pwd" class="diags-input" placeholder="Mot de passe">
+            </div>
+            <div class="row margin-top-one type-1">
+                <input type="checkbox" name="remember" model="_login.rememberPass" />
+                <label for="remember">Remember</label>
+            </div>
+            <div class="row margin-top-two">
+                <button ng-disabled="state.working()" class="btn btn-primary center-block" ng-click="login()">ENTER</button>
+            </div>
+            <div class="row margin-top-one">
+                <a ng-disabled="!_.login.email || state.working()" class="link center-block text-center" ng-click="resetPassword()">Reset Password</a>
+            </div>
+            <div class="row margin-top-two">
+                <h2><i class="fa fa-bicycle"></i>NEW ACCOUNT</h2>
+                <p>New in town? Register in one click.</p>
+            </div>
+            <div class="row margin-top-one">
+                <button ng-disabled="state.working()" class="btn btn-primary center-block" ng-click="create()">REGISTER</button>
+            </div>
+        </div>
+    </div>
+</div>

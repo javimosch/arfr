@@ -1,0 +1,18 @@
+<!-- HBSIGNORE -->
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" ng-bind="title">TITLE</h4>
+      </div>
+      <div class="modal-body" ng-bind-html="body | unsafe">BODY
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-white" ng-click="close()">Cancel</button>
+          <button type="button" class="btn btn-blue" ng-click="ok()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

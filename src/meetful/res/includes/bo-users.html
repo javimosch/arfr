@@ -1,0 +1,50 @@
+<div class="row" ng-controller="ctrl-bo-user">
+    <div class="col-lg-12 col-xs-12">
+        <div class="panel">
+            <div class="row">
+                <div class="col-xs-6 col-md-2">
+                    <a ng-show="isAdmin()" href="/backoffice" class="btn btn-primary">Backoffice</a>
+                </div>
+                <div class="col-xs-6 col-md-2" ng-cloak ng-show="isDetailView()">
+                    <a ng-show="isAdmin()" href="/backoffice/users/-1" class="btn btn-primary">Users</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-xs-12" ng-cloak ng-show="!isDetailView()">
+        <div class="panel">
+            <h2>Users</h2>
+            <user-listview></user-listview>
+        </div>
+    </div>
+    <div class="col-lg-12 col-xs-12" ng-cloak ng-show="isDetailView()">
+        <div class="panel">
+            <h2>User detail</h2>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <input  ng-readonly="isEdit()" type="text" class="form-control input-md" ng-model="data.email" placeholder="Email">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <input ng-readonly="false" type="text" class="form-control input-md" ng-model="data.first_name" placeholder="First name">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <input ng-readonly="false" type="text" class="form-control input-md" ng-model="data.last_name" placeholder="Last name">
+                </div>
+                <div class="col-sm-12 col-md-12">
+                    <input  type="password" class="form-control input-md" ng-model="data.password" placeholder="new password...">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <input ng-cloak ng-show="isEdit()" ng-readonly="true" type="text" class="form-control input-md" ng-value="'Created at '+momentDateTime(data.createdAt)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a ng-cloak ng-show="showSave()" ng-click="save()" class="btn btn-primary" ng-bind="i18n.TEXT_SAVE"></a>
+                    <a ng-cloak ng-show="showToggleAdminRights()" ng-click="toggleAdminRights()" class="btn btn-primary" ng-bind="toggleAdminRightsLabel()"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

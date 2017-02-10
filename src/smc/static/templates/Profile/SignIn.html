@@ -1,0 +1,67 @@
+<!-- HBSIGNORE -->
+<div class="row">
+  <div class="title-bar">
+    <h2 class="title-bar__title">Connexion</h2>
+  </div>
+</div>
+
+<div class="row signin">
+
+  <div class="col-md-3 visible-md-block visible-lg-block relative">
+    <img class="layout__icon-top-left" src="/img/icon_hand_in_sac_rotated.png" alt="Icon Commande Envoyee">
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <img src="/img/logo_circle_malibu.jpg" class="start__logo img-responsive">
+
+    <p class="signin__text-center">
+      Connexion avec
+    </p>
+    <div class="buttons-block">
+      <a ng-click="signInWithFacebook(false)" class="link btn btn-facebook btn-block btn-lg ">Facebook</a>
+      <a ng-click="signInWithGoogle(false)" class="btn btn-google btn-block btn-lg ">Google</a>
+    </div>
+
+    <p class="signin__text-center">
+      Ou utilisez votre email
+    </p>
+
+
+    <form class="list" name="signin">
+      <div class="buttons-block">
+        <input class="form-control btn-block" type="email" name="email" placeholder="Email" ng-model="user.email" ng-pattern="validation.email.pattern" required="required" autocomplete="off">
+        <input class="form-control btn-block" type="password" name="password" placeholder="Password" ng-model="user.password" placeholder="Mot de passe" ng-pattern="validation.password.pattern" required="required" autocomplete="off">
+      </div>
+
+
+      <div class="buttons-block">
+        <hr>
+        <div class="error-message" ng-show="signin.email.$error.pattern">
+          <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.email.message}}</span>
+        </div>
+        <div class="error-message" ng-show="signin.password.$error.pattern">
+          <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.password.message}}</span>
+        </div>
+      </div>
+
+    </form>
+
+
+
+
+
+    <hr>
+    <div class="buttons-block">
+      <a ng-click="signInWithEmail()" class="btn btn-red btn-block btn-lg" ng-disabled="signin.$invalid">Connexion</a>
+      <p class="text-center padding-small">
+        <a ng-click="forgotPassword()" class="link link-white ">Mot de passe oublié ?</a>
+      </p>
+      <hr>
+      <a ui-sref="start" class="btn btn-white btn-block btn-lg">Retourner</a>
+    </div>
+
+    <img class="layout__icon-bottom-right visible-md-block visible-lg-block" src="/img/icon_hero_drinking.png" alt="Icon Hero Drinking Juice">
+  </div>
+  <div class="col-md-3 visible-md-block visible-lg-block relative">
+  </div>
+</div>

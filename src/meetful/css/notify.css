@@ -1,0 +1,30 @@
+.notify {
+    z-index: 101;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    height: 60px;
+}
+
+.notify .alert {
+    height: 50px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+
+
+.notify .alert.alert-warning span {
+    color: goldenrod;
+}
+.notify .alert.alert-info span {
+    color: #31708f;
+}
+
+.notify .alert span {
+    float: right;
+    font-family: 'Avenir-Medium';
+    font-size: 15px;
+    font-weight: 900;
+    color: #38761D;
+}

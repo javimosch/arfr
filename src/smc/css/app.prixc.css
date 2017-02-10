@@ -1,0 +1,110 @@
+.prix__main {
+    width: 650px;
+    margin: 0 auto;
+    /* background: white; */
+    position: relative;
+}
+
+.prix__main img {
+    width: 480px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    left: -30px;
+}
+
+.prix__main .btn-by-product {
+    position: absolute;
+    top: 140px;
+    z-index: 1500;
+    left: -80px;
+    
+   -webkit-box-shadow: -2px 2px 25px 21px rgba(255,255,255,1);
+-moz-box-shadow: -2px 2px 25px 21px rgba(255,255,255,1);
+box-shadow: -2px 2px 25px 21px rgba(255,255,255,1);
+}
+
+.prix__main .btn-by-list {
+    position: absolute;
+    top: 140px;
+    z-index: 1500;
+    right: -80px;
+    margin: 0px;
+    
+    -webkit-box-shadow: -2px 2px 25px 21px rgba(255,255,255,1);
+-moz-box-shadow: -2px 2px 25px 21px rgba(255,255,255,1);
+box-shadow: -2px 2px 25px 21px rgba(255,255,255,1);
+}
+
+
+
+.panier__placeholder {
+    position: absolute;
+    z-index: 1500;
+    background: rgba(96, 151, 254, .6);
+    height: 100%;
+    width: 300px;
+    top: 0px;
+    left: 0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.panier__placeholder div {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.panier__placeholder span {
+   display: table-cell;
+   vertical-align: middle;
+   color: white;
+   font-size: 30px;
+   font-weight: 800;
+   padding: 0px 10px;
+}
+.panier__placeholder:hover span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+
+.panier__prix-wrapper{
+    
+}
+.panier__prix-wrapper h3{
+    font-size: 40px;
+    color: #5878F3;
+    text-align: center;
+    font-weight: 800;
+}
+
+
+.panier__nav-wrapper{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+.panier__nav-wrapper:hover{
+    cursor:pointer;
+}
+.panier__nav-wrapper div{
+    background-color: #5878F3;
+    height: 4px;
+    width: 20px;
+    margin-bottom: 2px;
+}
+
+.panier__prix-wrapper .prix__less,.prix__less{
+    color:#B2B200;
+}
+.panier__prix-wrapper .prix__more,.prix__more{
+    color:#EB504C;
+}

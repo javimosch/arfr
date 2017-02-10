@@ -1,0 +1,125 @@
+.btn.btn-white,
+.btn.btn-blue,
+.btn.btn-red {
+    height: 66px;
+    font-size: 20px;
+    font-weight: 800!important;
+    line-height: 66px;
+    padding: 0px;
+    min-width: 150px;
+    margin: 0 auto;
+}
+
+.btn.btn-xs {
+    min-width: 50px;
+    height: 50px;
+}
+
+.btn.btn-md {
+    min-width: 253px;
+}
+
+.btn.btn-lg {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.btn-facebook {
+    background: #3b5998;
+    color: #fff;
+    border-color: transparent;
+}
+
+.btn-facebook:hover {
+    color: #fff;
+    border-color: transparent;
+}
+
+.btn-google {
+    background: #d34836;
+    color: #fff;
+    border-color: transparent;
+}
+
+.btn-google:hover {
+    background: #d34836;
+    color: #fff;
+    border-color: transparent;
+}
+
+.btn-white {
+    background-color: white;
+    color: #EB5151;
+    /*#5D9FFE;*/
+    border: 0px;
+}
+
+.btn-white:hover {}
+
+.btn-white.btn-lg {}
+
+.btn-red {
+    background-color: #EB5151;
+    color: white;
+    border: 0px;
+}
+
+.btn-red:hover,
+.btn-red:hover i {
+    color: black;
+}
+
+.btn-red i {
+    color: white;
+}
+
+.btn-blue {
+    background-color: #5FA0FE;
+    color: white;
+    border: 0px;
+}
+
+.btn-blue i {
+    color: white;
+    position: relative;
+    top: -5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.btn-blue:hover {
+    color: black;
+}
+
+.btn-block+.btn-block {
+    margin-top: 20px;
+}
+
+.white {
+    color: white;
+}
+
+.buttons-block .btn.btn-white,
+.buttons-block .btn.btn-blue,
+.buttons-block .btn.btn-red {
+    margin-top: 20px;
+}
+
+.btn.btn-white.btn-center,
+.btn.btn-blue.btn-center,
+.btn.btn-red.btn-center {
+    margin: 0 auto;
+    display: block;
+}
+
+.btn-notifications{
+    
+}
+
+@media only screen and (min-width: 992px) {
+    .btn.btn-white,
+    .btn.btn-blue,
+    .btn.btn-red {
+        margin: 0;
+    }
+}

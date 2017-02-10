@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-6 col-xs-12">
+        <div class="panel">
+            <h2>{[{i18n.TEXT_SIGN_UP}]}</h2>
+            <form class="form-horizontal form-small" ng-controller="signUp">
+                <fieldset>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="email">Email</label>
+                        <div class="col-md-8">
+                            <input id="email" ng-model="item.email" name="email" type="text" placeholder="" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Password input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="password">Password</label>
+                        <div class="col-md-8">
+                            <input id="password"  ng-model="item.password" name="password" type="password" placeholder="" class="form-control input-md" required="">
+
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="save"></label>
+                        <div class="col-md-4">
+                            <button id="save" ng-click="signUp()" ng-disabled="!isValid()" name="save" class="btn btn-primary" ng-bind="i18n.TEXT_SIGN_UP">Sign Up</button>
+                        </div>
+                    </div>
+                    
+                     <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="save"></label>
+                        <div class="col-md-8">
+                            <span>{[{i18n.TEXT_SIGN_UP_FORM_BOTTOM_1}]} <a ng-href="{[{i18n.ROUTE_SIGN_IN}]}" class="link" ng-bind="i18n.TEXT_SIGN_IN"></a></span>
+                        </div>
+                    </div>
+                   
+
+                </fieldset>
+            </form>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <img class="content__logo" src="/images/logo.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

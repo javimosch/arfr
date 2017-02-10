@@ -1,0 +1,106 @@
+/*ORDERS AND DELIVERIES*/
+
+.list__filter {
+    color: white;
+    font-size: 20px;
+    text-align: left;
+}
+
+.list__etat {
+    color: white;
+    font-size: 25px;
+    text-align: left;
+    display: inline-block;
+}
+
+.list__etat__list {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 0px 0px 50px;
+    padding: 0px;
+    color: white;
+    font-size: 20px;
+}
+
+.list__etat__item:hover {
+    cursor: pointer;
+}
+
+.list__etat__item {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+}
+
+.list__etat__info:hover {
+    cursor: pointer;
+}
+
+.list__icon,
+.list__etat__info {
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+    position: relative;
+    top: 4px;
+}
+
+.list__ul-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.list__item {
+    border-bottom: 3px solid white;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.list__item_hover-text {
+    display: none;
+}
+
+.list__item:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.list__item:hover .list__item_hover-text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    font-size: 25px;
+    color: white;
+}
+
+.list__item i {
+    padding: 0px;
+    margin: 0 auto;
+    min-width: 27px;
+    display: inline-block;
+    text-align: center;
+}
+
+.list__item__icon-placeholder {
+    min-width: 30px;
+    display: inline-table;
+}
+
+.list__item span {
+    color: white;
+    font-size: 20px;
+}
+
+.list__item__avatar {
+    margin: 0px auto auto auto;
+    display: block;
+    padding-top: 10px;
+}
+
+.list__item__fullname {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}

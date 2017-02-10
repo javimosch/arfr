@@ -1,0 +1,58 @@
+
+.input-tag{
+    font-size: 25px;
+    font-weight: 900;
+    font-family: Avenir-Medium;
+}
+
+.form-control {
+    padding: 6px 0px;
+    font-size: 16px;
+    color: #333;
+    font-family: Avenir-Medium;
+}
+
+.input-title {
+    font-family: Avenir-Medium;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    margin-bottom: 30px;
+    font-size: 45px;
+    padding: 0px;
+    border: 0px;
+    height: initial;
+}
+
+label {
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: Avenir-Medium;
+}
+
+.date-label{
+    font-size:12px;
+}
+
+textarea {
+    min-height: 300px;
+}
+
+.input-chat-message{
+    min-height:initial;
+    resize:none;
+}
+
+@media (min-width: 320px) {
+}
+
+@media (min-width: 480px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}

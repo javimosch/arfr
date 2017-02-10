@@ -1,0 +1,6 @@
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    line-height: 1.42857;
+    vertical-align: top;
+    border-top: 1px solid rgb(221, 221, 221);
+    padding:20px;
+}

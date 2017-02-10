@@ -1,0 +1,281 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.17.0/babel.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/co/4.1.0/index.min.js"></script>
+<!--BUNDLE_JS_1-->
+<script type="text/javascript" src="/vendor/xml-to-json.js"></script>
+<script src="{{root}}vendor/moment.js"></script>
+<script src="{{root}}vendor/moment_locale_fr.js"></script>
+<!--/BUNDLE_JS_1-->
+<script type="text/javascript">
+    /*global $*/
+
+    var url = (function() {
+        function qs(key) {
+            key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+            var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
+            return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+        }
+
+        function route(newRoute) {
+            if (newRoute) {
+                window.location = newRoute;
+            }
+            return window.location.href.replace(window.location.origin, '');
+        }
+        return {
+            param: qs,
+            route: route
+        };
+    }());
+
+    var store = (function() {
+        return {
+            get: function() {
+                var encoded = window.localStorage.getItem('SMCADMIN') || window.btoa(JSON.stringify({}));
+                //console.debug('encoded', encoded, '| {}->', window.btoa(JSON.stringify({})));
+                var local = JSON.parse(window.atob(encoded));
+                return local;
+            },
+            set: function(o) {
+                window.localStorage.setItem('SMCADMIN', window.btoa(JSON.stringify(o || {})));
+            }
+        };
+    }());
+
+    var ws = (function() {
+        return {
+            login: function(pass) {
+                firebase.auth().signInWithEmailAndPassword('smc_admin@noresponse.com', pass).catch(function(error) {
+                    console.warn(error);
+                });
+            },
+            logout: function(success) {
+                firebase.auth().signOut().then(function() {
+                    // Sign-out successful.
+                    console.log('out');
+                    success && success();
+                }, function(error) {
+                    // An error happened.
+                    console.warn(error);
+                });
+            },
+            reset: function() {
+
+                var ref = firebase.database().ref('/admin');
+
+                ref.set(null);
+                ref.child('partials').push({
+                    fileName: 'hola.html',
+                    content: '123'
+                })
+
+            },
+            ref: function() {
+                var ref = firebase.database().ref('/admin');
+                return ref;
+            },
+            collection: function(n) {
+                var ref = firebase.database().ref('/admin/' + n);
+                return {
+                    paginate: function(len) {
+                        var currentPage = 0;
+                        var items = [];
+                        return {
+                            next: function(callback) {
+                                currentPage++;
+                                ref.orderByKey().startAt((currentPage * len).toString()).limitToFirst(len).once('value', function(snap) {
+                                    var items = [];
+                                    snap.forEach(function(snap) {
+                                        var o = snap.val();
+                                        o.key = snap.key;
+                                        items.push(o);
+                                    });
+                                    callback(items);
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }());
+
+    var http = (function() {
+        function ajax(url, data, x) {
+            return new Promise((resolve, reject) => {
+                try {
+                    x = new(window.XMLHttpRequest || window.ActiveXObject)('MSXML2.XMLHTTP.3.0');
+                    x.open(data ? 'POST' : 'GET', url, 1);
+                    x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                    x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    x.onreadystatechange = function() {
+                        x.readyState > 3 && resolve(x.responseText, x);
+                    };
+                    x.send(data)
+                }
+                catch (e) {
+                    reject(e);
+                }
+            });
+        };
+
+
+        function jsonp(src, callbackName, timeout) {
+            return new Promise((resolve, reject) => {
+                var callback_name = callbackName || 'callback',
+                    timeout = timeout || 10; // sec
+                var timeout_trigger = window.setTimeout(function() {
+                    reject("http: jsonp timeout");
+                }, timeout * 1000);
+                window[callback_name] = function(data) {
+                    window.clearTimeout(timeout_trigger);
+
+                    data= window.xml.xmlToJSON(data);
+
+                    resolve(data);
+                }
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.async = true;
+                script.src = src;
+                document.getElementsByTagName('head')[0].appendChild(script);
+            });
+
+        }
+
+        function getJSON(url) {
+            'use strict';
+            var xhr = new XMLHttpRequest();
+            return new Promise((resolve, reject) => {
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            resolve(JSON.parse(xhr.responseText));
+                        }
+                        else {
+                            reject(xhr.responseText);
+                        }
+                    }
+                };
+                xhr.open('GET', url);
+                xhr.send();
+            });
+        }
+
+        function getFeed() {
+
+        }
+        return {
+            getJSON: getJSON,
+            get: ajax,
+            post: ajax,
+            jsonp: jsonp
+        };
+    })();
+
+    var parser = (function() {
+        function xmlToJson(xml) {
+
+            // Create the return object
+            var obj = {};
+
+            if (xml.nodeType == 1) { // element
+                // do attributes
+                if (xml.attributes.length > 0) {
+                    obj["@attributes"] = {};
+                    for (var j = 0; j < xml.attributes.length; j++) {
+                        var attribute = xml.attributes.item(j);
+                        obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+                    }
+                }
+            }
+            else if (xml.nodeType == 3) { // text
+                obj = xml.nodeValue;
+            }
+
+            // do children
+            if (xml.hasChildNodes()) {
+                for (var i = 0; i < xml.childNodes.length; i++) {
+                    var item = xml.childNodes.item(i);
+                    var nodeName = item.nodeName;
+                    if (typeof(obj[nodeName]) == "undefined") {
+                        obj[nodeName] = xmlToJson(item);
+                    }
+                    else {
+                        if (typeof(obj[nodeName].push) == "undefined") {
+                            var old = obj[nodeName];
+                            obj[nodeName] = [];
+                            obj[nodeName].push(old);
+                        }
+                        obj[nodeName].push(xmlToJson(item));
+                    }
+                }
+            }
+            return obj;
+        };
+        function toDateString(t,formatType){
+             if(formatType==1) return moment(new Date(t)).format('DD-MM-YY HH[h]mm');
+             if(formatType==2) return moment(new Date(t)).format('[Le] dddd DD MMMM YY [à] HH[h]mm');
+        }
+        return {
+            toDateString:toDateString,
+            xmlToJson: xmlToJson
+        };
+    })();
+
+
+    var toast = (function() {
+        var self = {};
+
+        function fn(id, heading, icon, text, hideAfter) {
+            var o = $.toast({
+                heading: heading,
+                icon: icon,
+                text: text,
+                showHideTransition: 'slide', // It can be plain, fade or slide
+                bgColor: '#5D9FFE', // Background color for toast
+                textColor: 'white', // text color
+                allowToastClose: false, // Show the close button or not
+                hideAfter: hideAfter || 5000, // `false` to make it sticky or time in miliseconds to hide after
+                stack: 5, // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                textAlign: 'left', // Alignment of text i.e. left, right, center
+                position: 'bottom-left' // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+            });
+            self[id] = o;
+            return actions;
+        }
+        var actions = {
+            info: function(id, text, hideAfter) {
+                fn(id, 'Info', 'info', text, hideAfter)
+            },
+            clearAll: function() {
+                $.toast().reset('all');
+                return actions;
+            },
+            clear: function(id, timeout) {
+                setTimeout(function() {
+                    self[id] && self[id].reset && self[id].reset();
+                }, timeout)
+                return actions;
+            }
+        };
+        return actions;
+    })();
+
+
+
+
+    function logout() {
+        ws.logout(function() {
+            window.location = '/admin';
+        });
+    }
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        console.warn(user)
+
+        if (!user && url.route() !== '/admin/') {
+            url.route('/admin');
+        }
+
+    });
+</script>

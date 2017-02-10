@@ -1,0 +1,12 @@
+.error__title {
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+.error_description {
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    margin: 40px 0 120px 0;
+}

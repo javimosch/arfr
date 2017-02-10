@@ -1,0 +1,48 @@
+<div class="container" ng-controller="ssg_configuration">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel type-1 padding-one">
+
+                <div class="row margin-none">
+                    <h1>CONFIGURATION {{item._id}}</h1>
+                </div>
+                <div class="row margin-none">
+                    <label>AssetsURL</label>
+                    <input type="text" class="form-control" ng-model="item.config.assetsURL">
+                </div>
+                <div class="row margin-none">
+                    <h3>Firebase (LiveSync)</h3>
+                </div>
+                <div class="row margin-none">
+                    <label>Enable (0/1)</label>
+                    <input type="text" class="form-control" ng-model="item.config.liveSync.enable">
+                </div>
+                <div class="row margin-none">
+                    <label>signalName (partial reload)</label>
+                    <input type="text" class="form-control" ng-model="item.config.liveSync.signalName">
+                </div>
+                <div class="row margin-none">
+                    <label>reloadSignalName (Full reload)</label>
+                    <input type="text" class="form-control" ng-model="item.config.liveSync.reloadSignalName">
+                </div>
+                <div class="row margin-none">
+                    <label>apiKey</label>
+                    <input type="text" class="form-control" ng-model="item.config.liveSync.apiKey">
+                </div>
+                <div class="row margin-none">
+                    <label>authDomain</label>
+                    <input type="text" class="form-control" ng-model="item.config.liveSync.authDomain">
+                </div>
+                <div class="row margin-none">
+                    <label>databaseURL</label>
+                    <input type="text" class="form-control" ng-model="item.config.liveSync.databaseURL">
+                </div>
+                <div class="row margin-none">
+                    <a class="btn btn-lg link" ng-click="validate()">Save</a>
+                    <a class="btn btn-lg link" ng-click="back()">Cancel</a>
+                    <a class="btn btn-lg link" ng-click="delete()">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

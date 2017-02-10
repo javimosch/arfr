@@ -1,0 +1,25 @@
+<div class="container-fluid padding-none">
+    <div class="row-fluid">
+        <div class="span-12 relative">
+            <my-alerts add="notify" class="notify " directive="notify" template-url="{{root}}includes/common/gab.popup.msg.html" stacked="false" settings="{clickDismissable:true,scroll:false}"></my-alerts>
+        </div>
+    </div>
+</div>
+
+
+ 
+<div class="container main" ng-view>
+</div>
+
+<div class="hidden" remove-hidden>
+    <div ng-class="{hidden:true,bounceInLeft:true,animated:true,'debug-wrapper':true}">
+        <h3>debug console</h3>
+        <ul ng-cloak>
+            <li ng-cloak> <span ng-cloak></span></li>
+        </ul>
+    </div>
+</div>
+<modal-confirm open="openConfirm"></modal-confirm>
+<modal-custom open="okModal" template-url="{{root}}includes/common/gab.popup.ok.html"></modal-custom>
+<span data-spinner show="state.working"></span>
+<span data-debug show="showDebug"></span>

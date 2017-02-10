@@ -1,0 +1,75 @@
+.navbar-default {
+    background-color: white;
+    /* outline: 1px solid black; */
+    border: 0px;
+    height: 150px;
+}
+
+.navbar-header {
+    height: 150px;
+}
+
+.nav__logo {
+    height: 135px;
+    margin-top: -25px;
+    /* margin-left: -20px; */
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: white;
+    z-index: 100;
+    position: relative;
+    background-color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #333;
+    font-family: 'Avenir-Medium';
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+.navbar-collapse {
+    padding-right: 0px;
+    
+}
+
+
+.brand-wrapper {
+    display: table;
+}
+
+.brand-wrapper a {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.brand-wrapper img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+
+/*toggle*/
+
+.navbar-toggle {
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 0px;
+}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {
+    .navbar-nav {
+        margin-top: 36px;
+    }
+}
+
+.navbar {
+   margin-bottom: 20px;
+}

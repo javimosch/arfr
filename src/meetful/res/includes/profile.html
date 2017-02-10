@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-lg-12 col-xs-12">
+        <div class="panel">
+            <h2 ng-bind="i18n.TEXT_PROFILE"></h2>
+
+            <form class="form-horizontal" ng-controller="profile">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6">
+                        <fieldset>
+
+
+
+
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" ng-disabled="true" for="textinput">Email</label>
+                                <div class="col-md-8">
+                                    <input id="textinput" name="textinput" type="text" ng-model="item.email" placeholder="" class="form-control input-md" required="">
+
+                                </div>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="password">Password</label>
+                                <div class="col-md-8">
+                                    <input id="password" ng-model="item.password" name="password" type="password" placeholder="" class="form-control input-md" required="">
+
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="first_name">First Name</label>
+                                <div class="col-md-8">
+                                    <input id="first_name" ng-model="item.first_name" name="first_name" type="text" placeholder="" class="form-control input-md" required="">
+
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="last_name">Last Name</label>
+                                <div class="col-md-8">
+                                    <input id="last_name" ng-model="item.last_name" name="last_name" type="text" placeholder="" class="form-control input-md" required="">
+
+                                </div>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <div class="col-sm-4 gallery-wrapper" ng-repeat="(name,file) in pictures">
+                                    <div class="image-button-wrapper" >
+                                        <div class="image-button"  ngf-select ng-model="pictures[name]" ngf-change="onPictureSelect(name)" name="file">
+                                            <i class="fa fa-upload" aria-hidden="true" ></i>
+                                        </div>
+                                        <div class="image-button" ng-click="openInTab(name)">
+                                            <i class="fa fa-eye" aria-hidden="true" ></i>
+                                        </div>
+                                    </div>
+                                    <img ng-click="selectImage(name)" ng-show="!hasPicture(name)" src="http://placehold.it/150x150">
+                                    <cl-image ng-show="hasPicture(name)" ng-click="selectImage(name)" version="{[{item.pictures[name].version}]}" public-id="{[{item.pictures[name].public_id}]}" class="thumbnail inline" angle="0" format="jpg">
+                                        <cl-transformation height="150" width="150" crop="fill" gravity="north" effect="sepia" radius="0" />
+                                    </cl-image>
+                                </div>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button id="save" ng-click="save()" name="save" class="btn btn-primary" ng-bind="i18n.TEXT_SAVE"></button>
+
+<!--
+                                    <a id="admin" ng-show="showProjectManagerButton()" href="/project-manager" name="admin" class="btn btn-primary">Project manager</a>
+    -->                                
+                                    <a ng-show="isAdmin()" href="/backoffice" class="btn btn-primary">Backoffice</a>
+
+                                    <button id="logout" ng-click="logout()" name="logout" class="btn btn-primary">Logout</button>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

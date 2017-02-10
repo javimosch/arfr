@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>SSG  | Dashboard</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="img/favicon.ico" />
+
+{{#each CDN_CSS}}
+    <link rel="stylesheet" href="{{this}}"  type="text/css" />
+{{/each}}
+
+<!--VENDOR-CSS-->
+{{#each CSS}}
+    <link rel="stylesheet" href="{{../root}}src/css/common/{{this}}" type="text/css" />
+{{/each}}
+<!--/VENDOR-CSS-->
+
+<!--BUNDLE_JS_1-->
+<script src="/vendor/vendor.selectivizr-min.js"></script>
+<!--/BUNDLE_JS_1-->
+
+
+<link rel="stylesheet" href="{{root}}css/app.css" type="text/css" />

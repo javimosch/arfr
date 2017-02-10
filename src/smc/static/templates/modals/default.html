@@ -1,0 +1,50 @@
+<!-- HBSIGNORE -->
+<div class="modal" id="default-modal.html" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+          <div class="mascot" ng-if="modalImg"><img class="modal-default__hero" ng-src="{{modalImg}}" alt="notification icon"></div>
+        <h4 class="modal-title modal-default__title" data-ng-bind-html="modalTitle">[TITLE]</h4>
+      </div>
+      <div class="modal-body modal-default__message"  data-ng-bind-html="modalMessage">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue btn-lg btn-center" ng-click="close()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- 
+
+REFEENCE FROM MOBILE ->
+
+<script id="default-modal.html" type="text/ng-template">
+  <ion-modal-view class="default-modal">
+      <ion-content scroll="false" padding="true">
+          <div class="mascot" ng-if="modalImg"><img ng-src="{{modalImg}}" alt="availability"></div>
+          <span class="title" data-ng-bind-html="modalTitle"></span>
+          <p>{{modalMessage}}</p>
+          <button class="button button-stable button-block" ng-click="modalClose()">Ok</button>
+      </ion-content>
+  </ion-modal-view>
+</script>
+
+
+<script id="default-modal.html" type="text/ng-template">
+  <ion-modal-view class="default-modal">
+      <ion-content scroll="false" padding="true">
+          <span class="title" data-ng-bind-html="modalTitle"></span>
+          <p>{{modalMessage}}</p>
+          <button class="button button-stable button-block" ng-click="modalClose()">Ok</button>
+      </ion-content>
+  </ion-modal-view>
+</script>
+
+
+-->
+
+
+

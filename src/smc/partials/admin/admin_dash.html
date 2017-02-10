@@ -1,0 +1,61 @@
+<div class="row relative">
+    <div class="title-bar">
+        <div class="col-md-4">
+            <h2 class="title-bar__title">Dashboard</h2>
+        </div>
+        <div class="col-md-4 col-sm-offset-4">
+
+        </div>
+    </div>
+</div>
+<div class="row section col-margin-5">
+    <div class="col-sm-12">
+
+        <div class="row col-margin-5">
+            <div class="col-md-10 col-md-offset-1 relative">
+                <img src="/img/logo_circle_malibu.jpg" class="start__logo img-responsive">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 relative">
+                <p class="white text-left">This is our web app backoffice. You should / will be able to execute certain project operations from here. Such as editing a view (partial file), or adding a new section to the site (and his link in the footer or navbar for example). Editing
+                    styles (css, with realtime preview).<br> And first for all, deploying automatically to production hosting with one click.</p>
+                <p class="white text-left">All the operations here should target firebase realtime database for smc. An instance of the web app project running in heroku will then listen all the changes and be in charge of compilation and publishing.</p>
+                <h4>Views (partials)</h4>
+                <p class="white text-left">Partial files are reusable pieces of code. The most common example is the follow: Your site has two pages: contact-page and about-us. These two pages has the same header and footer. So we abstract each section and create two partials.
+                    After, each pages only needs to include header and footer partial rather than duplicate the code.
+                    <br>To know more about partials, take a look at the <a href="http://handlebarsjs.com/" target="_blank">handlebars framework</a>. We use handlebars. Views are in the end a pure DRY principle. Do not repeat yourself.</p>
+                <h4>Pages (static)</h4>
+                <p class="white text-left">Following the example above, contact-page and about-us are the pages (static content). Each page file represents a section that can be acceded by the browser. The url depends exclusively of the location of the file in the project folder
+                    three (static folder).<br> Take a look at the address bar right now. /admin/index.html is the rendered result of the login page (named index.admin.html), meanwhile, /admin/dashboard/index.html is the result of an static pages named
+                    index.dash.html located in src/smc/static/admin/dashboard (project tree). <br> Static pages are a bunch of index.html files in the end, so that helps a lot keeping clean urls, following standards and improving SEO.
+                </p>
+                <h4>Pure HTML, CSS, JS</h4>
+                <p class="white text-left">Web app project output (generated files) are in the end just client-side files. A bunch of html, css, js which follow web standards and they do not require any other technology aside the browser. No php, no mysql, no ruby, no node. We are
+                    able to publish these files to any normal hosting.
+                </p>
+                <h4>Packaging</h4>
+                <p class="white text-left">We package content using different techniques. CSS and JS files are concatened in one file to improve distribution. JS also is packaged in different bundles defined by us in the partial files. JS also is compiled and minified using Babel
+                    (https://babeljs.io/), which ensure compatiliby for ES5 (legacy browser) while we keep coding using latest technology and ES7. We also generate HTML5 shim files https://github.com/es-shims/es5-shim to ensure old browser compatibility.
+                    Packaging ensures that we can write using preprocessors languages and new technologies and in the end, he is in charge of speeding things up and compatiliby concerns.
+                </p>
+                <h4>Publishing</h4>
+                <p class="white text-left">The project already has ftp publishing in one command. You only need to specify the ftp credentials and ftp password. Ftp password is stored in enviromental variables.<br> The expectation is that we are going to be able to publish from
+                    here, in the backoffice, using a connected instance of the project running in heroku.
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="row col-margin-7">
+            <div class="col-md-4 col-md-offset-4 relative">
+                <a href="/" class="btn btn-red btn-block btn-lg" ng-disabled="signin.$invalid">Home Page</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var local = store.get();
+    </script>

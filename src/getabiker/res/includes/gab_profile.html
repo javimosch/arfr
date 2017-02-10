@@ -1,0 +1,174 @@
+<div class="" ng-controller="gab_profile">
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <ol class="breadcrumb">
+                <li><a class="link" ng-click="route('/')">Dashboard</a></li>
+                <li ng-if="hashHas('profile')">Profile</li>
+                <li ng-if="hashHas('biker')">Coursier details</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <div class="panel type-1">
+                <div class="row">
+                    <h2><i class="fa fa-bicycle"></i>
+                        <span ng-if="hashHas('profile')">Profile</span>
+                        <span ng-if="hashHas('biker')">Coursier</span>
+                    </h2>
+                    <p ng-if="hashHas('profile')">
+                        Edit your settings.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>General</h4>
+                    </div>
+                    <div class="col-xs-12 ">
+                        <input type="text" class="form-control" disabled ng-model="item.email">
+                    </div>
+                    <div class="col-xs-12 " ng-if="hashHas('profile')">
+                        <input type="password" class="form-control" ng-model="item.pwd">
+                    </div>
+                    <div class="col-xs-12 ">
+                        <hr>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <label for="phone">Full name</label>
+                        <input type="text" class="form-control" ng-model="item.fullName" placeholder="">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" name="phone" ng-model="item.phone" placeholder="">
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <label for="phone">Nick name</label>
+                        <input type="text" class="form-control" ng-model="item.nickName" placeholder="">
+                    </div>
+                    
+                     <div class="col-xs-12 col-md-6"
+                        ng-show="hashHas('profile') || item.extra.companyName"
+                        ng-mouseleave="companyName=false" ng-mouseover="companyName=true"
+                     >
+                        <label>Company Name <span ng-show="companyName" class="fnt-9">(Only if you operate an enterprise)</span></label>
+                        <input type="text" class="form-control" ng-model="item.extra.companyName" placeholder="">
+                    </div>
+                   
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Social accounts details</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-6" >
+                        <input type="text" class="form-control" ng-model="item.extra.facebook" placeholder="Facebook">
+                    </div>
+                    <div class="col-xs-12 col-md-6" >
+                        <input type="text" class="form-control" ng-model="item.extra.linkedin" placeholder="Linkedin">
+                    </div>
+                    <div class="col-xs-12 col-md-6" >
+                        <input type="text" class="form-control" ng-model="item.extra.instagram" placeholder="Instagram">
+                    </div>
+                    <div class="col-xs-12 col-md-6" >
+                        <input type="text" class="form-control" ng-model="item.extra.couchsurfing" placeholder="Couchsurfing">
+                    </div>
+                </div>
+
+                <div class="row" ng-show="userHasRole('biker')">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Biker details</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        <label for="phone">Usual work departure address</label>
+                        <input type="text" class="form-control" address model="item" field="address" city="city" department="department" region="region" country="country" post-code="postCode" placeholder="EX: 15 rue l'hopital saint louis">
+                    </div>
+
+                    <div class="col-xs-12 col-md-6" ng-if="false">
+                        <label>EUR x KM Base Price</label>
+                        <p>Its the minum price you demand for an order of this type.</p>
+                        <input type="text" class="form-control" ng-model="item.eurxkmbase" placeholder="EX: 5">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <label>EUR x KM</label>
+                        <input type="text" class="form-control" ng-model="item.eurxkm" placeholder="EX: 2">
+                    </div>
+                    
+                     <div class="col-xs-12 col-md-6" ng-if="hashHas('profile')">
+                        <label>Personal ID / NIE / Passaport</label>
+                        <input type="text" class="form-control" ng-model="item.nie" placeholder="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Stats</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+
+                        <ol class="nav">
+                            <li class="margin-left-one">
+                                <span class="badge">{{item.stats.completed}}</span>
+                                Orders Completed 
+                            </li>
+                            <li class="margin-left-one">
+                                <span class="badge">{{item.stats.positiveReviews}}</span>    
+                                Positive reviews 
+                            </li>
+                            <li class="margin-left-one">
+                                <span class="badge">{{item.stats.neutralReviews}}</span>    
+                                Neutral reviews 
+                            </li>
+                            <li class="margin-left-one">
+                                <span class="badge">{{item.stats.negativeReviews}}</span>    
+                                    Negative reviews 
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+
+                <div class="row" ng-if="hashHas('profile')" ng-show="hasRoles()">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Roles</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-repeat="_id in item.roles">
+                        <input type="checkbox" disabled ng-checked="true">
+                        <label ng-bind="userRoleCode(_id)"></label>
+                    </div>
+                </div>
+                <div class="row" ng-if="hashHas('profile')" ng-show="hasNotifications()">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Notifications</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-6" ng-show="!userHasRole('biker')">
+                        <input type="checkbox" disabled ng-checked="item.notifications.GAB_USER_BIKER_FEATURE_REQUEST">
+                        <label for="phone">Coursier feature requested</label>
+                    </div>
+                </div>
+                <div class="row margin-top-one" ng-if="hashHas('profile')">
+                    <div class="col-xs-12 col-sm-4 ">
+                        <a class="btn btn-primary btn-lg center-block link" ng-show="ableToRequestCoursierAccountFeature()" ng-disabled="!item._id" ng-click="request()">Request Coursier account feature</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-sm-push-5 col-md-push-4">
+                        <a class="btn btn-primary btn-lg center-block link" ng-click="save()">Save</a>
+                    </div>
+                </div>
+                <div class="row margin-top-one">
+                    <div class="col-xs-12">
+                        <a class="btn btn-primary btn-lg center-block link" ng-show="params.prevRoute" ng-click="back()">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

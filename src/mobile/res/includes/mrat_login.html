@@ -1,0 +1,24 @@
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+    <h1 class="title">Login</h1>
+</header>
+
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content" id="main" data-screen="login">
+    <form class="input-group">
+        <div class="input-row">
+            <label>Email</label>
+            <input type="text" value='{{login.email}}'>
+        </div>
+        <div class="input-row">
+            <label>Password</label>
+            <input type="password" value='{{login.pwd}}'>
+        </div>
+        <a class="btn btn-primary btn-block margin-top-half" on-click="login()">Sign In</a>
+        <a class="btn btn-positive btn-block">Register</a>
+    </form>
+
+    <div id="notify" class="hidden bar bar-standard bar-footer">
+        <p id="notify-body"></p>
+    </div>
+</div>

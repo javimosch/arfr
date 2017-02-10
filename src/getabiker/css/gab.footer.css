@@ -1,0 +1,30 @@
+#footer {
+    height: 110px;
+    margin-top: -110px;
+}
+
+#footer {
+    /*background-color: #0A3967;*/
+    position:relative;
+}
+
+#footer p, #footer a {
+    /*color:white;*/
+    height: 110px;
+    line-height: 110px;
+    margin-bottom: 0px;
+}
+
+.stripe{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.cards{
+    position: absolute;
+    right: 5px;
+    bottom: 40px;
+}
+
+

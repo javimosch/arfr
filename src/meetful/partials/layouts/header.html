@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <header>
+        <nav class="navbar navbar-default" id="navbar" ng-controller="nav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand link" href="/"><img class="nav__logo" src="/images/logo.jpg" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="nav">
+                    <ul class="nav navbar-nav">
+                        
+                        <li ng-class="{ active: isActive('{{i18n 'ROUTE_EXPLORE'}}')}">
+                            <a href="/{{i18n 'ROUTE_EXPLORE'}}"  class="link">{{i18n 'NAV_EXPLORE'}}</a>
+                        </li>
+                        <li ng-class="{ active: isActive('about-us')}">
+                            <a ng-click="route('{{i18n 'ROUTE_ABOUT_US'}}')" class="link">{{i18n 'NAV_ABOUT_US'}}</a>
+                        </li>
+                        <!--
+                        <li ng-class="{ active: isActive('{{i18n 'ROUTE_CREATE_EVENT'}}')}">
+                            <a href="/{{i18n 'ROUTE_CREATE_EVENT'}}" class="link">{{i18n 'NAV_CREATE_EVENT'}}</a>
+                        </li>
+                        -->
+                        <li ng-cloak ng-show="false">
+                            <a href="/global-gallery" class="link">Global gallery</a>
+                        </li>
+                        <li ng-class="{ active: isActive('{{i18n 'ROUTE_GET_IN_TOUCH'}}')}">
+                            <a href="/{{i18n 'ROUTE_GET_IN_TOUCH'}}" class="link">{{i18n 'NAV_GET_IN_TOUCH'}}</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-cloak data-active="{{i18n 'ROUTE_SIGN_IN'}}" ng-show="!isLogged()">
+                            <a href="/{{i18n 'ROUTE_SIGN_IN'}}">{{i18n 'NAV_SIGN_IN'}}</a>
+                        </li>
+                        <li ng-class="{ active: isActive('{{i18n 'ROUTE_DASHBOARD'}}')}" ng-cloak ng-show="isLogged()">
+                            <a href="/{{i18n 'ROUTE_DASHBOARD'}}">{{i18n 'NAV_DASHBOARD'}}</a>
+                        </li>
+                        <li ng-cloak ng-class="{ active: isActive('{{i18n 'ROUTE_PROFILE'}}')}" ng-show="isLogged()">
+                            <a href="/{{i18n 'ROUTE_PROFILE'}}">{{i18n 'NAV_PROFILE'}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+
+
+
+<script type="text/javascript">
+    /*
+        var defaultRoute = 'about-us';
+
+        function onHashChange() {
+            var n = window.location.href;
+            if (n.charAt(n.length - 1) == '/') n = n.substring(0, n.length - 1);
+            n = n.substring(n.lastIndexOf('/')).replace('/', '');
+            console.log('active-url', n);
+            n = n || defaultRoute;
+            if (n == window.location.href) n = defaultRoute;
+            [].slice.call(document.querySelector('#navbar').querySelectorAll('li')).forEach(function(elem) {
+                if (elem.dataset.active) {
+                    if (elem.dataset.active.toLowerCase() == n) {
+                        elem.className = elem.className.replace('active', '').trim() + ' active';
+                    }
+                }
+            })
+        }
+        onHashChange();
+        $($).bind('onHashChange',onHashChange);*/
+</script>

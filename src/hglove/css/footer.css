@@ -1,0 +1,19 @@
+.footer-text, .footer-text > a {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    color: white;
+    line-height: 100px;
+    margin: 0px;
+    padding: 0px;
+}
+
+footer {
+    background-color: #DC73FF;
+}
+
+@media only screen and (min-width: 480px) {
+    .footer-text, .footer-text >a {
+        font-size: 30px;
+    }
+}

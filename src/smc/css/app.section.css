@@ -1,0 +1,154 @@
+.section label {
+    font-size: 20px;
+    color: white;
+    display: list-item;
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+.section .input-buttons {
+    display: inline-block;
+}
+
+.section .input-buttons>a {
+    margin-top: 10px;
+}
+
+@media only screen and (min-width: 992px) {
+    .section .input-buttons>a {
+        margin-top: 0px;
+    }
+    .section .input-buttons>a {
+        margin-left: 9px;
+    }
+}
+
+.section .address {
+    max-width: 469px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.section .address__location {
+    width: 100px;
+}
+
+.section .address__home {
+    width: 193px;
+}
+
+.section .results ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.section .results li {
+    border: 2px solid white;
+    max-width: 370px;
+    border-radius: 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    margin-right: 10px;
+    height: 108px;
+    padding: 5px;
+}
+
+.section .results li:hover,.section .results li.selected {
+    background-color: rgba(255, 253, 0, .3);
+    cursor:pointer;
+}
+
+.section .results li .title {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.section .results li .distance,
+.section .results li .distance>i {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.section .results li .address,
+.section .results li .address>i {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+
+/*HOUR UL*/
+
+.section .hours{
+    list-style: none;
+    padding: 0px;
+}
+
+.section .hours li {
+       border: none;
+    max-width: 370px;
+    border-radius: 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    margin-right: 10px;
+    height: 40px;
+    padding: 0px;
+    line-height: 40px;
+    font-size: 24px;
+    color: white;
+    font-weight: 800;
+}
+
+.section .hours li:hover,.section .results li.selected {
+    background-color: rgba(255, 253, 0, .3);
+    cursor:pointer;
+}
+
+.section .hours li .title {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.section .hours li .distance,
+.section .hours li .distance>i {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.section .hours li .address,
+.section .hours li .address>i {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+
+
+.section .row > div { /*every col*/
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.section > div {
+ /*main col of section*/
+ padding: 0px 25px 0px 25px;
+}
+
+
+
+
+.alert-ad-1 {}
+.alert-ad-1 button{
+    color: transparent;
+    opacity: 0!important;
+    left: -75px;
+    background: rgba(255,0,0,.2);
+    width: 80px;
+    height: 60px;
+    top: 30px!important;
+}
+.alert-ad-1 img{}

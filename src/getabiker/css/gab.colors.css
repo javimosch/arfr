@@ -1,0 +1,85 @@
+/*BLUE*/
+
+header {
+    background-color: #0A3967;
+}
+
+.navbar,
+.navbar.navbar-default {
+    background-color: #0A3967;
+}
+
+#footer {
+    background-color: #0A3967;
+}
+
+.home-title h1 {
+    background-color: #0A3967;
+}
+
+.home-title small {
+    background-color: #0A3967;
+}
+
+
+/*GREEN
+
+header {
+    background-color: #00AF33;
+}
+.navbar,
+.navbar.navbar-default {
+    background-color: #00AF33;
+}
+#footer {
+    background-color: #00AF33;
+}
+
+.home-title h1 {
+    background-color: #00AF33;
+   
+}
+
+.home-title small {
+    background-color: #00AF33;
+}
+*/
+
+body, .navbar li {
+    color: white;
+}
+
+.form, .panel,body .container .jumbotron{
+    background:#f5f5f5;
+}
+
+.form-control:focus {
+    background: rgba(0,0,0,.02);
+}
+
+.form p,
+.form h2,
+.form input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol li,
+p,
+th,td,
+.modal,
+span,
+li{
+    color: black;
+}
+
+.jumbotron .h1, .jumbotron h1 {
+    color: black;
+}
+
+#footer p,
+#footer a {
+    color: white;
+}

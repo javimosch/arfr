@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "getabiker",
+  "private_key_id": "0950b8f9f7c885cc7b5450ecd5442f9fdafb3d54",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCaV3lJrMsVIq3I\nk3kdNPlW4z0OWhPoMEtTrTr11r847a4YyX3gXKiQ/3ycRgA7gzJxl4FXFThYRWeS\nHy8dClGuYzr8pztxihf4cPvTMLSxJY6I/rqEJpMxVm1XzLGmABHhDIcX4vFHmbOL\nu6O3S6Z4COUypBCS1EFr3kh+HnCTtPCzJnmcm63arbSK7HDztyiyiO47O6oMxuFU\n/9M9OCjknUCh8/OYiJBFBv32jgias8mStmKzS1kfPWRWYIwffJMvlKY1tiB9w3HE\niOkwqlW7FpCEui82ZAJ7OyFZ2FgSgLKg3uGO4LRnBUogAzPO0YkAaxmLdXvlITGU\nujJ/r43vAgMBAAECggEAQQgmhNKX51nrW5435ASUIvYwncF6rdTbiHBvbXKEtBoB\nx1PvBABGzoG4IailJG5NbOtnhifcy+TClSEqmtPkQtRw4FAejeKf4wDIOt5E5Hds\nrXCXamNOlfVSsTIAkG9rGSZMLdZjz8WFj5UKkIsBo4Yr/MCAcz2YKzlH1kxBJxro\nzN8SXzSZQCnc1Gw6Oud4vRubKt/NHfKvtuCnAeouhB4LaOjd8ROVk0HT3gZseNb+\n1wOFb9XsIEBB/sl/qV+FjmZHoJFAqptoSvvFQ6F3hbIqCoGYujYxVGOM2VgyXLgJ\nYzumGE9i1rfnf+G0s824Ciqcxp6/HMy2KkDmlPoUUQKBgQDNtqhdtl8QmLwJXmHf\n9ogz0UMik7DTKskZ5vRcSaIUxYcFI/sAeQhRBzoHYeePu+NrcHhQeXnrlMMv9a79\nvPQFxBiZJjy/IGzD8BBvGl4Y1RMwrnslC424F0UG3Xo5jY7sZnBdbVYRT2hmHzq2\nvi9/qeyT739Es4vLndrTqDI0nQKBgQDAEgUwg8X7kfoAxtBUz9pIG0kE59WsF3wf\naZdqZM6baifLn5qVxJ2lxGEK1ENKPusk88ZKQ4Cpif3h/SsgoXhgMsSomIE/u2El\ngrPrBx/NXJZ7zz2xfGkMpHobLp08kPlbU2WyWtuKbmqaxE8JmBxH5bhJtZceoXHr\neLBhB+BY+wKBgQCuRKHnGZr5NVp+WU1y7Ke/tfQ4s4MlsOZCIiw6jkpXbGqQiUWW\nxfGsqwGWxXLkidgD6XiTPAVz9EdSNsByxgK3a8Mm4oStqSta5eEWLfEu+jrSj81U\nua/qFxRr1242mVxNmg5wpzI1Yd7gPG6B5yXX8bywKkDXk37HFMgPbDpz5QKBgCS0\nTOGUjQUiRFBZrf5HKkOVU0LouuCELGgkWZcvZHw2sRwsh/IO/MFs4c6b+a/6jh0l\nqMMQW0oK4MWLB+7YbJSVnxdI7YosWMg+TfugBOfNxcQrOnLsf3a3B86h/dJRMhXN\nviVzT3kI2L5yvVfsBZuHvsv3M8XavFZvXeVtB+Z5AoGAWccb1y7j10X9stI4bMqQ\nEFkZYeb6p3+JLKlERD/2Hapsrf7Vbu3A0tRglRIukmuk7mZ3yv/ZuggH7Ip9gNn+\nXxrypxyn4NxiXYxZXimasWZgv84ARGtD32QGrLBZoRKvM9TWExMFKxxTeqIQ/fGe\niFaB/a7zqEQ6aITf4Vy6vI4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "smc-web-app@getabiker.iam.gserviceaccount.com",
+  "client_id": "107778036934856464043",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/smc-web-app%40getabiker.iam.gserviceaccount.com"
+}

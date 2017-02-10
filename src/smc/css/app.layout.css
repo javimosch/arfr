@@ -1,0 +1,125 @@
+.static #main-container {
+    padding-bottom: 0px!important;
+}
+
+.title-bar {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.title-bar > div{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.title-bar__title {
+    color: #EB5151;
+    font-weight: 800;
+    font-size: 40px;
+    margin: 0px 0px 0px 50px;
+    line-height: 100px;
+}
+
+.layout__icon-top-left {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+
+.layout__icon-bottom-right {
+    position: absolute;
+    bottom: 0px;
+    right: -210px;
+}
+
+.error-message>span {
+    color: #c0392b;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.error-message>span>i {
+    color: white;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+
+.section__centered-title{
+    font-size:30px;
+    text-align:center;
+    color:white;
+}
+
+.signin__text-center,
+.signup__text-center,
+.text-center-italic {
+    color: white;
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.cgu {
+    color: white;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.signup .cgu a {
+    color: black;
+}
+
+.fa-checkbox {
+    color: white;
+    min-width: 32px;
+    margin-left: 15px;
+    position: relative;
+    top: 6px;
+}
+
+.scrollToTop {
+    font-size: 45px;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    display: none;
+    background-color: white;
+    width: 50px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 120000;
+}
+
+.scrollToTop>i {
+    color: #EB5151;
+}
+
+.scrollToTop:hover {
+    text-decoration: none;
+}
+
+
+.modal-default__hero{
+    width: 300px;
+    position: relative;
+    left: -25px;
+    margin: 0 auto;
+    display: block;
+}
+.modal-default__title{
+    color: #62A2FE;
+    text-align: center;
+    font-size: 40px;
+}
+.modal-default__message{
+    font-size: 25px;
+    padding: 10px 50px;
+}

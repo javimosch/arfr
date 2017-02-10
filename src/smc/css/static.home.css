@@ -1,0 +1,44 @@
+#mobile-mockup {
+    margin: 0 auto;
+    width: 211px;
+    display: block;
+    padding-top: 50px;
+}
+
+.home__left_content {
+    padding-bottom: 50px;
+}
+
+.home__text-center {
+    text-align: center;
+    color: white;
+}
+
+.home__deliveryman-wrapper {
+    background: white;
+    height: 100%;
+    min-height: 720px;
+    position: relative;
+    right: -1px;
+}
+
+.home__deliveryman-wrapper__img {
+    position: absolute;
+    bottom: 0px;
+}
+
+#html-shorcuts {
+    /* background: white; */
+    padding: 25px;
+    margin-bottom: 150px;
+}
+#html-shorcuts h4,#html-shorcuts h2, #html-shorcuts p, #html-shorcuts a{
+    color: white;
+}
+#html-shorcuts a{}
+#html-shorcuts a:hover{
+    color: red;
+}
+#html-shorcuts h4{
+    color: black;
+}

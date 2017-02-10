@@ -1,0 +1,91 @@
+<!-- HBSIGNORE -->
+<div class="row">
+    <div class="title-bar">
+        <h2 class="title-bar__title">Mes paramètres</h2>
+    </div>
+</div>
+
+<div class="row profile section">
+    <div class="col-sm-12 col-md-12">
+
+        <div class="row col-margin-5" id="profile-information">
+            <div class="col-md-12">
+                <notifications></notifications>
+            </div>
+        </div>
+
+        <div class="row" id="profile-information">
+            <div class="col-md-12">
+
+                <div class="item" id="profile-header">
+                    <img class="profil-pic icon-smc-profile" data-ng-src="{{avatarBackground}}"></img>
+                    <div class="name">{{user.firstname}} {{user.lastname}}</div>
+                    <div class="profile__edit-account"><a ui-sref="tabs.editprofile">Modifier le compte</a></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row col-margin-5">
+            <div class="col-md-6">
+                <div class="input-group light">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                    <input ng-readonly='true' type="text" class="form-control" placeholder="Address email" ng-value="user.email" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group light">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                    <input ui-sref="tabs.editcreditcard" type="text" class="form-control link" placeholder="Carte" ng-value="user.wallet.credit_card_display ? user.wallet.credit_card_display : 'Enregistrer ma carte'" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row col-margin-5">
+            <div class="col-md-6">
+                <div class="input-group light">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                    <input ng-readonly='true' type="text" class="form-control" placeholder="Mobile" ng-value="user.phone" />
+                </div>
+            </div>
+            <div class="col-md-6">
+               <div class="input-group light">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                    <input ng-readonly='true' type="text" class="form-control link" placeholder="Wallet" ng-value="'Valeur du wallet : ' + walletValue | number:2" />
+                </div>
+            </div>
+        </div>
+        
+         <div class="row col-margin-5">
+            <div class="col-md-6">
+                <div class="input-group light">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                     <input type="text" class="form-control address" address model="addressData" field="address" postCode="zip" city="city" name="addressInput" change="onAddressChange()" placeholder="Addresse" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row col-margin-5">
+            <div class="col-md-8">
+                <p class="cgu white text-left">
+                    Partager mon numéro de téléphone&nbsp;
+                    <i ng-class="!user.share_phone? 'fa fa-checkbox fa-toggle-off fa-2x' : 'fa fa-checkbox fa-toggle-on fa-2x'" ng-click="togglePhone()"></i>
+                </p>
+            </div>
+        </div>
+
+        <div class="row col-margin-7">
+            <div class="col-md-4">
+
+                <a href="/html/start.html" ng-click="logout()" class="btn btn-red btn-block btn-lg">Se déconnecter</a>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

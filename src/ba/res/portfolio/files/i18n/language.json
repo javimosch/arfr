@@ -1,0 +1,52 @@
+{
+    "LANGUAGES": {
+        "es": "Spanish",
+        "en": "English",
+        "fr": "French"
+    },
+    "DATA": {
+        "es": {
+            "JANUARY": "Enero",
+            "FEBRUARY": "Febrero",
+            "JUNE": "Junio",
+            "NOVEMBER": "Noviembre",
+            "DECEMBER": "Diciembre",
+            "PAGE_SUBTITLE": "Un espacio personal para desarrollar la creativad.",
+            "PROJECTS": "PROYECTOS",
+            "FIELD_REQUIRED": "El campo {1} es requerido.",
+            "SECTION_ABOUT": "ACERCA DE",
+            "GET_IN_TOUCH": "Contactame",
+            "SECTION_SERVICES": "SERVICIOS",
+            "SECTION_WORKS": "TRABAJOS"
+        },
+        "en": {
+            "JANUARY": "January",
+            "FEBRUARY": "February",
+            "JUNE": "June",
+            "NOVEMBER": "November",
+            "DECEMBER": "December",
+            "USER_LOGIN_INVALID": "{1} is not a valid login",
+            "LENGTH_MIN_REQUIRED": "{1} require a minimum length of {2}",
+            "LENGTH_MAX_REQUIRED": "{1} can't be longer than {2}",
+            "USER_SAVED": "{1} was saved",
+            "USER_EXISTS": "The user alredy exists",
+            "FIELD_REQUIRED": "{1} is a field required.",
+            "PAGE_SUBTITLE": "A personal space to develop creativity",
+            "SLIDER_1_HTML": "<br>Your web site is here</b>",
+            "PROJECTS": "PROJECTS",
+            "SECTION_ABOUT": "ABOUT",
+            "GET_IN_TOUCH": "Get in touch",
+            "SECTION_SERVICES": "SERVICES",
+            "SECTION_WORKS": "WORKS"
+        },
+        "fr": {
+            "FEBRUARY": "February",
+            "PAGE_SUBTITLE": "Un espace personnel pour développer la créativité",
+            "PROJECTS": "PROJETS",
+            "SECTION_ABOUT": "À PROPOS DE",
+            "GET_IN_TOUCH": "Entrer en contact",
+            "SECTION_SERVICES": "SERVICES",
+            "SECTION_WORKS": "WORKS"
+        }
+    }
+}

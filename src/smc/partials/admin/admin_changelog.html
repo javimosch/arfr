@@ -1,0 +1,125 @@
+<div class="row relative">
+    <div class="title-bar">
+        <div class="col-md-4">
+            <h2 class="title-bar__title">Changelog</h2>
+        </div>
+        <div class="col-md-4 col-sm-offset-4">
+
+        </div>
+    </div>
+</div>
+<div class="row section col-margin-5">
+    <div class="col-sm-12">
+
+        <div class="row col-margin-5">
+            <div class="col-md-10 col-md-offset-1 relative">
+                <h3 class="white updatedAt"></h3>
+                <a class="view white" href="#" target="_blank">
+                    <h3>View in gitlab</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row col-margin-4">
+            <div class="col-md-10 col-md-offset-1 relative">
+                <style type="text/css" scoped>
+                    .list-group-item {
+                        background: transparent;
+                        border: none;
+                    }
+                    
+                    .list-group-item p,
+                    .list-group-item span,
+                    .list-group-item strong,
+                    .list-group-item i {
+                        text-align: left!important;
+                        color: white;
+                    }
+                    
+                    .list-group-item a {
+                        color: red;
+                    }
+                    
+                    .list-group-item img {
+                        width: 100px;
+                    }
+                </style>
+                <ul class="list-group">
+                    <li id="item" class="hidden list-group-item">
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="thumbnail" src="">
+                                <p class="text-left"><span class="author"></span></p>
+                            </div>
+                            <div class="col-md-9">
+                                <!-- <p class="text-left">id&nbsp;<span class="id"></span></p> -->
+                                <p class="description text-left">
+                                    <h4 class="title"></h4>
+                                    <p>by&nbsp;<span class="by"></span></p>
+                                    <p>
+                                        <a href="#" class="commit"></a> <span class="at"></span>
+                                    </p>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row col-margin-20">
+            <div class="col-md-10 col-md-offset-1 relative"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var local = store.get();
+
+
+        co(function*() {
+            console.debug("Feed: fetching");
+            var url = 'https://xml2json.herokuapp.com/?url=https%3A%2F%2Fgitlab.com%2Fshopmycourses%2Fshopmycourses-web.atom%3Fprivate_token%3DJHXysxgWyqRpdLwaDtTq&callback=xxxfeed';
+            //'https://gitlab.com/shopmycourses/shopmycourses-web.atom?private_token=JHXysxgWyqRpdLwaDtTq'
+            var data = yield http.jsonp(url, 'xxxfeed');
+            feed = data.feed;
+
+            //console.debug("Feed: ", data);
+            
+            var updated = yield http.get('/updated');
+            
+            console.debug('DEBUG: updated at ',updated);
+            
+            $('.updatedAt').html("Last update: <span style='color:mediumslateblue;'>"+parser.toDateString(updated,1)+'</span> ('+window.location.host+')');
+            $('.view').attr('href', data.feed.id);
+
+            var template = $('#item');
+            var ul = template.parent();
+            var lis = [];
+            data.feed.entry.forEach(function(item) {
+
+
+                if (item.summary.div.blockquote && item.summary.div.blockquote.p) {}
+                else {
+                    return;
+                }
+
+                var li = template.clone().removeClass('hidden').attr('id', item.guid);
+
+                li.find('.title').html(item.summary.div.blockquote && item.summary.div.blockquote.p && item.summary.div.blockquote.p.Text);
+                li.find('.by').html(item.summary.div.p.strong);
+                li.find('.at').html(item.summary.div.p.i);
+                li.find('.commit').html(item.summary.div.p && item.summary.div.p.a && item.summary.div.p.a.Text)
+                    .attr('href', 'https://gitlab.com' + item.summary.div.p.a['@href']);
+                li.find('.thumbnail').attr('src', item.thumbnail['@url']);
+                li.find('.author').html(item.author.name);
+                li.find('a').attr('target', '_blank');
+                lis.push(li);
+            });
+            ul.append(lis);
+            toast.clear('L', 1000).info('F', 'Fetch complete');
+
+
+        }).catch(function(err) {
+
+            console.error(err);
+        });
+    </script>

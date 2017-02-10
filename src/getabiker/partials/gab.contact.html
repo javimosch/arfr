@@ -1,0 +1,21 @@
+<div class="container main" ng-controller="gab_contact">
+    <div class="row">
+        <div class="col-md-12 col-lg-7"></div>
+        <div class="col-md-12 col-lg-5">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="jumbotron">
+                    <h3>Just Ask</h3>
+                    <form>
+                        <input type="text" class="form-control" ng-model="item.name" placeholder="name">
+                        <input type="email" class="form-control"  ng-model="item.email" placeholder="email">
+                        <textarea class="form-control"  ng-model="item.message" placeholder="message">
+                            </textarea>
+                    </form>
+                    <p><a class="btn btn-primary btn-lg link" ng-click="send()" role="button">Send</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,516 @@
+.booking__ranking-stars {
+    position: relative;
+    top: -3px;
+}
+
+#booking__bottom-rigth-label {
+    color: #5878F2;
+    line-height: 66px;
+    font-size: 30px;
+    font-weight: 800;
+    float: right;
+}
+
+.booking__indication-text {
+    line-height: 35px;
+    color: white;
+    font-size: 15px
+}
+
+.booking__indication-text.md {
+    font-size: 18px
+}
+
+.booking__deliveryman-list {
+    padding: 10px 20px;
+}
+
+.booking__deliveryman-item {
+    line-height: 35px;
+    list-style: none;
+}
+
+.booking__deliveryman-item>div {
+    min-width: 120px;
+    display: inline-block;
+    color: white;
+    font-size: 15px;
+}
+
+#booking__indication-star {
+    position: relative;
+    top: -2px;
+}
+
+#booking__hero {
+    margin: auto auto;
+    display: block;
+}
+
+.booking__static-ad {
+    margin: 0 auto;
+    display: block;
+}
+
+.booking__title-left {
+    color: white;
+    font-size: 40px;
+    text-align: left;
+}
+
+.booking__subtitle-left {
+    color: white;
+    font-size: 25px;
+    text-align: left;
+}
+
+.panier__wrapper {
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 27px 20px 20px 20px;
+    margin: 0 auto;
+    max-width: 300px;
+    min-height: 540px;
+    position: relative;
+    width: 300px
+}
+
+
+
+/* Let's get this party started */
+
+.panier__wrapper ::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+/* Track */
+
+.panier__wrapper ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+.panier__wrapper ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 255, 0.4);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.panier__wrapper ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0, 0, 255, 0.2);
+}
+
+.panier__separator {
+    background-color: #5878F4;
+    height: 3px;
+    margin: 20px 0px;
+}
+
+.panier__title {
+    color: #617FF4;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.panier__title.same-height{
+    min-height: 65px;
+}
+
+.panier__address {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.panier__list {
+    list-style: none;
+    padding: 0px;
+    max-height: 290px;
+    min-height: 290px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.panier__item {
+    min-height: 100px;
+    max-height: 150px;
+    /* background: wheat; */
+    /* margin-bottom: 5px; */
+}
+
+
+.panier__product-units-wrapper{
+    display: none;
+}
+.panier__item:hover .panier__product-units-wrapper{display: block;position: relative;}
+.panier__product-units-wrapper .fa-minus-square{
+    left: 5px;
+    position: absolute;
+    top: 40px;
+    font-size: 40px;
+    color: #61A1FE;
+}
+.panier__product-units-wrapper .fa-plus-square{
+    right: 5px;
+    position: absolute;
+    top: 40px;
+    font-size: 40px;
+    color: #61A1FE;
+}
+
+.panier__list.selectable .panier__item:hover{
+    background-color: rgba(0,0,255,.1);
+    cursor:pointer;
+}
+
+.panier__product-icon-wrapper,.panier__magasin-icon-wrapper {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    /* background: yellowgreen; */
+    /* vertical-align: middle; */
+}
+
+.panier__product-icon,.panier__magasin-icon {
+    margin: auto auto;
+    display: block;
+    margin-top: 17px;
+}
+.panier__magasin-icon{
+    font-size: 40px;
+    text-align: center;
+    color: #60A1FE;
+    margin-top: 30px;
+}
+
+.panier__product__description-wrapper,.panier__magasin__description-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+}
+.panier__magasin__description-wrapper{
+    margin-top: 28px;
+}
+
+.panier__product__title,.panier__magasin__title {
+    margin: 0px 0px 5px 0px;
+}
+.panier__magasin__title{
+    font-size: 20px;
+}
+
+.panier__product__description,.panier__magasin__description {
+    text-align: left;
+    margin: 0px 0px 5px 0px;
+}
+
+.panier__product__price,.panier__product__quantity {
+    text-align: left;
+    margin: 0px 0px 5px 0px;
+}
+
+.panier__product__quantity {
+    
+}
+
+.panier__search-wrapper{}
+.panier__search-wrapper input{
+    height: 50px;
+    font-size: 18px;
+    border: 0px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.panier__search-wrapper a{
+    float: right;
+}
+.panier__search-wrapper i{}
+
+
+/* LIVREUR */
+
+.livreur__wrapper {
+    width: 155px;
+    vertical-align: top;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.livreur__title {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.livreur__avatar-wrapper {}
+
+.livreur__avatar {
+    margin: 0 auto;
+    display: block;
+}
+
+.livreur__status {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.chat__wrapper {
+    max-width: 500px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 20px 10px 5px 10px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.chat__list {
+    list-style: none;
+    padding: 0px;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 304px;
+    margin: 0px;
+}
+
+.chat__item {
+    position: relative;
+    margin: 20px 0px;
+}
+
+.chat__item-right h4 {
+    text-align: right;
+}
+
+.chat__item-right p {
+    /* text-align: right!important; */
+}
+
+.chat__item-right img {
+    margin: 0 0 auto auto!important;
+}
+
+.chat__item-right>div {
+    display: inline-block;
+    width: 95%;
+}
+
+.chat__item__avatar-wrapper {
+    width: 100px;
+}
+
+.chat__item__avatar-wrapper>img {
+    margin: 0px;
+    display: block;
+    padding: 0px;
+}
+
+.chat__item__message-wrapper {
+    display: inline-block;
+    /* padding: 10px 0px; */
+}
+
+.chat__item__message-wrapper>h4 {
+    color: black;
+    font-size: 14px;
+    margin: 0px 0px 10px 0px;
+}
+
+.chat__item__message-wrapper>p {
+    text-align: left;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+.chat__separator {
+    background-color: #5878F4;
+    height: 4px;
+    margin: 20px 0px;
+}
+
+.chat__input-wrapper {}
+
+.chat__input-wrapper input {
+    line-height: 40px;
+    background: rgba(0, 0, 0, .05);
+    border: 0px;
+    min-width: 250px;
+    width: 100%;
+}
+
+.chat__input-wrapper button {
+    background-color: #60A1FE;
+    font-size: 16px;
+    color: white;
+    border: 0px;
+    padding: 10px 10px;
+    float: right;
+}
+
+.booking__subtotal,
+.booking__frais-livraison {
+    display: block;
+    height: 108px;
+    margin: 0 auto;
+}
+
+.booking__subtotal {
+    background-color: #60A1FE;
+}
+
+.booking__subtotal p {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    padding-top: 17px;
+    height: 108px;
+    margin: 0px;
+    border: 0px;
+}
+
+.booking__subtotal .value {}
+
+.booking__subtotal>span {
+    text-align: center;
+}
+
+.booking__frais-livraison {
+    background-color: white;
+}
+
+.booking__frais-livraison .value {}
+
+.booking__frais-livraison p {
+    text-align: center;
+    color: rgba(0, 0, 0, .5);
+    font-size: 25px;
+    padding-top: 17px;
+    margin: 0px;
+    height: 108px;
+}
+
+.booking__frais-livraison p,
+.booking__subtotal p {
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: 200px;
+}
+
+.booking__frais-livraison>span {}
+
+.chat__disabled {
+    position: absolute;
+    z-index: 1500;
+    background: rgba(255, 255, 255, .8);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.chat__disabled div {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.chat__disabled span {
+   display: table-cell;
+   vertical-align: middle;
+   color: #607FF3;
+   font-size: 20px;
+   font-weight: 800;
+   padding: 0px 10px;
+}
+
+.order__status-wrapper{
+    float: right;
+    padding-right: 50px;
+}
+.order__status-wrapper > h2{
+    color: #E44745;
+    font-size: 30px;
+    font-weight: 800;
+    display: inline-block;
+    line-height: 100px;
+    margin: 0px;
+}
+.order__status-wrapper > h3{
+    display: inline-block;
+    line-height: 100px;
+    margin: 0px;
+    color: black;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.col-schedule.selected{
+        background-color: rgba(0,0,0,.1);
+}
+
+
+@media only screen and (min-width: 992px) {
+    
+    .livreur__wrapper{
+        float:right;
+    }
+    
+    .panier__wrapper{
+        margin:0px;
+    }
+    
+    .booking__button-toolbar a{
+        margin:0px!important;
+        margin-top: 42px!important;
+    }
+    
+    .booking__frais-livraison,
+    .booking__subtotal {
+        float: right;
+        display: inline-block;
+    }
+    .booking__button-toolbar {
+        /*position: absolute;*/
+        bottom: 0px;
+        /* height: 108px; */
+        /* display: table; */
+    }
+    .booking__static-ad {
+        /*   
+                                                   position: absolute;
+                                                        z-index: 1600;
+                                                        max-width: 195px;
+                                                        right: 50px;
+                                                        top: 86px;
+                                                */
+        float: right;
+        margin: 25px 25px 25px auto
+}
+    .ad-center {
+        right: 50px;
+    }
+     .ad-top-right {
+        right: 50px;
+        top: 10px;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+.livreur__wrapper {
+    float: none;
+}
+}

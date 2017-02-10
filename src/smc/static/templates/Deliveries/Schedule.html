@@ -1,0 +1,108 @@
+<!-- HBSIGNORE -->
+<div class="row relative">
+  <div class="title-bar">
+        <div class="col-md-4">
+            <h2 class="title-bar__title">Livrer</h2>
+        </div>
+        <div class="col-md-4 col-sm-offset-4">
+
+        </div>
+    </div>
+    <img class="booking__static-ad ad-top-right" src='/img/sample/static_ad.png'>
+</div>
+
+
+<div class="row section" title="Sélectionner du créneau">
+  <div class="col-sm-12">
+    <div class="row col-margin-5">
+      <div class="col-md-8">
+      </div>
+    </div>
+    <div class="row">
+      <p class="text-center section__centered-title">Votre calendrier disponible</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <label>Magasin</label>
+        <input name="magasin" type="text" disabled class="form-control address" ng-value="shopDescription()">
+      </div>
+    </div>
+
+    <div class="row col-margin-7">
+      <div class="col-md-8">
+
+        <div class="row">
+          <div class="col-md-12 relative">
+            <date-picker ng-model="date" on-select="onSelect" offsetx="0" container="#datePopup"></date-picker>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-6 relative visible-md-block visible-lg-block">
+            <div class="row">
+              <hr>
+              <label>Sélectionnez une heure</label>
+            </div>
+            <div class="row">
+              <ul class="hours">
+                <li ng-repeat="(timeKey, time) in schedule.times" class="col-schedule schedule" ng-class="{'selected': isSelected(schedule.date, time)}" ng-click="selectTime(schedule.date, time)">{{time}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 relative" id="datePopup">
+
+          </div>
+          <div class="col-sm-6 relative visible-xs-block visible-sm-block">
+            <div class="row">
+              <hr>
+              <label>Sélectionnez une heure</label>
+            </div>
+            <div class="row">
+               <ul class="hours">
+                <li ng-repeat="(timeKey, time) in schedule.times" class="col-schedule schedule" ng-class="{'selected': isSelected(schedule.date, time)}" ng-click="selectTime(schedule.date, time)">{{time}}</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <img id="booking__hero" src="/img/hero_stand_pulgar.png">
+      </div>
+
+    </div>
+    
+    
+
+    <div class="row col-margin-3">
+      <div class="col-sm-7 col-md-10">
+        <a class="link btn btn-lg btn-red" ng-disabled="!hasSelectedTimes()" ng-click="hasSelectedTimes() && validate()">Enregistrer vos disponibilités</a>
+      </div>
+      <div class="col-sm-3 col-sm-offset-2 col-md-offset-0 col-md-2">
+        <label id="booking__bottom-rigth-label">Étape 2/2</label>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<!--
+<ion-view id="deliveries-schedule" title="Sélectionner du créneau">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="validate()">
+        <i class="icon ion-checkmark"></i>
+    </button>
+  </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list>
+          
+        </ion-list>
+        <button class="button button-positive button-block" ng-click="validate()">Valider</button>
+    </ion-content>
+</ion-view>/
+-->

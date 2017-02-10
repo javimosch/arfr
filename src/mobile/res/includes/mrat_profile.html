@@ -1,0 +1,41 @@
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+    <button class="btn pull-right" on-click="dashboard()">
+    Dashboard
+  </button>
+    <h1 class="title">Profile</h1>
+    
+</header>
+
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content" id="main" data-screen="profile">
+    <p class="content-padded">
+
+        {{greeting}}, {{recipient}}!
+
+    </p>
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <a class="push-right" on-click="tracking()">
+                    <strong>Tracking</strong>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="push-right" href="https://github.com/twbs/ratchet/">
+                    <strong>Ratchet on Github</strong>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="push-right" href="https://groups.google.com/forum/#!forum/goratchet">
+                    <strong>Ratchet Google group</strong>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="push-right" href="https://twitter.com/goratchet">
+                    <strong>Ratchet on Twitter</strong>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

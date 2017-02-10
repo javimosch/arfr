@@ -1,0 +1,137 @@
+<div class="row" ng-controller="ctrl-event">
+    <div class="col-lg-12 col-xs-12">
+        <div class="panel">
+            <input ng-cloak ng-show="true" ng-model="data.name" name="name" type="text" placeholder="My event name" class="form-control input-title" required="">
+
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6">
+                        <fieldset>
+
+
+
+
+                            <!-- SHORT DESCRIPTION-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="short_description" ng-bind="i18n.TEXT_LISTVIEW_LABEL_EVENT_SHORT_DESCRIPTION"></label>
+                                <div class="col-md-8">
+                                    <input id="text" ng-model="data.short_description" name="short_description" type="short_description" placeholder="" class="form-control input-md" required="">
+
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="description" ng-bind="i18n.TEXT_DESCRIPTION"></label>
+                                <div class="col-md-8">
+                                    <textarea id="description" ng-model="data.description" name="description" placeholder="" class="form-control input-md" required="">
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <!-- TAGS-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="tags">Tags</label>
+                                <div class="col-md-8">
+                                    <textarea id="tags" ng-model="tags" name="tags" placeholder="EX: Vegan, Business, Barcelona (Separate each item wih comma)" class="input-tag form-control input-md" required="">
+                                    </textarea>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="i18n.TEXT_DATE"></label>
+                                <div class="col-md-8">
+                                    <input moment-picker="data.date" start-date="moment()" locale="es" format="LLL" start-view="month" min-date="date.min" max-date="''" autoclose="true" today="true" ng-value="data.date" class="form-control input-md">
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="i18n.TEXT_ADDRESS"></label>
+                                <div class="col-md-8">
+                                    <input vs-google-autocomplete="address.options" ng-model="data.address" vs-street-number="address.streetNumber" vs-street="address.street" vs-city="address.city" vs-state="address.state" vs-country="address.country" vs-post-code="address.postCode" type="text"
+                                        name="address" id="address" class="form-control" placeholder="Enter address">
+                                </div>
+                            </div>
+
+
+                            <!-- STATUS-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="i18n.TEXT_STATUS"></label>
+                                <div class="col-md-8">
+                                    <input id="status" ng-value="statusLabel()" ng-disabled="true" name="status" type="text" placeholder="" class="form-control input-md">
+
+                                </div>
+                            </div>
+                            
+                            <!-- OWNER-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="i18n.TEXT_LABEL_EVENT_OWNER"></label>
+                                <div class="col-md-8">
+                                    <input id="status" ng-value="ownerLabel()" ng-disabled="true" name="status" type="text" placeholder="" class="form-control input-md">
+
+                                </div>
+                            </div>
+
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button id="save" ng-show="showSave()" ng-click="save()" name="save" class="btn btn-primary" ng-bind="i18n.TEXT_SAVE"></button>
+
+                                    <button ng-show="showJoin()" ng-click="join()" name="join-event" class="btn btn-primary" ng-bind="i18n.TEXT_ACTION_JOIN_EVENT"></button>
+
+                                    <button id="close" ng-cloak ng-show="showClose()" ng-click="close()" name="close" class="btn btn-primary" ng-bind="i18n.TEXT_ACTION_CLOSE"></button>
+                                    <button id="open" ng-cloak ng-show="showOpen()" ng-click="open()" name="open" class="btn btn-primary" ng-bind="i18n.TEXT_ACTION_OPEN"></button>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--CHAT-->
+    <div class="col-lg-12 col-xs-12" ng-show="currentUserIsJoined()">
+        <div class="panel">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <h3>Messages</h3>
+                </div>
+                <div class="col-xs-12 col-md-12" ng-cloak ng-show="true" ng-repeat="(key,m) in getMessages()">
+                    <div class="col-md-4 control-label" for="message">
+                        <label ng-bind="m.user"></label>
+                        <div>
+                            <label class="date-label" ng-bind="m.created_at"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea noresize id="messages" ng-disabled="true" ng-value="m.message" name="message" class="input-chat-message form-control input-md" required="">
+                                    </textarea>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-12" ng-cloak ng-show="true">
+                    <label class="col-md-4 control-label" for="tags">Enter a message</label>
+                    <textarea id="chat-message" ng-model="chatMessage" name="chat-message" type="text" placeholder="Enter a message" class="form-control input-md"></textarea>
+                </div>
+                <div class="col-xs-12 col-md-12" ng-cloak ng-show="true">
+                    <a ng-click="addMessage()" class="btn btn-primary">Enviar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<!-- HBSIGNORE -->
+<ion-view id="delivery" title="Détail" hide-back-button="true">
+    <ion-nav-buttons side="left">
+    <button ng-click="goBack()" class="button back-button buttons button-clear header-item"><i class="icon icon-smc-back"></i> <span class="back-text" style="transform: translate3d(0px, 0px, 0px);"><span class="default-title"> </span></span></button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="false" class="has-header">
+      <div id="delivery-header">
+        <div class="item" id="profile-header">
+            <img class="profil-pic icon-smc-profile" data-ng-src="{{avatarBackground}}"></img>
+
+            <div class="name">{{delivery.buyer.firstname}} {{delivery.buyer.lastname}}</div>
+            <div class="address"><i class="icon-smc-marker"></i> {{delivery.address.address}}, {{delivery.address.zip}} {{delivery.address.city}}</div>
+
+        </div>
+        <div class="actions item">
+          <button class="button button-positive button-block" ng-click="openFinishDeliveryModal()" ng-if="delivery.status === 'completed'">Finaliser la livraison</button>
+          <button class="button button-stable button-block bordered" ng-if="delivery.buyer.share_phone  && delivery.status === 'completed'" ng-click="sendSMS()">Contacter par SMS</button>
+          <div ng-if="!delivery.buyer.share_phone">
+            <p>
+              L'acheteur ne souhaite pas être contacté.
+            </p>
+          </div>
+          <div ng-if="delivery.delivery_contents.length == 0 || delivery.status === 'accepted'">
+            <p>
+              <b>L'acheteur n'a pas encore finalisé son panier, il apparaîtra ci-dessous une fois terminé.</b>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="delivery-prices">
+        <div class="row">
+          <div class="price-box total col">
+            <span class="price">{{delivery.total || 0 | number: 2}}€</span>
+            <span class="title">Sous-total</span>
+          </div>
+          <div class="price-box shipping_total col">
+            <span class="price">{{delivery.shipping_total || 0 | number: 2}}€</span>
+            <span class="title">Commission livreur</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="price-box commission col">
+            <span class="price">{{(delivery.commission.toFixed(2) || 0) - (delivery.shipping_total.toFixed(2) || 0) | number: 2}}€</span>
+            <span class="title">Commission Shopmycourses</span>
+          </div>
+        </div>
+      </div>
+      <ion-list>
+          <div class="item title item-divider item-divider-default">
+            Liste des produits
+          </div>
+          <ion-item class="item product" ng-repeat="delivery_content in delivery.delivery_contents" ng-if="delivery.status != 'accepted'" ng-click="setChecked($index)">
+              <img ng-src="{{delivery_content.product.image_url}}" alt="{{delivery_content.product.name}}">
+              <div class="name" ng-class="delivery_content.checked ? 'checked' : ''">{{delivery_content.product.name}}</div>
+              <div class="detail">{{delivery_content.product.detail}}</div>
+              <div class="price">{{delivery_content.unit_price*delivery_content.quantity | number: 2 || 0}}€ (x{{delivery_content.quantity}})</div>
+          </ion-item>
+      </ion-list>
+    </ion-content>
+</ion-view>

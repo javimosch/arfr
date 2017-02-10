@@ -1,0 +1,79 @@
+.static__header {
+    height: 108px;
+    padding: 0px 0px 50px 0px;
+    margin-bottom: 30px;
+}
+
+.static__header__nav {
+    height: 108px;
+    /*background-color: #EB5151;*/
+    background-color: white;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.static__header__nav__header {
+    height: 108px;
+}
+
+.static__header__nav__header__brand {
+    margin-top: 24px;
+    font-size: 30px;
+    color: white!important;
+        top: -26px;
+    position: relative;
+}
+
+.static__header__nav__ul {
+    /*height: 108px;*/
+}
+
+.static__header__nav__ul-right {}
+
+.static__header__nav__ul__li {
+    /*height: 108px;*/
+}
+
+@media only screen and (min-width: 992px) {
+    /* BREAK */
+    /*same as nav collapse breakpoint*/
+    .static__header__nav__ul {
+        height: 108px;
+    }
+    .static__header__nav__ul__li {
+        height: 108px;
+    }
+}
+
+.static__header__nav__ul__li__a {
+    margin-top: 27px;
+    font-size: 18px;
+    min-height: 53px;
+    color: #EB5151!important;
+    min-width: 110px;
+    text-align: center;
+    font-weight: 800;
+    padding: 10px 4px!important;
+}
+
+.static__header__nav__ul__li__a:hover,
+.static__header__nav__ul__li__a:focus,
+li.active>.static__header__nav__ul__li__a,
+.static__header__nav__ul__li__a.active {
+    background-color: transparent!important;
+    /*color:black!important;*/
+    text-decoration: underline!important;
+}
+
+.static #logo .baseline {
+    color: white;
+    font-size: xx-large;
+    font-family: 'Lobster', cursive;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.static #start {
+    width: 200px;
+    margin: 0 auto;
+}

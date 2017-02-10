@@ -1,0 +1,46 @@
+{{#each CDN}}
+<script type="text/javascript" src="{{this}}"></script>
+{{/each}} {{> auto-reload}} {{>css-update-button}}
+
+<script type="text/javascript">
+    window.__settings = {
+        appName: '{{appName}}',
+        isApp: '{{isApp}}' == 'true'
+    };
+    window.i18n = {};
+    window.i18n__data = JSON.parse('{{{json i18n}}}');
+    for (var x in window.i18n__data) {
+        window.i18n[x] = window.i18n__data[x]['{{i18n_config.current}}'];
+    }
+    
+    /*navbar collapse on click*/
+    $('.nav a').on('click', function() {
+        $('.btn-navbar').click(); //bootstrap 2.x
+        $('.navbar-toggle').click() //bootstrap 3.x by Richard
+    });
+</script>
+
+
+
+{{#each CDN_APP}}
+<script type="text/javascript" src="{{this}}"></script>
+{{/each}}
+
+<!--BUNDLE_JS_1-->
+<script type="text/javascript" src="/vendor/angular-google-autocomplete.js"></script>
+<script type="text/javascript" src="/vendor/angular-cloudinary.js"></script>
+<script type="text/javascript" src="/vendor/ng-file-upload.min.js"></script>
+<!--/BUNDLE_JS_1-->
+
+
+
+{{#printJS}}{{/printJS}}
+<script type="text/javascript">
+    /*global angular*/
+    angular.element(function() {
+        
+        window.$('#main-view').html('');
+        
+        angular.bootstrap(document, ['app']);
+    });
+</script>

@@ -1,0 +1,22 @@
+<div class="container" ng-controller="ssg_device">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel type-1 padding-one">
+
+                <div class="row margin-none">
+                    <h1>Device {{item._id}}</h1>
+                </div>
+                <div class="row margin-none">
+                    <label>registrationId</label>
+                    <textarea class="form-control" ng-model="item.registrationId">
+                        </textarea>
+                </div>
+                <div class="row margin-none">
+                    <a class="btn btn-lg link" ng-click="validate()">Save</a>
+                    <a class="btn btn-lg link" ng-click="back()">Cancel</a>
+                    <a class="btn btn-lg link" ng-click="delete()">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

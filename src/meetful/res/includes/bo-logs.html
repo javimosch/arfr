@@ -1,0 +1,49 @@
+<div class="row" ng-controller="ctrl-bo-log">
+    <div class="col-lg-12 col-xs-12">
+        <div class="panel">
+            <div class="row">
+                <div class="col-xs-6 col-md-2">
+                    <a ng-show="isAdmin()" href="/backoffice" class="btn btn-primary">Backoffice</a>
+                </div>
+                <div class="col-xs-6 col-md-2" ng-cloak ng-show="isEdit()">
+                    <a ng-show="isAdmin()" href="/backoffice/logs/-1" class="btn btn-primary">Logs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-xs-12" ng-cloak ng-show="!isDetailView()">
+        <div class="panel">
+            <h2>Logs</h2>
+            <log-listview></log-listview>
+        </div>
+    </div>
+    <div class="col-lg-12 col-xs-12" ng-cloak ng-show="isDetailView()">
+        <div class="panel">
+            <h2>Log detail</h2>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <input ng-readonly="true" type="text" class="form-control input-md" ng-value="'Category '+data.category">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <textarea ng-readonly="true" class="form-control input-md" ng-bind="data.message|json" placeholder="empty message..."></textarea>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <textarea ng-readonly="true" class="form-control input-md" ng-bind="data.data|json" placeholder="empty data..."></textarea>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <input ng-readonly="true" type="text" class="form-control input-md" ng-value="'Created at '+momentDateTime(data.createdAt)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a ng-cloak ng-show="showSave()" ng-click="save()" class="btn btn-primary" ng-bind="i18n.TEXT_SAVE"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

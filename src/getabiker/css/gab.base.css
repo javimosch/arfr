@@ -1,0 +1,39 @@
+#wrapper {
+    min-height: 100%;
+    padding-bottom: 110px;
+}
+
+.container.main {
+    padding: 0px;
+}
+
+@media only screen and (min-width: 480px) {
+    .container.main {
+        min-height: 400px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .container.main {
+        min-height: 600px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .container.main {
+        min-height: 768px;
+                padding-top: 150px;
+    }
+}
+
+body {
+    background: url(../img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.modal {
+    z-index: 9999999!important;
+}

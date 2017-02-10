@@ -1,0 +1,40 @@
+<div class="row home">
+
+    <div class="col-md-3 visible-md-block visible-lg-block relative">
+        &nbsp;
+        <img class="layout__icon-top-left" src="/img/icon_hand_in_sac_rotated.png" alt="Icon Commande Envoyee">
+    </div>
+
+
+    <div class="col-sm-12 col-md-6">
+
+        <img src="/img/logo_circle_malibu.jpg" class="start__logo img-responsive">
+        <div class="buttons-block">
+
+            <a 
+            href="/html/availability1.html"
+            ng-click="shopDelivery()" ng-if="(currentAvailability.length <= 0)" class="btn btn-red btn-block btn-lg ">Livrer</a>
+
+            <a
+            href="/html/booking1.html"
+            ng-if="deliveryDate.length <= 0 || !currentDelivery.shop_name" ng-click="scheduleOrder()" class="btn btn-red btn-block btn-lg ">Se faire livrer</a>
+            
+             <a 
+             href="/html/prix_main.html"
+             ng-click="" class="btn btn-red btn-block btn-lg ">Comparer les Prix</a>
+
+
+            <a
+            href="/html/start.html"
+            ng-click="logout()" class="btn btn-white btn-block btn-lg ">Se déconnecter</a>
+
+
+
+        </div>
+
+        <img class="layout__icon-bottom-right visible-md-block visible-lg-block" src="/img/icon_hero_drinking.png" alt="Icon Hero Drinking Juice">
+    </div>
+    <div class="col-md-3 visible-md-block visible-lg-block relative">
+    </div>
+
+</div>

@@ -1,0 +1,83 @@
+<div class="container vf" ng-controller="vf-booking-frilos-list-ctrl">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>Home</li>
+                <li><a class="link" ng-click="$toPage('booking')">Questions</a></li>
+                <li class="active">Bike-Frelos</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row" ng-cloak>
+        <div class="col-sm-12 col-md-6">
+            <div class="vf-col">
+                <h1 class="vf-section margin-bottom-one">Disponibles</h1>
+                <ul class="form-tiny vf">
+                    <li>
+                        <table class="table table-inverse">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in items" class="link" ng-click="select(item)">
+                                    <th scope="row">{[{$index}]}</th>
+                                    <td>{[{item.name}]}</td>
+                                    <td>{[{item.price}]}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="vf-col">
+                <h1 class="vf-section margin-bottom-one">Tu eleccion</h1>
+                <ul class="form-tiny vf">
+                    <li >
+                        <table class="table table-inverse">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in booking.candidatos" class="link" ng-click="unselect($index)">
+                                    <th scope="row">{[{$index}]}</th>
+                                    <td>{[{item.name}]}</td>
+                                    <td>{[{item.price}]}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="vf-col">
+                <h1 class="vf-section margin-bottom-one">Continuar</h1>
+                <ul class="form-tiny vf">
+
+
+                    <li>
+                        <label></label>
+                        <button class="float-right margin-top-one" 
+                        ng-disabled="booking.candidatos.length==0"
+                        ng-click="next()">Next</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

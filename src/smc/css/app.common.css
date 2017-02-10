@@ -1,0 +1,21 @@
+#logo,
+.logo {
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+.buttons-block {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+hr {
+    border-top: 0px;
+}
+
+@media only screen and (min-width: 992px) {
+    .address {
+        min-width: 500px;
+    }
+}

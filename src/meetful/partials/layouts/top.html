@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{>head}}
+    {{>css}}
+    
+    {{#each CDN_HEAD}}
+<script type="text/javascript" src="{{this}}"></script>
+{{/each}}
+</head>
+
+<body>
+    
+    
+    
+    <!-- Wrap all page content here -->
+<div id="wrap">
+
+    <!-- Begin page content -->
+    <div class="container-fluid">
+    {{>header}}
+
+<div class="container wrap__content">
+    

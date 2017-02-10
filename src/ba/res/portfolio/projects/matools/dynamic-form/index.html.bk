@@ -1,0 +1,18 @@
+<html>
+
+<body>
+	<h1>dynamic-form</h1>
+	<div class="form-main">
+		<form></form>
+		<button class="export">export</button>
+		<button class="import">import</button>
+	</div>
+	<div class="form-field">
+		<form></form>
+		<button class="cancel">cancel</button>
+		<button class="save">save</button>
+	</div>
+	
+</body>
+
+</html>

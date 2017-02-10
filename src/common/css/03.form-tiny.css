@@ -1,0 +1,42 @@
+.form-tiny{
+list-style: none;/* max-width: 400px; */padding: 0px;}
+.form-tiny li{
+    margin: 5px 0px;
+}
+.form-tiny.labelx2 label{
+    min-width: 210px;
+}
+.form-tiny label{
+    min-width: 135px;
+    font-size: 0.8rem;
+    vertical-align: top;
+}
+.form-tiny button:active:focus{
+    outline: none;
+}
+.form-tiny button:hover,.form-tiny button:focus{}
+.form-tiny button:active{
+    border-color: #ccc;
+    background: transparent;
+    box-shadow: none;
+}
+.form-tiny button{
+    border-radius: 0px;
+}
+.form-tiny button:not(.btn-primary,.btn-success){
+    background: transparent;
+}
+.form-tiny div{}
+.form-tiny input:hover,.form-tiny input:focus{
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+}
+.form-tiny input{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.form-tiny input[disabled]{
+    background: whitesmoke;
+}
+.form-tiny a{}
+.form-tiny a:hover{}

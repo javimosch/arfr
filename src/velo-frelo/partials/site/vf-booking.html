@@ -1,0 +1,27 @@
+<div class="container vf" ng-controller="vf-booking-ctrl">
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class=" vf-col">
+                <h1 class="vf-section margin-bottom-one">Booking</h1>
+                <ul class="form-tiny vf">
+                    <li>
+                        <label>Donde?</label>
+                        <input ng-model="booking.address" placeholder="donde?">
+                    </li>
+                    <li>
+                        <label>Fecha?</label>
+                        <input ng-model="booking.date" placeholder="fecha?">
+                    </li>
+                    <li>
+                        <label>Duracion?</label>
+                        <input ng-model="booking.duration" placeholder="duracion?">
+                    </li>
+                    <li>
+                        <label></label>
+                        <button class="float-right margin-top-one" ng-click="next()">Next</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

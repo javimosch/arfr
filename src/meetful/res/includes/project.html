@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-lg-12 col-xs-12">
+        <div class="panel">
+            <h2>Project</h2>
+
+            <form class="form-horizontal" ng-controller="project">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6">
+                        <fieldset>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" ng-disabled="true" for="textinput">Name</label>
+                                <div class="col-md-8">
+                                    <input id="name" name="name" ng-model="data.name" type="text" placeholder="" class="form-control input-md" required="">
+
+                                </div>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="short_description">Short description</label>
+                                <div class="col-md-8">
+                                    <input id="text" ng-model="data.short_description" name="short_description" type="short_description" placeholder="" class="form-control input-md" required="">
+
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="description">Description</label>
+                                <div class="col-md-8">
+                                    <textarea id="description" ng-model="data.description" name="description" placeholder="" class="form-control input-md">
+                                    </textarea>
+                                </div>
+                            </div>
+                            
+                            
+                            <tasks-listview project="data"></tasks-listview>
+
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button id="save" ng-click="save()" name="save" class="btn btn-primary">Save</button>
+                                    <button id="back" ng-click="clickBack()" name="save" class="btn btn-primary">Back</button>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

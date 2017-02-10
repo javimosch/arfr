@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    window.SS = {
+        ROOT : "{{root}}",
+        GOOGLE_API_KEY : '{{googleApiKey}}',
+        PROD:{{PROD}}
+    };
+</script>
+
+{{#each CDN}}
+    <script src="{{this}}"></script>
+{{/each}}
+
+<!--VENDOR-JS-->
+{{#each VENDOR}}
+    <script src="/vendor/{{this}}"></script>
+{{/each}}
+{{#each LIB}}
+    <script src="/src/lib/{{this}}"></script>
+{{/each}}
+
+<!--/VENDOR-JS-->
+
+
+<!--BUNDLE_JS_2-->
+{{#each BUNDLE_JS_COMMON}}
+<script type="text/javascript" src="/src/js/frontstuff/{{this}}.js"></script>
+{{/each}}
+<!--/BUNDLE_JS_2-->
+
+<script type="text/javascript" src="{{root}}js/app.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+{{> live-sync}}

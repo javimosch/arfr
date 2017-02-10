@@ -1,0 +1,34 @@
+.pika-wrapper.diags {}
+
+.pika-single.diags {}
+
+.pika-single.diags .pika-select {
+    max-width: 60px;
+    padding: 0px!important;
+}
+
+.diags .pika-label {}
+
+.diags .pika-prev,
+.diags .is-rtl .pika-next {
+    /*background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAQAAACGG/bgAAAAQ0lEQVR4Ae3KIQ4AIBTD0N0/IeHGI3UIRA3ut/Zl+ltXc5++htVAmIAwAWECwgSEKbgthEoIlRAqIVRCqINQB9nDgQd7ktwFo6UpWQAAAABJRU5ErkJggg==');*/
+}
+
+.diags .pika-next,
+.diags .is-rtl .pika-prev {
+    /*background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAQAAACGG/bgAAAAP0lEQVQ4y+3TMQoAMAgEwfwfAvvjTZ1uGzuvHhBPPGczEG+FRqqRaqQaqUaqkX6QBmmjacvQ6qEVTjsh+xizebvlaWptGXZAAAAAAElFTkSuQmCC');*/
+}
+
+.diags .pika-table th {}
+
+.diags .pika-button {}
+
+.diags .pika-week {}
+
+.diags .is-today .pika-button {}
+
+.diags .is-selected .pika-button {}
+
+.diags .is-disabled .pika-button {}
+
+.diags .pika-button:hover {}

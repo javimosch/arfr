@@ -1,0 +1,116 @@
+.home-menu {
+    list-style: none;
+    margin: 0px auto;
+    padding: 40px 0px 20px;
+    max-width: 580px;
+    background: white;
+}
+
+.home-menu__item {
+}
+
+.home-menu__item p {
+    text-align: center;
+    margin: 0px 0px 30px;
+}
+
+.home-menu__item a {
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.home-menu__item a:hover {
+    text-decoration: none;
+    outline: rgba(0, 0, 0, 0.0980392) dashed 1px;
+}
+
+@media only screen and (min-width: 320px) {
+ 
+    .home-menu {
+    }
+
+    .home-menu__item {
+    }
+
+    .home-menu__item p {
+    }
+
+    .home-menu__item a {
+    }
+
+    .home-menu__item a:hover {
+    }
+}
+
+@media only screen and (min-width: 480px) {
+ 
+    .home-menu {
+    }
+
+    .home-menu__item {
+    }
+
+    .home-menu__item p {
+    }
+
+    .home-menu__item a {
+    }
+
+    .home-menu__item a:hover {
+    }
+}
+
+@media only screen and (min-width: 768px) {
+ 
+    .home-menu {
+    }
+
+    .home-menu__item {
+    }
+
+    .home-menu__item p {
+    }
+
+    .home-menu__item a {
+    }
+
+    .home-menu__item a:hover {
+    }
+}
+
+@media only screen and (min-width: 992px) {
+ 
+    .home-menu {
+    }
+
+    .home-menu__item {
+    }
+
+    .home-menu__item p {
+    }
+
+    .home-menu__item a {
+    }
+
+    .home-menu__item a:hover {
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+ 
+    .home-menu {
+    }
+
+    .home-menu__item {
+    }
+
+    .home-menu__item p {
+    }
+
+    .home-menu__item a {
+    }
+
+    .home-menu__item a:hover {
+    }
+}

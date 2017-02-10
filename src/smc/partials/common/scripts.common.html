@@ -1,0 +1,29 @@
+<!-- polyfills -->
+<!--BUNDLE_JS_5-->
+  <script src="/vendor/html5-shim.min.js"></script>
+<!--/BUNDLE_JS_5-->
+
+<!-- jquery -->
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+<!-- bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- layout polyfills -->
+{{> collapse-navbar-on-click}}
+
+<!-- firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+<script>
+  /*global firebase*/
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCJNAZgOPKKA_Ei9L3qIqPAv_1iluKjxpA",
+    authDomain: "getabiker-1276e.firebaseapp.com",
+    databaseURL: "https://getabiker-1276e.firebaseio.com",
+    storageBucket: "getabiker.appspot.com",
+    messagingSenderId: "626641878895"
+  };
+  firebase.initializeApp(config);
+</script>
+{{> live-sync}}

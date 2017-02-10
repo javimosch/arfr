@@ -1,0 +1,43 @@
+.panel {
+    padding: 30px;
+}
+
+.panel p,
+.panel span,
+.panel h1,
+.panel h2,
+.panel h3 {
+    color: #333;
+    font-family: 'Avenir-Medium';
+}
+
+.panel h1,
+.panel h2 {
+    font-family: 'Avenir-Medium';
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.panel h1 {
+    font-size: 55px;
+}
+
+.panel h2 {
+    font-size: 45px;
+}
+
+.panel p {
+    font-size: 16px;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.content__logo {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    float: right;
+    display: block;
+    height: 50px;
+}

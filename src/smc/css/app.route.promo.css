@@ -1,0 +1,39 @@
+.promo__list{
+    list-style: none;
+    padding: 0px;
+}
+.promo__item{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.promo__magasin-title{
+         color: #4C92FA;
+         font-size: 40px;
+         text-align: right;
+         line-height: 100px;
+         margin: 0px;
+         position: relative;
+         /* left: 50px; */
+}
+.promo__magasin-description{
+        color: black;
+    height: 100px;
+    margin: 0px;
+    padding-top: 21px;
+    text-align: left;
+    position: relative;
+    left: 50px;
+}
+
+.promo__details-title{
+    text-align:left;
+    color:white;
+    font-size:30px;
+}
+.promo__details-text{
+     text-align:left;
+    color:white;
+    font-size:20px;
+}

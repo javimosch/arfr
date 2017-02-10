@@ -1,0 +1,151 @@
+<!-- HBSIGNORE -->
+<div class="row">
+  <div class="title-bar">
+    <h2 class="title-bar__title">Mes paramètres: Modifier le compte</h2>
+  </div>
+</div>
+
+
+
+
+<div class="row profile" id="edit-profile">
+  <div class="col-sm-12 col-md-12">
+
+    <form class="list" name="edit">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- Avatar -->
+          <div class="item avatar-item" id="profile-header">
+            <img class="profil-pic icon-smc-profile" data-ng-src="{{avatarBackground}}"></img>
+            <div class="edit"><a ng-click="changeAvatar()">Modifier mon avatar</a></div>
+          </div>
+          <hr>
+          <hr>
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <!-- Prénom -->
+        <div class="col-md-6">
+          <div class="row">
+            <label>Prénom</label>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <div class="col-md-12 padding-none">
+                <input type="text" class="form-control" placeholder="Prénom" ng-model="user.firstname" required="required" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Nom -->
+        <div class="col-md-6">
+          <div class="row">
+            <label>Nom</label>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <div class="col-md-12 padding-none">
+                <input type="text" class="form-control" placeholder="Nom" ng-value="user.lastname" required="required" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Email -->
+        <div class="col-md-10">
+          <div class="row">
+            <hr>
+            <label>Email</label>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <div class="col-md-12 padding-none">
+                <input name="email" type="text" class="form-control email-input" placeholder="Saisissez votre email" ng-pattern="validation.email.pattern" required="required" ng-model="user.email" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <!-- Password -->
+        <div class="col-md-6">
+          <div class="row">
+            <hr>
+            <label>Mot de passe</label>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <div class="col-md-12 padding-none">
+                <input name="password" type="password" class="form-control" placeholder="Saisissez votre mot de passe" ng-pattern="validation.password.pattern" required="required" ng-model="user.password" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6">
+          <div class="row">
+            <hr>
+            <label>Phone</label>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <div class="col-md-12 padding-none">
+                <input name="phone" type="text" class="form-control" placeholder="Saisissez votre téléphone" ng-pattern="validation.phone.pattern" required="required" ng-model="user.phone" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-10">
+          <hr>
+
+          <div class="error-message" ng-show="edit.email.$error.pattern">
+            <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.email.message}}</span>
+          </div>
+          <div class="error-message" ng-show="edit.password.$error.pattern">
+            <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.password.message}}</span>
+          </div>
+          <div class="error-message" ng-show="edit.phone.$error.pattern">
+            <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.phone.message}}</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Save -->
+      <div class="row">
+        <div class="col-sm-12">
+          <hr>
+          <hr>
+          <button ng-click="endEdit()" class="btn btn-blue" ng-disabled="edit.$invalid">Sauvegarder</a>
+      </div>
+    </div>
+    </form>    
+  </div>
+</div>
+
+
+
+<!--
+
+       
+       
+        
+        <div class="error-message" ng-show="edit.phone.$error.pattern">
+          <span><i class="icon ion-close-circled"></i> {{validation.phone.message}}</span>
+        </div>
+     
+ -->

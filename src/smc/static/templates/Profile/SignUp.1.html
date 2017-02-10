@@ -1,0 +1,70 @@
+<!-- HBSIGNORE -->
+<ion-view id="signup">
+    <ion-content overflow-scroll="false" padding="false" scroll="true">
+      <img src="/img/logo.png" class="logo"></i>
+        <div class="row row-center">
+          <div class="col text-center">
+              <p><b>Inscription avec :</b></p>
+              <button class="button button-block button-positive button-facebook" ng-click="signUpWithFacebook()">
+                Facebook
+              </button>
+              <button class="button button-block button-google" ng-click="signUpWithGoogle()">
+                Google
+              </button>
+            </div>
+        </div>
+        <form class="list" name="signup">
+            <p><b>Ou utilisez votre email :</b></p>
+            <ion-list>
+                <!-- Prénom -->
+                <ion-item class="item item-input item-floating-label">
+                    <span class="input-label">Prénom</span>
+                    <input type="text" name="firstname" ng-model="user.firstname" placeholder="Saisissez votre prénom" ng-pattern="validation.name.pattern" required="required" autocomplete="off">
+                </ion-item>
+                <!-- Nom -->
+                <ion-item class="item item-input item-floating-label">
+                    <span class="input-label">Nom</span>
+                    <input type="text" name="lastname" ng-model="user.lastname" placeholder="Saisissez votre nom" ng-pattern="validation.name.pattern" required="required" autocomplete="off">
+                </ion-item>
+                <div class="error-message" ng-show="signup.lastname.$error.pattern">
+                  <span><i class="icon ion-close-circled"></i> {{validation.name.message}}</span>
+                </div>
+                <div class="error-message" ng-show="signup.firstname.$error.pattern">
+                  <span><i class="icon ion-close-circled"></i> {{validation.name.message}}</span>
+                </div>
+                <!-- Email -->
+                <ion-item class="item item-input item-floating-label">
+                    <span class="input-label">Email</span>
+                    <input type="email" name="email" ng-model="user.email" placeholder="Saisissez votre email" ng-pattern="validation.email.pattern" required="required" autocomplete="off">
+                </ion-item>
+                <div class="error-message" ng-show="signup.email.$error.pattern">
+                  <span><i class="icon ion-close-circled"></i> {{validation.email.message}}</span>
+                </div>
+                <!-- Mot de passe -->
+                <ion-item class="item item-input item-floating-label">
+                    <span class="input-label">Mot de passe</span>
+                    <input type="password" name="password" ng-model="user.password" placeholder="Saisissez votre mot de passe" ng-pattern="validation.password.pattern" required="required" autocomplete="off">
+                </ion-item>
+                <div class="error-message" ng-show="signup.password.$error.pattern">
+                  <span><i class="icon ion-close-circled"></i> {{validation.password.message}}</span>
+                </div>
+                <!-- N° de téléphone -->
+                <ion-item class="item item-input item-floating-label">
+                    <span class="input-label">N° de mobile</span>
+                    <input type="tel" name="phone" ng-model="user.phone" placeholder="Saisissez votre n° de portable" ng-pattern="validation.phone.pattern" required="required" autocomplete="off">
+                </ion-item>
+                <div class="error-message" ng-show="signup.phone.$error.pattern">
+                  <span><i class="icon ion-close-circled"></i> {{validation.phone.message}}</span>
+                </div>
+                <div>
+                  <p>
+                    <p class="cgu"><input type="checkbox" name="cgu" ng-model="user.cgu" required="required" selected="false">&nbsp;Vous acceptez les <a ng-click="openCGU()" style="text-decoration: underline;">conditions générales d'utilisation</a> de Shopmycourses</p>
+                    <p class="cgu"><input type="checkbox" name="lemonway" ng-model="user.lemonway" required="required" selected="false">&nbsp;Vous acceptez les <a ng-click="openLemonWayCGU()" style="text-decoration: underline;">conditions générales d'utilisation</a> de Lemon Way, notre prestataire de service de paiement.</p>
+                  </p>
+                </div>
+            </ion-list>
+        </form>
+        <a ng-click="signUpWithEmail()" class="button button-stable button-block" ng-disabled="signup.$invalid">Inscription</a>
+
+    </ion-content>
+</ion-view>

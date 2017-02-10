@@ -1,0 +1,11 @@
+.home-title h1 {
+   /* background-color: #0A3967;*/
+    color: white;
+    display: -webkit-inline-box;
+}
+
+.home-title small {
+   /* background-color: #0A3967;*/
+    color: white;
+    display: -webkit-inline-box;
+}

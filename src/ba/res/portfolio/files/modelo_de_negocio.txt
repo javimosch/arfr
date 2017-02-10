@@ -1,0 +1,62 @@
+socios clave
+-quienes son nuestros socios clave
+-quienes son nuestros suminitradores clave
+-que recursos clave vamos a adquirir de nuestros socios
+-que actividades clave realizan nuestros socios
+
+actividades clave
+-que actividades clave contiene nuestra propuesta de valor
+-nuestros canales de distribucion
+-nuestra relacion con clientes
+-nuestra fuente de ingresos
+
+propuestas de valor
+-que valor entregamos al cliente
+-cuales de los problemas de nuestro cliente vamos a ayudarle a resolver
+-que paquete de productos y servicios ofrecemos a cada segmento de clientes
+-que necesidades de clientes estamos satisfaciendo
+
+relacion con clientes
+-que tipo de relacion espera que establescamos y mantengamos cada uno de nuestros clientes
+-cuales hemos establecido
+-como estan integrados con el resto de nuestro modelo de negocio
+-cuanto cuestan
+
+segmento de clientes
+-para quienes estamos creando valor
+-quienes son nuestros clientes mas importantes
+
+recursos clave
+-que recursos clave requiere nuestra propuesta de valor
+-nuestros canales de distribucion
+-nuestra relacion con clientes
+-fuente de ingresos
+
+canales
+-a traves de que canales quieren ser conectados nuestros segmentos de clientes
+-como les contactamos ahora
+-como estan integrados nuestros canales
+-cuales funcionan mejor
+-cuales son los mas eficaces en costos
+-como los integramos con la rutina del cliente
+
+estructura de costos
+-cuales son los costos mas importantes de nuestro modelo de negocio
+-que recursos clave son los mas caros
+-que actividades clave son las mas caras
+
+fuente de ingresos
+-que valor estan realmente dispuestos a pagar nuestros clientes
+-por que pagan actualmente
+-como estan pagando ahora
+-como preferian pagar
+-cuanto contribuye cada fuente de ingreso a los ingresos totales
+
+DEFINICION:
+Un modelo de negocio describe la logica de como una organizacion entrega y captura valor
+
+
+TENDENCIAS CLAVE
+FUERZAS DEL MERCADO
+FUERZAS MACROECONOMICAS
+FUERZAS DE LA INDUSTRIA

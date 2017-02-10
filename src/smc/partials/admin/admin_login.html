@@ -1,0 +1,62 @@
+<div class="row relative">
+    <div class="title-bar">
+        <div class="col-md-4">
+            <h2 class="title-bar__title">Admin / Login</h2>
+        </div>
+        <div class="col-md-4 col-sm-offset-4">
+
+        </div>
+    </div>
+</div>
+<div class="row section">
+    <div class="col-sm-12">
+
+
+        <div class="col-md-3 visible-md-block visible-lg-block relative">
+            <img class="layout__icon-top-left" src="/img/icon_hand_in_sac_rotated.png" alt="Icon Commande Envoyee">
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <img src="/img/logo_circle_malibu.jpg" class="start__logo img-responsive">
+
+            <p class="signin__text-center">
+                utilisez votre master password
+            </p>
+
+            <form class="list" name="signin">
+                <div class="buttons-block">
+                    <input id="password" class="form-control btn-block" type="password" name="password" placeholder="Password" ng-model="user.password" placeholder="Mot de passe" ng-pattern="validation.password.pattern" required="required" autocomplete="off">
+                </div>
+            </form>
+
+            <div class="buttons-block">
+                <hr>
+                <a onClick="login()" class="btn btn-red btn-block btn-lg" ng-disabled="signin.$invalid">Connexion</a>
+                <hr>
+                <a href="/" ui-sref="start" class="btn btn-white btn-block btn-lg">Retourner</a>
+            </div>
+
+            <img class="layout__icon-bottom-right visible-md-block visible-lg-block" src="/img/icon_hero_drinking.png" alt="Icon Hero Drinking Juice">
+        </div>
+
+
+        <div class="col-md-3 visible-md-block visible-lg-block relative">
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        /*global $*/
+        /*global firebase*/
+        /*global ws*/
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) onLoginSuccess();
+        });
+
+        function onLoginSuccess() {
+            window.location = '/admin/dashboard';
+        }
+
+        function login() {
+            ws.login($('#password').val() || null);
+        }
+    </script>

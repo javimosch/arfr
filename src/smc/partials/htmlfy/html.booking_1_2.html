@@ -1,0 +1,118 @@
+<div class="row relative">
+    <div class="title-bar">
+        <div class="col-md-4">
+            <h2 class="title-bar__title">Se faire Livrer</h2>
+        </div>
+        <div class="col-md-4 col-sm-offset-4">
+            
+        </div>
+    </div>
+    <img class="booking__static-ad" src='/img/sample/static_ad.png'>
+</div>
+<div class="row section">
+    <div class="col-sm-12">
+        <div class="row">
+            <hr>
+        </div>
+        <div class="row">
+            <p class="text-center section__centered-title">Sélection du magasin</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label>Entrer une adresse</label>
+                <input name="addressInput" type="text" class="form-control address" address scope="self" model="data" field="address" placeholder="Rechercher une adresse" change="search(query)">
+                <div class="input-buttons">
+                    <a class="link btn btn-red address__location" ng-click="setAddressFromGeolocation()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                    <a class="link btn btn-red address__home" ng-click="setAddressFromProfile()">Mon adresse&nbsp;<i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                        <label class="inline-block">Livreurs de type:</label> &nbsp;&nbsp;
+                        <img class="img-responsive inline-block booking__ranking-stars" src="/img/sample/ranking_stars.png">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+
+                        <label>Résultats</label>
+
+
+
+                    </div>
+                    <div class="col-md-7">
+
+                        <span class="inline booking__indication-text">Un livreur est  disponible pour ce magasin</span> &nbsp;
+                        <img class="inline" id="booking__indication-star" src="/img/star_blue.png">
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row" ng-show="shops && (shops.length == 0)">
+                            <p class="text-center text-center-italic">
+                                Aucun magasin n'a été trouvé à proximité.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row results" ng-show="shops">
+
+
+                    <div class="col-md-12">
+                        <ul>
+                            <li>
+                                <div ng-click="toggleShop(shop)">
+                                    <div class="title">Monoprix</div>
+                                    <div class="distance"><i class="icon-smc-rule"></i> 1.2 km</div>
+                                    <div class="address"><i class="icon-smc-marker"></i> 15 rue L'Hopital Saint Louis 75010, Paris</div>
+                                    <i class="icon ion-chevron-right"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" ng-show="hasSelectedShops()">
+                        <hr>
+                        <hr>
+                        <label>Vous avez sélectionné N magasins</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <hr>
+                <img id="booking__hero" src="/img/hero_stand_pulgar.png">
+            </div>
+
+        </div>
+
+        <div class="row col-margin-3">
+            <div class="col-sm-7 col-md-10">
+                <a 
+                href="/html/booking2.html"
+                class="link btn btn-md btn-red" ng-disabled="!hasSelectedShops()" ng-click="hasSelectedShops() && setSelectedShop()">Sélectionnez heur</a>
+            </div>
+            <div class="col-sm-3 col-sm-offset-2 col-md-offset-0 col-md-2">
+                <label id="booking__bottom-rigth-label">Étape 1/2</label>
+            </div>
+        </div>
+
+    </div>
+</div>

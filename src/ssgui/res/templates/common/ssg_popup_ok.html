@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{data.title||'Message'}}</h3>
+</div>
+<div class="modal-body">
+	<out html-content html="message||''"></out>
+	<out ng-if="messageEl" append-child child="messageEl"></out>
+</div>
+<div class="modal-footer">
+    <button class="btn " type="button" ng-click="yes()" ng-bind="data.yesLabel||'Ok'"></button>
+    <button class="btn" type="button" ng-click="cancel()" ng-show="data.cancelLabel" ng-bind="data.cancelLabel||'Cancel'"></button>
+</div>

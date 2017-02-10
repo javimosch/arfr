@@ -1,0 +1,62 @@
+/*I ICONS*/
+
+i {
+    padding-right: 5px;
+}
+
+
+/*LABEL*/
+
+label {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*INPUT*/
+
+input {
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+input[type="checkbox"] {
+    margin: 0px;
+    padding: 0px;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+    width: 100%;
+}
+
+
+/*TYPE-1 LABEL*/
+
+.type-1 label {
+    line-height: 20px
+}
+
+
+/*TYPE-1 INPUT*/
+
+.type-1 input[type="checkbox"] {
+    line-height: 20px;
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-right: 10px
+}
+
+.form .type-1 input[type="text"],
+.form .type-1 input[type="email"],
+.form .type-1 input[type="password"] {
+    padding: 10px;
+    padding-left: 25px;
+}
+
+.form-control:focus {
+    border: 0px;
+    box-shadow: none;
+    outline: 0;
+    /*background: rgba(0,0,0,.02);*/
+}

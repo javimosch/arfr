@@ -1,0 +1,11 @@
+.content-wrapper {
+    padding: 30px 10px 30px 10px!important;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .content-wrapper {
+        padding: 0px 0px 0px 0px!important;
+    }
+}

@@ -1,0 +1,162 @@
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.modal {
+  overflow-y: hidden;
+  z-index: 100000!important;
+}
+
+.modal-open {
+  padding-right: 0px !important;
+}
+
+.modal-open .modal-shiftfix{
+
+}
+
+/*
+.modal-open .modal {
+  overflow-y: scroll;
+}
+
+.modal-open .modal-shiftfix,
+.modal-open .modal-shiftfix .navbar-fixed-top,
+.modal-open .modal-shiftfix .navbar-fixed-bottom {
+  overflow-y: scroll;
+}
+*/
+
+.alert-message {
+  border: 0px solid transparent;
+  margin: 0px;
+  border-radius: 0px;
+  position: fixed;
+  bottom: 0px;
+  color: white;
+  background-color: rgba(93, 159, 254, .8);
+  width: 100%;
+  z-index: 150000;
+}
+
+.alert-ad-1 {
+  border: 0px solid transparent;
+  margin: 0px;
+  border-radius: 0px;
+  position: fixed;
+  bottom: 0px;
+  color: white;
+  /*background-color: rgba(93, 159, 254, .8);*/
+  z-index: 150000;
+  padding: 0px;
+  margin: 0px;
+}
+
+.alert-dismissible .close {
+  opacity: 1;
+}
+
+
+
+.form-control {
+  height: 66px!important;
+  font-size: 20px!important;
+  color: rgba(0, 0, 0, .9)!important;
+  font-weight: 800!important;
+  padding-left: 5px;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+  color: rgba(0, 0, 0, .6)!important;
+  background-color: rgba(255,255,255,.5);
+}
+
+
+.form-control:focus {
+    border-color: transparent;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgba(0, 0, 0, .5)!important;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color: rgba(0, 0, 0, .5)!important;
+   opacity:  1;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: rgba(0, 0, 0, .5)!important;
+   opacity:  1;
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgba(0, 0, 0, .5)!important;
+}
+
+
+.col-margin-1 > div{
+  margin-top:5px!important;
+}
+.col-margin-2 > div{
+  margin-top:10px!important;
+}
+.col-margin-3 > div{
+  margin-top:15px!important;
+}
+.col-margin-4 > div{
+  margin-top:20px!important;
+}
+.col-margin-5 > div{
+  margin-top:25px!important;
+}
+
+.col-margin-6 > div{
+  margin-top:60px!important;
+}
+
+.col-margin-7 > div{
+  margin-top:70px!important;
+}
+
+.col-margin-8 > div{
+  margin-top:80px!important;
+}
+
+.col-margin-9 > div{
+  margin-top:90px!important;
+}
+
+.col-margin-10 > div{
+  margin-top:100px!important;
+}
+.col-margin-15 > div{
+  margin-top:150px!important;
+}
+.col-margin-20 > div{
+  margin-top:200px!important;
+}
+
+
+
+.col-main{
+  padding:0px 50px 0px 50px!important;
+}
+
+
+.input-group.light{}
+.input-group.light i {
+    color: white;
+    font-size: 20px;
+}
+.input-group.light input {
+    background: rgba(255,255,255,.1);
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+}
+.input-group.light .input-group-addon {
+  
+    background-color: transparent!important;
+  
+}

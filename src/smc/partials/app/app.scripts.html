@@ -1,0 +1,82 @@
+{{>scripts.common}}
+<!--BUNDLE_JS_1-->
+
+<script type="text/javascript" src="{{root}}vendor/angular.js"></script>
+<script src="{{root}}vendor/angular-resource.js"></script>
+<!--/BUNDLE_JS_1-->
+
+<!--BUNDLE_JS_2-->
+<script src="{{root}}vendor/async.js"></script>
+<script src="{{root}}vendor/localforage.js"></script>
+<script src="{{root}}vendor/moment.js"></script>
+<script src="{{root}}vendor/moment_locale_fr.js"></script>
+<!--/BUNDLE_JS_2-->
+
+<!--CDN-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+
+<!--BUNDLE_JS_3-->
+<script src="{{root}}vendor/angular-toastr.js"></script>
+<script src="{{root}}vendor/angular-toastr.tpls.js"></script>
+<script src="{{root}}vendor/ng-lodash.js"></script>
+<script src="{{root}}vendor/angular-moment.js"></script>
+<script src="{{root}}vendor/angular-localForage.js"></script>
+<script src="{{root}}vendor/angular-locale_fr-fr.js"></script>
+<script src="/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/bower/angular-animate/angular-animate.min.js"></script>
+<script src="/bower/angular-strap/dist/angular-strap.min.js"></script>
+<script src="/bower/angular-strap/dist/angular-strap.tpl.min.js"></script>
+<script type="text/javascript" src="/vendor/angular-strap-date-parser.js"></script>
+<script type="text/javascript" src="/vendor/angular-locale_fr-fr.js"></script>
+<script type="text/javascript" src="/vendor/angular-strap-helper-dimensions.js"></script>
+<script src="/bower/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" src="/vendor/pickaday.js"></script>
+<!--/BUNDLE_JS_3-->
+
+
+
+<!--<script type="text/javascript" src="{{root}}js/app.js"></script>-->
+{{#printJS}}{{/printJS}}
+
+<!-- SCROLL TO TOP SCRIPT -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollToTop').fadeIn();
+            }
+            else {
+                $('.scrollToTop').fadeOut();
+            }
+        });
+        $('.scrollToTop').click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 800);
+            $('.modal').animate({ scrollTop: 0 }, 'slow')
+            return false;
+        });
+
+    });
+</script>
+
+
+<script>
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['shopmycourse']);
+        //console.log('LOADED')
+    });
+</script>
+
+
+
+<!--
+<script src="/bower/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+-->
+<!--BUNDLE_JS_4-->
+<script src="{{root}}vendor/jquery.geocomplete.js"></script>
+<!--/BUNDLE_JS_4-->
+<script async src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+

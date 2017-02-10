@@ -1,0 +1,79 @@
+<!-- HBSIGNORE -->
+<div class="row">
+  <div class="title-bar">
+    <h2 class="title-bar__title">Inscription</h2>
+  </div>
+</div>
+
+<div class="row signup">
+  <div class="col-md-3 visible-md-block visible-lg-block relative">
+    <img class="layout__icon-top-left" src="/img/icon_hand_in_sac_rotated.png" alt="Icon Commande Envoyee">
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <img src="/img/logo_circle_malibu.jpg" class="start__logo img-responsive">
+
+    <p class="signin__text-center">
+      Inscription avec
+    </p>
+    <div class="buttons-block">
+      <a ng-click="signUpWithFacebook()" class="btn btn-facebook btn-block btn-lg ">Facebook</a>
+      <a ng-click="signUpWithGoogle()" class="btn btn-google btn-block btn-lg ">Google</a>
+    </div>
+
+    <p class="signin__text-center">
+      Ou utilisez votre email
+    </p>
+
+    <form class="list" name="signup">
+      <div class="buttons-block">
+
+        <input type="text" name="firstname" class="form-control btn-block" ng-model="user.firstname" placeholder="Saisissez votre prénom" ng-pattern="validation.name.pattern" required="required" autocomplete="off">
+
+        <input type="text" name="lastname" class="form-control btn-block" ng-model="user.lastname" placeholder="Saisissez votre nom" ng-pattern="validation.name.pattern" required="required" autocomplete="off">
+
+        <input class="form-control btn-block" type="email" name="email" placeholder="Email" ng-model="user.email" ng-pattern="validation.email.pattern" required="required" autocomplete="off">
+
+        <input class="form-control btn-block" type="password" name="password" placeholder="Password" ng-model="user.password" placeholder="Mot de passe" ng-pattern="validation.password.pattern" required="required" autocomplete="off">
+
+        <input type="tel" name="phone" class="form-control btn-block" ng-model="user.phone" placeholder="Saisissez votre n° de portable" ng-pattern="validation.phone.pattern" required="required" autocomplete="off">
+      </div>
+
+
+      <div class="buttons-block">
+        <hr>
+        <p class="cgu white">
+          <i ng-class="user.cgu? 'fa fa-checkbox fa-check-square-o fa-2x' : 'fa fa-checkbox fa-square-o fa-2x'" ng-click="user.cgu = !user.cgu"></i> Vous acceptez les <a ng-click="openCGU()" class="link" style="text-decoration: underline;">conditions générales d'utilisation</a>          de Shopmycourses
+        </p>
+
+        <p class="cgu white">
+          <i ng-class="user.lemonway? 'fa fa-checkbox fa-check-square-o fa-2x' : 'fa fa-checkbox fa-square-o fa-2x'" ng-click="user.lemonway = !user.lemonway"></i> Vous acceptez les <a ng-click="openLemonWayCGU()" class="link" style="text-decoration: underline;">conditions générales d'utilisation</a>          de Lemon Way, notre prestataire de service de paiement.
+        </p>
+
+      </div>
+
+
+      <div class="buttons-block">
+        <div class="error-message" ng-show="signup.email.$error.pattern">
+          <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.email.message}}</span>
+        </div>
+        <div class="error-message" ng-show="signup.password.$error.pattern">
+          <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.password.message}}</span>
+        </div>
+        <div class="error-message" ng-show="signup.phone.$error.pattern">
+          <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{validation.phone.message}}</span>
+        </div>
+      </div>
+
+
+    </form>
+    <hr>
+    <div class="buttons-block">
+      <a ng-click="!signup.$invalid && signUpWithEmail()" class="btn btn-red btn-block btn-lg" ng-disabled="signup.$invalid">Inscription</a>
+      <a ui-sref="start" class="btn btn-white btn-block btn-lg">Retourner</a>
+    </div>
+    <img class="layout__icon-bottom-right visible-md-block visible-lg-block" src="/img/icon_hero_drinking.png" alt="Icon Hero Drinking Juice">
+  </div>
+  <div class="col-md-3 visible-md-block visible-lg-block relative">
+  </div>
+</div>

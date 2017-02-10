@@ -1,0 +1,37 @@
+<!-- HBSIGNORE -->
+<ion-view id="order-content" title="Liste de course" hide-back-button="true">
+    <ion-nav-buttons side="left">
+    <button ng-click="goBack()" class="button back-button buttons button-clear header-item"><i class="icon icon-smc-back"></i> <span class="back-text" style="transform: translate3d(0px, 0px, 0px);"><span class="default-title"> </span></span></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear cart-colored" ng-click="openCartModal()">
+        <i class="icon-smc-cart"></i>
+        <span class="badge">{{currentCartObject.quantity()}}</span>
+      </button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="false" class="has-header">
+      <ion-list>
+          <div class="item item-divider search">
+            <label class="item item-input">
+              <i class="icon icon-smc-wen placeholder-icon"></i>
+              <input type="text" ng-model="query" placeholder="Rechercher un produit" ng-change="search(query)">
+            </label>
+          </div>
+          <div class="item item-divider">
+            Résultats de la recherche
+          </div>
+          <ion-item ng-show="products.length == 0">
+            <p>
+              Entrez un mot clé pour rechercher un produit.
+            </p>
+          </ion-item>
+          <ion-item class="item item-icon-right product" ng-repeat="product in products" ng-if="product.price">
+              <img ng-src="{{product.image_url}}" alt="{{product.name}}">
+              <div class="name">{{product.name}}</div>
+              <div class="detail">{{product.package_content}}</div>
+              <div class="price">{{product.price}}€</div>
+              <i class="icon icon-smc-cart-down cart-down" ng-click="addProduct(product)"></i>
+          </ion-item>
+      </ion-list>
+    </ion-content>
+</ion-view>

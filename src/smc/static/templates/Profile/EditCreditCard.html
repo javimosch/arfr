@@ -1,0 +1,62 @@
+<!-- HBSIGNORE -->
+<ion-view id="edit-creditcard" title="Carte de crédit">
+  <ion-content overflow-scroll="true" padding="true" class="has-header default-form">
+    <div class="list">
+      <div class="item">
+        <p class="title">Veuillez renseigner vos coordonnées bancaires</p>
+      </div>
+      <form name="cardForm">
+
+        <ion-item class="item item-input item-stacked-label">
+          <span class="input-label">Numéro de carte</span>
+          <input type="tel" name="number" placeholder="{{user.wallet.credit_card_display || 'Numéro de carte'}}" ng-model="card.number" ng-model-options="{ allowInvalid: true }" ng-change="formatCreditCard()" required ng-pattern="validation.creditcard.pattern">
+        </ion-item>
+        <div class="error-message" ng-show="cardForm.number.$error.pattern">
+          <span><i class="icon ion-close-circled"></i> {{validation.creditcard.message}}</span>
+        </div>
+
+        <div>
+          <ion-item class="item-input item-stacked-label">
+            <span class="input-label">Expiration</span>
+          </ion-item>
+          <div class="row">
+            <ion-item class="item item-input item-select col-50">
+              <div class="input-label">
+                &nbsp;
+              </div>
+              <select ng-model="card.year" ng-options="year.year for year in expirations" required>
+                <option value="" disabled>Année</option>
+              </select>
+            </ion-item>
+            <ion-item class="item item-input item-select col-50">
+              <div class="input-label">
+                &nbsp;
+              </div>
+              <select ng-model="card.month" ng-options="month for month in card.year.months" required>
+                <option value="" disabled>Mois</option>
+              </select>
+            </ion-item>
+          </div>
+        </div>
+
+        <ion-item class="item item-input item-stacked-label">
+          <div class="row">
+            <div class="col-50">
+              <span class="input-label">CVC/CVV</span>
+              <input type="text" name="cvv" placeholder="CVC/CVV" ng-model="card.cvv" required ng-pattern="validation.cvv.pattern" maxlength="3">
+            </div>
+            <div class="col-50">
+              <span class="info">3 chiffres au dos de votre carte</span>
+            </div>
+          </div>
+        </ion-item>
+        <div class="error-message" ng-show="cardForm.cvv.$error.pattern">
+          <span><i class="icon ion-close-circled"></i> {{validation.cvv.message}}</span>
+        </div>
+
+        <button class="button button-positive button-block" ng-click="endEdit($event)" ng-disabled="cardForm.$invalid">Valider</button>
+      </form>
+
+    </div>
+  </ion-content>
+</ion-view>

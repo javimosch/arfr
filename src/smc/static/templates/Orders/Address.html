@@ -1,0 +1,48 @@
+<!-- HBSIGNORE -->
+
+
+
+
+<!--
+<ion-view id="address-view" ng-controller="OrdersAddressCtrl" title="Adresse de livraison">
+  <ion-header-bar class="bar-positive">
+  </ion-header-bar>
+  <ion-scroll overflow-scroll="true" padding="true" class="has-header">
+    <form name="addressForm">
+        <ion-list class="default-form">
+           
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Adresse</span>
+                <input type="text" name="address" ng-model="address.address" placeholder="Saisissez votre addresse" ng-pattern="validation.address.pattern" required="required">
+            </ion-item>
+            <div class="error-message" ng-show="addressForm.address.$error.pattern">
+              <span><i class="icon ion-close-circled"></i> {{validation.address.message}}</span>
+            </div>
+           
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Code postal</span>
+                <input type="text" name="zip" ng-model="address.zip" placeholder="Saisissez votre code postal" ng-pattern="validation.zipcode.pattern" required="required">
+            </ion-item>
+            <div class="error-message" ng-show="addressForm.zip.$error.pattern">
+              <span><i class="icon ion-close-circled"></i> {{validation.zip.message}}</span>
+            </div>
+           
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Ville</span>
+                <input type="text" name="city" ng-model="address.city" placeholder="Saisissez votre ville" ng-pattern="validation.city.pattern" required="required">
+            </ion-item>
+            <div class="error-message" ng-show="addressForm.city.$error.pattern">
+              <span><i class="icon ion-close-circled"></i> {{validation.city.message}}</span>
+            </div>
+
+        
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Complément d'adresse</span>
+                <input type="text" name="additional_address" ng-model="address.additional_address" placeholder="Saisissez votre addresse">
+            </ion-item>
+        </ion-list>
+    </form>
+    <a ng-click="setAddress(address)" class="button button-positive button-block" ng-disabled="addressForm.$invalid">Envoyer</a>
+  </ion-scroll>
+</ion-view>
+-->

@@ -1,0 +1,25 @@
+{{#each CDN}}
+    <script src="{{this}}"></script>
+{{/each}}
+
+<!--VENDOR-JS-->
+{{#each VENDOR}}
+    <script src="{{root}}vendor/{{this}}"></script>
+{{/each}}
+<!--/VENDOR-JS-->
+
+<script>
+  /*global firebase*/
+  var config = {
+    apiKey: "AIzaSyDSJsNkVjN1qQrEJ7xtH56kvlHRsQ_8RiQ",
+    authDomain: "frontstuff-e4c86.firebaseapp.com",
+    databaseURL: "https://frontstuff-e4c86.firebaseio.com",
+    storageBucket: "frontstuff-e4c86.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script type="text/javascript" src="{{root}}js/app.js"></script>
+
+{{> live-sync}}

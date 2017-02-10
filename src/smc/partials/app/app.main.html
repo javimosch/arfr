@@ -1,0 +1,31 @@
+
+{{>app.loading}}
+
+{{> app.templates}}
+
+<a href="#" class="scrollToTop"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+
+<div class="modal-shiftfix">
+    <div id="wrapper" class="app">
+        <div id="content">
+            {{> app.header}}
+            <div class="container background-malibu" id="main-container">
+                <ui-view></ui-view>
+            </div>
+        </div>
+        <div id="footer">
+            {{> app.footer}}
+        </div>
+    </div>
+    
+    
+    
+    {{> app.scripts}}
+
+</div>
+
+
+<script type="text/javascript">
+    //Fix for content height
+    //$('#main-container').css("min-height", $('body').height() - 108);
+</script>

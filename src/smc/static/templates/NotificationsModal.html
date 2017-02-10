@@ -1,0 +1,151 @@
+<!-- HBSIGNORE -->
+<div class="modal" id="notifications" tabindex="-1" role="dialog" ng-controller="NotificationsCtrl">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title">Notifications</h4>
+      </div>
+      <div class="modal-body">
+
+
+        <div ng-repeat="notification in notifications">
+          <ion-item class="item-icon-left main title">
+            <div class="">
+              <i class="icon ion-android-notifications-none"></i> {{notification.content}}
+            </div>
+          </ion-item>
+
+          <!-- delivery_request -->
+          <ion-item class="secondary" ng-if="notification.mode === 'delivery_request'">
+            <div class="mascot"><img src="/img/notifs/acceptation_confirmee.jpg" alt="delivery_request"></div>
+            <div class="shop">{{notification.meta.shop.name}}</div>
+            <div class="schedule"><i class="icon-smc-clock"></i> {{notification.meta.schedule.schedule}}</div>
+            <div class="address"><i class="icon-smc-marker"></i> {{notification.meta.address.address}}, {{notification.meta.address.city}}</div>
+            <div class="recipient"><i class="icon-smc-profile"></i> {{notification.meta.buyer.firstname}} {{notification.meta.buyer.lastname}}</div>
+            <div class="stars">
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 1, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 1}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 2, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 2}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 3, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 3}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 4, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 4}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 5, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 5}"></i>
+            </div>
+            <div class="response row">
+              <div class="col">
+                <button class="button button-positive button-block accept" ng-click="acceptDeliveryRequest(notification)">Accepter</button>
+              </div>
+              <div class="col">
+                <button class="button button-stable bordered button-block decline" ng-click="declineDeliveryRequest(notification)">Décliner</button>
+              </div>
+            </div>
+          </ion-item>
+
+          <!-- accepted_delivery -->
+          <ion-item class="secondary" ng-if="notification.mode === 'accepted_delivery'">
+            <div class="mascot"><img src="/img/notifs/commande_envoyee.jpg" alt="accepted_delivery"></div>
+            <div class="shop">{{notification.meta.shop.name}}</div>
+            <div class="schedule"><i class="icon-smc-clock"></i> {{notification.meta.schedule.schedule}}</div>
+            <div class="address"><i class="icon-smc-marker"></i> {{notification.meta.address.address}}, {{notification.meta.address.city}}</div>
+            <div class="recipient"><i class="icon-smc-profile"></i> {{notification.meta.deliveryman.firstname}} {{notification.meta.deliveryman.lastname}}</div>
+            <div class="stars">
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 1, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 1}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 2, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 2}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 3, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 3}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 4, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 4}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 5, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 5}"></i>
+            </div>
+            <div class="response row">
+              <div class="col">
+                <button class="button button-positive button-block accept" ng-click="editCart(notification)">Parfait, je créé ma liste</button>
+                <button class="button button-stable button-block decline bordered" ng-click="cancelOrder(notification)">Annuler la demande</button>
+              </div>
+            </div>
+          </ion-item>
+
+          <!-- order_reminder -->
+          <ion-item class="secondary" ng-if="notification.mode === 'order_reminder'">
+            <div class="mascot"><img src="/img/notifs/commande_envoyee.jpg" alt="commande_envoyee"></div>
+            <div class="shop">{{notification.meta.shop.name}}</div>
+            <div class="schedule"><i class="icon-smc-clock"></i> {{notification.meta.schedule.schedule}}</div>
+            <div class="address"><i class="icon-smc-marker"></i> {{notification.meta.address.address}}, {{notification.meta.address.city}}</div>
+            <div class="recipient"><i class="icon-smc-profile"></i> {{notification.meta.deliveryman.firstname}} {{notification.meta.deliveryman.lastname}}</div>
+            <div class="stars">
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 1, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 1}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 2, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 2}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 3, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 3}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 4, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 4}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.deliveryman.rating_average < 5, 'icon-smc-star-filled yellow': notification.meta.deliveryman.rating_average >= 5}"></i>
+            </div>
+            <div class="response row">
+              <div class="col">
+                {{notification.content}}
+                <button class="button button-positive button-block" ng-click="readNotification(notification)">D'accord</button>
+              </div>
+            </div>
+          </ion-item>
+
+          <!-- cart_filled -->
+          <ion-item class="secondary" ng-if="notification.mode === 'cart_filled'">
+            <div class="mascot"><img src="/img/notifs/liste_course_prete.jpg" alt="cart_filled"></div>
+            <div class="shop">{{notification.meta.shop.name}}</div>
+            <div class="schedule"><i class="ion-ios-calendar-outline"></i> {{notification.meta.schedule.schedule}}</div>
+            <div class="address"><i class="ion-ios-location"></i> {{notification.meta.address.address}}, {{notification.meta.address.city}}</div>
+            <div class="recipient"><i class="ion-ios-person"></i> {{notification.meta.buyer.firstname}} {{notification.meta.buyer.lastname}}</div>
+            <div class="stars">
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 1, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 1}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 2, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 2}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 3, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 3}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 4, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 4}"></i>
+              <i ng-class="{'icon-smc-star-filled': notification.meta.buyer.rating_average < 5, 'icon-smc-star-filled yellow': notification.meta.buyer.rating_average >= 5}"></i>
+            </div>
+            <div class="response row">
+              <div class="col">
+                <button class="button button-positive button-block accept" ng-click="goDelivery(notification)">Consulter la commande</button>
+              </div>
+            </div>
+          </ion-item>
+
+          <!-- outdated_delivery -->
+          <ion-item class="secondary" ng-if="notification.mode === 'outdated_delivery'">
+            <div class="mascot"><img src="/img/notifs/trop_tard.jpg" alt="outdated_delivery"></div>
+            <div class="shop">{{notification.meta.shop.name}}</div>
+            <div class="schedule"><i class="ion-ios-calendar-outline"></i> {{notification.meta.schedule.schedule}}</div>
+            <div class="address"><i class="ion-ios-location"></i> {{notification.meta.address.address}}, {{notification.meta.address.city}}</div>
+            <div class="recipient"><i class="ion-ios-person"></i> {{notification.meta.buyer.firstname || notification.meta.deliveryman.firstname}} {{notification.meta.buyer.lastname || notification.meta.deliveryman.lastname}}</div>
+            <div class="response row">
+              <div class="col">
+                {{notification.content}}
+                <button class="button button-positive button-block" ng-click="readNotification(notification)">D'accord</button>
+              </div>
+            </div>
+          </ion-item>
+
+          <!-- canceled_delivery -->
+          <ion-item class="secondary" ng-if="notification.mode === 'canceled_delivery'">
+            <div class="mascot"><img src="/img/notifs/commande_annulee.jpg" alt="outdated_delivery"></div>
+            <div class="shop">{{notification.meta.shop.name}}</div>
+            <div class="schedule"><i class="ion-ios-calendar-outline"></i> {{notification.meta.schedule.schedule}}</div>
+            <div class="address"><i class="ion-ios-location"></i> {{notification.meta.address.address}}, {{notification.meta.address.city}}</div>
+            <div class="recipient"><i class="ion-ios-person"></i> {{notification.meta.buyer.firstname || notification.meta.deliveryman.firstname}} {{notification.meta.buyer.lastname || notification.meta.deliveryman.lastname}}</div>
+            <div class="response row">
+              <div class="col">
+                {{notification.content}}
+                <button class="button button-positive button-block" ng-click="readNotification(notification)">D'accord</button>
+              </div>
+            </div>
+          </ion-item>
+        </div>
+        <ion-item class="secondary" ng-if="notifications.length == 0">
+          Vous n'avez aucune notification
+        </ion-item>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()">Retour</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

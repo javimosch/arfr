@@ -1,0 +1,30 @@
+<!-- HBSIGNORE -->
+<ion-view id="deliveries" title="Liste des livraisons" hide-back-button="true">
+    <ion-nav-buttons side="right">
+      <notifications></notifications>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="false" class="has-header">
+      <div class="bar bar-header">
+        <div class="button-bar">
+          <a class="button status" ng-class="{'button-positive': status === 'pending'}" ng-click="status = 'pending'">En cours</a>
+          <a class="button status" ng-class="{'button-positive': status === 'archived'}" ng-click="status = 'archived'">Archivé</a>
+        </div>
+      </div>
+        <ion-list class="content has-header">
+            <ion-item class="item item-icon-left item-icon-right" ng-repeat="delivery in deliveries | filter:byStatus(status)" ui-sref="tabs.delivery({idDelivery: delivery.id})">
+                <div class="color-status">
+                  <i class="icon {{ deliveryStatus[delivery.status].icon }}" style="color: {{ deliveryStatus[delivery.status].color }}"></i>
+                </div>
+                <div class="recipient" ng-if="delivery.buyer"><i class="icon-smc-truck-checked"></i> {{delivery.buyer.firstname}} {{delivery.buyer.lastname}}</div>
+                <div class="shop"><i class="icon-smc-shop"></i> {{delivery.shop.name}}</div>
+                <div class="schedule"><i class="ion-ios-calendar-outline"></i>&nbsp;{{delivery.schedule.date | date : 'EEEE' }} {{delivery.schedule.schedule}}</div>
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+            <ion-item class="item" ng-if="(deliveries|filter:byStatus(status)).length === 0">
+              <p>
+                Vous n'avez aucune livraison <span ng-if="status === 'pending'">en attente</span><span ng-if="status !== 'pending'">archivée</span>.
+              </p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,87 @@
+<div class="row relative">
+    <div class="title-bar">
+        <div class="col-md-10">
+            <h2 class="title-bar__title">View details</h2>
+        </div>
+    </div>
+</div>
+<div class="row section col-margin-7">
+    <div class="col-md-6 col-md-offset-0">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">fileName</span>
+            <input type="text" id="fileName" class="form-control" placeholder="fileName" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+<div class="row section col-margin-2">
+    <div class="col-sm-12">
+        <style type="text/css" media="screen">
+            #editor {
+                width: 100%;
+                height: 500px;
+                overflow-y: scroll
+            }
+        </style>
+        <div id="editor">
+            
+        </div>
+    </div>
+</div>
+<div class="row section col-margin-5">
+    <div class="col-md-6 col-md-offset-0">
+        <div class="buttons-blockk relative">
+            <a onClick="save()" class="btn btn-white btn-block btn-lg">Saved</a>
+            <label id="changed" class="hidden">File Changed</label>
+        </div>
+    </div>
+</div>
+
+<div class="row section col-margin-10">
+    <div class="col-md-6 col-md-offset-0">
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/theme-monokai.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/theme-kuroir.js"></script>
+
+<script type="text/javascript">
+    var local = store.get();
+
+
+toast.info('L', 'Loading', 99999);
+
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/kuroir");
+    editor.getSession().setMode("ace/mode/javascript");
+    var item = null;
+
+    function load(silent) {
+        editor.setOptions({ readOnly: true})
+        ws.ref().child('partials/' + url.param('key')).once('value', function(snap) {
+            item = snap.val();
+            $('#fileName').val(item.fileName);
+            editor.setValue(window.decodeURIComponent(item.content))
+            if(!silent) toast.clear('L', 1000).info('F', 'Fetch complete',2000);
+            editor.setOptions({ readOnly: false})
+        });
+    }
+
+    function save() {
+        toast.clearAll().info('S', 'Saved', 2000);
+        ws.ref().child('partials/' + url.param('key')).update({
+            fileName: $('#fileName').val() || item.fileName,
+            content: window.encodeURIComponent(editor.getValue()),
+            updatedAt: Date.now()
+        });
+        
+        load(true);
+    }
+
+    load();
+
+    ws.ref().child('partials/' + url.param('key')).on('child_changed', function(snap) {
+        $('#changed').toggle(false).removeClass('hidden').addClass('absolute').fadeIn(500).delay(2).fadeOut(1000);
+
+    });
+</script>

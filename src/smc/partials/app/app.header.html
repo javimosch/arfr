@@ -1,0 +1,6 @@
+<out ng-cloak ng-show="!$CurrentUser.isLogged()">
+    {{> static.header}}
+</out>
+<out ng-cloak ng-show="$CurrentUser.isLogged()">
+    <div ng-include src="'/templates/Layout/Header.html'" include-replace></div>
+</out>

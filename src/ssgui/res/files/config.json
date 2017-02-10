@@ -1,0 +1,6 @@
+{
+    "companyName": "Manitas",
+    "appName":"SSG",
+    "serverURL_DEV": "https://maerp-javoche.c9users.io:8081",
+    "serverURL_PROD": "https://backstuff-getacoursier.herokuapp.com"
+}

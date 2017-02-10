@@ -1,0 +1,18 @@
+HOME
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    /*global io*/
+    var socket = io();
+
+    socket.emit('GET_TREE', {
+        appName:'ssgui',
+        type: 'partials'
+    });
+
+    socket.on('GET_TREE', function(data) {
+        console.log('GET_TREE',data)
+    });
+</script>
+
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+{{>live-sync}}

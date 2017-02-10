@@ -1,0 +1,82 @@
+<script type="text/javascript">
+    (function() {
+        /*global $*/
+
+        function has(str, word) {
+            return str.indexOf(word) != -1;
+        }
+
+        function reloadStylesheets() {
+            var queryString = '?reload=' + new Date().getTime();
+            var counter = 0;
+            $('link[rel="stylesheet"]').each(function() {
+                if ((has(this.href, 'app.css') || has(this.href, '/raw/'))) {
+                    //console.debug('DEBUG: reloading file',this.href);
+                    this.href = this.href.replace(/\?.*|$/, queryString);
+                    counter++;
+                }
+            });
+            console.debug('LIVE-SYNC: ' + counter + ' css files were reloaded. :)');
+        }
+
+        /*global firebase*/
+        /*global localStorage*/
+        var isDevEnv = function() {
+            return window.location.origin.indexOf('c9users') !== -1;
+        }
+        if (!isDevEnv()) return console.log('live-sync', 'not-a-dev-enviroment');
+        console.info('LIVE-SYNC:  signalName => {{signalName}}');
+        var config = {
+            apiKey: "AIzaSyCqh03BCNeafvQCHd3i82h-3TyeREmT3eU",
+            authDomain: "getabiker-1276e.firebaseapp.com",
+            databaseURL: "https://getabiker-1276e.firebaseio.com",
+            //storageBucket: "getabiker.appspot.com",
+            //messagingSenderId: "626641878895"
+        };
+        var app = firebase.initializeApp(config, 'live-reload');
+        var database = app.database();
+
+        var refPath = '{{signalName}}/signals' ///reload
+        var ref = database.ref(refPath);
+        var counter = localStorage['livesync'] && localStorage['livesync'].toString() || 0;
+
+
+        //console.info('live-sync-enabled signalName','{{signalName}}','counter',counter,'path',refPath);
+
+
+        ref.on('value', function(snap) {
+            if (snap.val() == null || snap.val() == undefined) return; //nothing happen yet
+
+            var reload = snap.val().reload;
+            var reload_css = snap.val().reload_css || false;
+            var full_reload = snap.val().full_reload || false;
+
+            if (reload_css && !full_reload) {
+                console.log('LIVE-SYNC:  reloading (CSS)');
+                reloadStylesheets();
+                return ref.update({
+                    reload_css: false,
+                    reload: null
+                });
+            }
+
+            //console.log('new',snap.val());
+            //console.log('local',counter);
+
+            if (reload && reload.toString() != counter) {
+                localStorage['livesync'] = reload.toString();
+                console.log('LIVE-SYNC: reloading');
+
+                ref.update({
+                    full_reload: false,
+                    reload: null
+                });
+
+                window.location.reload();
+            }
+            else {
+                console.log('LIVE-SYNC: waiting');
+            }
+        });
+    })();
+</script>

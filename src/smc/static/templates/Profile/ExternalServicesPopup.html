@@ -1,0 +1,36 @@
+<!-- HBSIGNORE -->
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind="title||'[scope.title]'"></h4>
+      </div>
+      <div class="modal-body">
+
+        <p class="external_modal__text">
+          <span ng-show="isSignup">En renseignant votre numéro de téléphone et en cliquant sur le boutton "OK",</span>
+          <span ng-show="isSignin">En cliquant sur le boutton "OK", </span> vous acceptez les
+          <a class="link" ng-click="openCGU()" style="text-decoration: underline;">conditions générales d'utilisation</a> de Shopmycourses et les
+          <a class="link" ng-click="openLemonWayCGU()" style="text-decoration: underline;">conditions générales d'utilisation</a> de Lemon Way, notre prestataire de service de paiement.
+        </p>
+
+        <form name="complete" ng-show="isSignup">
+          <div class="buttons-block">
+            <input type="tel" ng-model="user.phone" name="phone" ng-show="isSignup" required="required" placeholder="Entrez votre numéro de téléphone ici" class="text-center form-control" ng-pattern="/0(6|7)[0-9]{8}/">
+            <hr>
+            <div class="error-message" ng-show="complete.phone.$error.pattern">
+              <span><i class="icon ion-close-circled"></i>Entrez un numéro de mobile valide</span>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-white" ng-click="close()">Retour</a>
+        <a type="button" class="btn btn-blue" ng-click="(!isSignup||(isSignup&&!complete.$invalid)) && ok()" 
+        ng-disabled="isSignup && complete.$invalid">OK</a>
+      </div>
+    </div>
+  </div>
+</div>

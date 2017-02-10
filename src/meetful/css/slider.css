@@ -1,0 +1,26 @@
+.carousel,
+.item
+ {
+    height: 100%;
+    background: white;
+    position: absolute;
+    width: 100%;
+    z-index: -99;
+    min-height: 904px;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position-y: 120px;
+}

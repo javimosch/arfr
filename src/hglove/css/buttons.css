@@ -1,0 +1,68 @@
+  .button__small {
+     height: 50px!important;
+     margin: 0px!important;
+ }
+ 
+ .button__small>p,
+ .button__small>p>a {
+     line-height: 50px!important;
+ }
+ 
+ .button {
+     height: 100px;
+     margin: 0 auto;
+ }
+ 
+ .button-text,
+ .button-text>a {
+     text-align: center;
+     line-height: 100px;
+     font-family: 'Nunito', sans-serif;
+     font-size: 20px;
+     color: white;
+ }
+ 
+
+ 
+ @media only screen and (min-width: 480px) {}
+ 
+ @media only screen and (min-width: 768px) {
+     .button-text {
+         font-size: 30px;
+     }
+     .button {
+         height: 100px;
+         margin: 0 auto;
+     }
+     .button-text {
+         text-align: center;
+         line-height: 100px;
+     }
+ }
+ 
+ @media only screen and (min-width: 1200px) {
+     .button {
+         width: 400px;
+         height: 150px;
+     }
+     .button-text {
+         line-height: 150px;
+     }
+ }
+ 
+ .button__skyblue {
+     background-color: #DC73FF;
+ }
+ .button__darkblue {
+     background-color: #0000FF;
+ }
+ 
+ .button__green {
+     background-color: #FF5C26;
+ }
+ 
+ .button__red {
+     background-color: #FF0000;
+ }
+ 
+ 

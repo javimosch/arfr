@@ -1,0 +1,53 @@
+<!-- HBSIGNORE -->
+<ion-modal-view id="finish-order-modal" ng-controller="OrdersFinishCtrl">
+  <ion-header-bar>
+    <h1 class="title"></h1>
+    <div class="buttons">
+      <button class="button button-icon button-clear icon ion-close-round" ng-click="closeFinishOrderModal()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true" padding="true" class="has-header finish">
+    <ion-slide-box show-pager="false" ng-init="disableSwipe()">
+      <ion-slide>
+        <div ng-show="order.status == 'done' && !order.rated">
+          <span class="title">Noter le liveur</span>
+          <div class="detail">
+            Votre livraison a été effectuée avec succès ? Donnez dès maintenant votre avis sur celui-ci.
+          </div>
+        </div>
+        <div ng-show="order.status != 'done'">
+          <span class="title">Fin de livraison</span>
+          <div class="detail">
+            {{order.buyer_rating ? "Merci d'avoir finalisé la livraison. Communiquez le code ci-dessous au livreur afin qu'il puisse la finaliser également." : "Votre livraison a été effectuée avec succès ? Donnez dès maintenant votre code acheteur à votre livreur pour finaliser la livraison."}}
+          </div>
+          <span class="code">{{ order.validation_code }}</span>
+          <p class="instructions">
+            Communiquez ce code au livreur
+          </p>
+        </div>
+
+        <hr/>
+        <span class="delivery"><i class="ion-android-truck-checked"></i> {{order.deliveryman.firstname}} {{order.deliveryman.lastname}}</span>
+        <div class="stars">
+            <i ng-class="{'icon-smc-star-filled': ratingStar < 1, 'icon-smc-star-filled yellow': ratingStar >= 1}" ng-click="setRatingStar(1)"></i>
+            <i ng-class="{'icon-smc-star-filled': ratingStar < 2, 'icon-smc-star-filled yellow': ratingStar >= 2}" ng-click="setRatingStar(2)"></i>
+            <i ng-class="{'icon-smc-star-filled': ratingStar < 3, 'icon-smc-star-filled yellow': ratingStar >= 3}" ng-click="setRatingStar(3)"></i>
+            <i ng-class="{'icon-smc-star-filled': ratingStar < 4, 'icon-smc-star-filled yellow': ratingStar >= 4}" ng-click="setRatingStar(4)"></i>
+            <i ng-class="{'icon-smc-star-filled': ratingStar < 5, 'icon-smc-star-filled yellow': ratingStar >= 5}" ng-click="setRatingStar(5)"></i>
+        </div>
+        <div class="instructions">{{order.buyer_rating ? "Merci d'avoir noté le livreur" : "Notez votre livreur"}}</div>
+        <button class="button button-positive button-block" ng-click="finalizeDelivery(order)" ng-show="order.status != 'done'">Valider la livraison</button>
+        <button class="button button-positive button-block" ng-click="finalizeDelivery(order)" ng-show="order.status == 'done' && !order.rated">Noter</button>
+      </ion-slide>
+      <ion-slide class="thanks">
+        <div>
+          <div class="title" ng-show="order.status != 'done'">Fin de livraison</div>
+          <div class="title" ng-show="order.status == 'done' && !order.rated">Fin de la notation</div>
+          <div class="mascot"><img src="/img/notifs/commande_terminee.jpg" alt="commande_terminee"></div>
+          <div class="detail">Merci d'avoir fait vos courses avec Shopmycourses.<br>Vous pouvez continuer à siroter votre jus de fruit :)</div>
+          <button class="button button-positive button-block" ng-click="goFinishOrderModal()">Ok</button>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-model-view>

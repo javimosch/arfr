@@ -1,0 +1,161 @@
+<div class="row relative">
+    <div class="title-bar">
+        <div class="col-sm-8 col-md-6">
+            <h2 class="title-bar__title">Détails de la commande</h2>
+        </div>
+        <div class="col-sm-4 col-md-4 col-md-offset-2 col-sm-offset-0">
+            <div class="order__status-wrapper">
+                <h2>Etat:</h2>
+                <h3>Reçue</h3>
+            </div>
+        </div>
+    </div>
+    <img class="booking__static-ad ad-center" src='/img/sample/static_ad.png'>
+</div>
+<div class="row home section col-margin-6">
+    <div class="col-sm-12">
+
+        <div class="row col-margin-6">
+            <div class="col-md-12 col-md-offset-0 col-sm-8 col-sm-offset-2">
+                <label>Adresse  de la commande</label>
+                <input name="addressInput" type="text" class="form-control address" address scope="self" model="data" field="address" placeholder="Rechercher une adresse" change="search(query)">
+                <div class="input-buttons">
+                    <a class="link btn btn-red address__location" ng-click="setAddressFromGeolocation()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                    <a class="link btn btn-red address__home" ng-click="setAddressFromProfile()">Mon adresse&nbsp;<i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-margin-7">
+            <div class="col-sm-12 col-md-4">
+                <div class="panier__wrapper">
+                    <h3 class="panier__title">Monoprix</h3>
+                    <p class="panier__address">20 rue de Faubourg 75010, Paris</p>
+                    <div class="panier__separator"></div>
+                    <ul class="panier__list">
+                        <li class="panier__item">
+                            <div class="panier__product-icon-wrapper">
+                                <img class="panier__product-icon" src="/img/sample/product.jpg" alt="panier product">
+                            </div>
+                            <div class="panier__product__description-wrapper">
+                                <h5 class="panier__product__title">Chips Spicy Lay’s</h5>
+                                <p class="panier__product__description">le paquet de 130 g</p>
+                                <p class="panier__product__price">1.49€</p>
+                            </div>
+                        </li>
+
+                       
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-7 col-md-offset-1">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 col-lg-5 col-lg-offset-0">
+
+                        <div class="livreur__wrapper">
+                            <h4 class="livreur__title">Livreur</h4>
+                            <div class="livreur__avatar-wrapper">
+                                <img class="livreur__avatar" src="/img/sample/avatar2.jpg" alt="Livreur Avatar">
+                            </div>
+                            <h4 class="livreur__status">M. Lucien Bernard</h4>
+                            <p>
+                                <img src="/img/sample/ranking_stars.png">
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+                        <div class="chat__wrapper">
+                            <ul class="chat__list">
+                                <div class="chat__disabled hidden">
+                                    <div class="">
+                                        <span>le chat est activé après la confirmation de la commande</span>
+                                    </div>
+                                </div>
+                                <li class="chat__item chat__item-left">
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="chat__item__avatar-wrapper">
+                                                <img src="/img/sample/avatar2.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="chat__item__message-wrapper">
+                                                <h4>M. Lucien Bernard</h4>
+                                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </li>
+
+                                <li class="chat__item chat__item-right">
+                                    <div class="row">
+                                        <div class="visible-xs-block col-sm-4 col-xs-4 col-xs-offset-8">
+                                            <div class="chat__item__avatar-wrapper">
+                                                <img src="/img/sample/avatar.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="chat__item__message-wrapper">
+                                                <h4>M. François Lopez</h4>
+                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                                    explicabo.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 hidden-xs">
+                                            <div class="chat__item__avatar-wrapper">
+                                                <img src="/img/sample/avatar.jpg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                            <div class="chat__separator"></div>
+                            <div class="chat__input-wrapper">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <button class="btn">Envoyer</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row col-margin-10 ">
+            <div class="col-xs-12 col-sm-12 col-md-4 booking__button-toolbar">
+                 <a href="/html/booking_details_panier.html" ng-click="signInWithEmail()" class="btn btn-blue btn-block btn-lg" ng-disabled="signin.$invalid">Noter le livreur</a>
+
+            </div>
+            <div class="col-sm-12 col-md-6 col-md-offset-2">
+                <div class="booking__frais-livraison">
+                    <p>3.60€<br>Frais de livraison</p>
+                </div>
+                <div class="booking__subtotal">
+                    <p>0.09€<br>Sous-total</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

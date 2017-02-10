@@ -1,0 +1,64 @@
+body {
+    background-color: rgba(1, 263, 2, 0.4);
+}
+
+.fnt-kaushan{
+    font-family: 'Kaushan Script', cursive!important;
+}
+
+.manitas-title {
+    text-align: center;
+    font-size: 12vw;
+    font-family: 'Pacifico', cursive;
+}
+
+.search input, .search button{
+        line-height: 6vw;
+    height: 7vw;
+}
+
+.search input {
+    border: 0px;
+    border-radius: 0px;
+    background: snow;
+    font-size: 2vw;
+}
+
+.search button {
+    border-radius: 0;
+    background: tan;
+    border: 1px solid tan;
+}
+
+.search button:hover,
+.search button:focus {
+    background: tan;
+    border: 1px solid tan;
+    outline: none;
+}
+
+.search button.active.focus,
+.search button.active:focus,
+.search button.active:hover,
+.search button:active.focus,
+.search button:active:focus,
+.search button:active:hover,
+.open>.dropdown-toggle.search button.focus,
+.open>.dropdown-toggle.search button:focus,
+.open>.dropdown-toggle.search button:hover {
+    background: tan;
+    border: 1px solid tan;
+    box-shadow: none;
+    text-decoration: none;
+    outline: none;
+}
+
+.search button span {
+    color: antiquewhite;
+    text-shadow: 1px 1px 1px #5C9978;
+}
+.search button span:hover {
+    color: white;
+    text-shadow: 1px 1px 1px #5C9978;
+}
+

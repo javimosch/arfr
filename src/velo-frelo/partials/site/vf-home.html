@@ -1,0 +1,19 @@
+<div class="container" ng-controller="vf-home-ctrl">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="vf-section">
+                <ul>
+                    <li>
+                        <a href="{{urlRoot}}/booking">Alquilar</a>
+                    </li>
+                     <li>
+                        <a href="{{urlRoot}}/booking">Explorar</a>
+                    </li>
+                     <li ng-show="!logged()">
+                        <a href="{{urlRoot}}/login">Ingresar</a>
+                    </li>
+                </ul>
+            </h1>
+        </div>
+    </div>
+</div>

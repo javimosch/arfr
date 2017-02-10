@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?mvac6e');
+    src:    url('../fonts/icomoon.eot?mvac6e#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?mvac6e') format('truetype'),
+        url('../fonts/icomoon.woff?mvac6e') format('woff'),
+        url('../fonts/icomoon.svg?mvac6e#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-smc"], [class*=" icon-smc"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-smc-shop:before {
+    content: "\e900";
+}
+.icon-smc-truck-checked:before {
+    content: "\e901";
+}
+.icon-smc-clock:before {
+    content: "\e902";
+}
+.icon-smc-rule:before {
+    content: "\e903";
+}
+.icon-smc-star:before {
+    content: "\e904";
+}
+.icon-smc-card:before {
+    content: "\e905";
+}
+.icon-smc-envelop:before {
+    content: "\e906";
+}
+.icon-smc-cart:before {
+    content: "\e907";
+}
+.icon-smc-marker:before {
+    content: "\e908";
+}
+.icon-smc-chat:before {
+    content: "\e90a";
+}
+.icon-smc-wen:before {
+    content: "\e90c";
+}
+.icon-smc-info:before {
+    content: "\e90d";
+}
+.icon-smc-notification:before {
+    content: "\e90e";
+}
+.icon-smc-phone:before {
+    content: "\e90f";
+}
+.icon-smc-cart-alt:before {
+    content: "\e920";
+}
+.icon-smc-cart-cancel:before {
+    content: "\e921";
+}
+.icon-smc-cart-up:before {
+    content: "\e922";
+}
+.icon-smc-cart-down:before {
+    content: "\e923";
+}
+.icon-smc-cart-right:before {
+    content: "\e924";
+}
+.icon-smc-cross:before {
+    content: "\e925";
+}
+.icon-smc-check:before {
+    content: "\e926";
+}
+.icon-smc-truck:before {
+    content: "\e927";
+}
+.icon-smc-provision:before {
+    content: "\e928";
+}
+.icon-smc-profile:before {
+    content: "\e929";
+}
+.icon-smc-chevron-right:before {
+    content: "\e92f";
+}
+.icon-smc-back:before {
+    content: "\e930";
+}
+.icon-smc-star-filled:before {
+    content: "\e931";
+}
+

@@ -1,0 +1,321 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+.bg-black{
+    background:black;
+}
+.bg-orange{
+    background:orange;
+}
+
+.center-block{
+    margin:0 auto;
+}
+
+.margin-left-0{
+    margin-left: 0px;
+}
+.margin-right-1{
+    margin-right: 5px;
+}
+
+.childs-margin-0>*{
+    margin: 0px!important;
+}
+
+.color-black{
+    color:black!important;
+}
+
+.overflow-500{
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.float-right{
+    float:right;
+}
+
+.disable-childs > *{
+    pointer-events: none;
+    tab-index: -1;
+}
+
+.min-width-120{
+    min-width:120px;
+}
+
+.childs-margin-1 > *{
+    margin:5px;
+}
+
+table.minimal{
+    margin: 0px!important;
+    padding: 0px!important;
+}
+table.minimal tr{
+    margin: 0px!important;
+    padding: 0px!important;
+}
+table.minimal td{
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+.no-resize{
+    resize:none;
+}
+.no-bg{
+    background:none;
+}
+
+.lineThrough{
+    text-decoration: line-through;
+}
+
+.borderless{
+    border: none;
+}
+
+.border-sutil{
+    border:1px solid rgba(0,0,0,.1);
+}
+
+.focus-1:focus{
+    /*outline: 5px solid blue;*/
+}
+
+
+.always-on-top{
+    z-index: 9999;
+}
+
+.overlay{
+    overflow:overlay;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.small {
+    font-size: 0.8rem;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.right-1 {
+    right: 5px;
+}
+.left-1{
+    left:5px;
+}
+
+.bottom-1 {
+    bottom: 5px;
+}
+
+.vertical-center {
+    min-height: 100%;
+    /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh;
+    /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
+
+.inline-flex{
+    display: inline-flex;
+}
+.inline-block{
+    display: inline-block;
+}
+
+.inline {
+    display: inline-flex;
+}
+
+@media (max-width: 568px) {
+    .inline.table {
+        display: table;
+    }
+}
+
+.h-padding-2{
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.spacing-1 {
+    padding: 5px;
+}
+
+.spacing-1 {
+    padding: 5px;
+}
+
+.spacing-2 {
+    padding: 10px;
+}
+
+.v-spacing-1 {
+    padding: 5px 0px;
+}
+.padding-0{
+    padding: 0px;
+}
+.h-padding-15{
+    padding-left:15px;
+    padding-right:15px;
+}
+.margin-1{
+    margin:5px;
+}
+.v-margin-1{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.v-margin-2{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.vspacing-2 {
+    padding: 10px 0px;
+}
+
+.relative {
+    position: relative;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.size-medium {
+    min-height: 200px;
+}
+
+
+
+
+.max-size-medium-1{
+    max-width: 300px;
+}
+
+.max-w-100{
+    max-width: 100px;
+}
+.max-w-80{
+    max-width: 80px;
+}
+.max-w-60{
+    max-width: 60px;
+}
+.max-w-120{
+    max-width: 120px;
+}
+.max-w-150{
+    max-width: 150px;
+}
+.max-w-200{
+    max-width: 200px;
+}
+.max-w-300{
+    max-width: 300px;
+}
+.max-w-350{
+    max-width: 350px;
+}
+.max-w-500{
+    max-width: 350px;
+}
+
+.limit-h-200{
+    max-height: 200px;
+}
+.min-height-200{
+   min-height: 200px; 
+}
+.min-height-100{
+   min-height: 100px; 
+}
+
+.top-1{
+    top: 5px;
+}
+
+.padding-0 {
+    padding: 0px!important;
+}
+
+.margin-r-1 {
+    margin-right: 5px;
+}
+
+.spacing-1 {
+    margin: 5px;
+}
+
+.spacing-h-1 {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.spacing-v-1,.v-margin-1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.v-margin-2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+.text-left {
+    text-align: justify;
+}
+
+.text-right {
+    /* text-align: right; */
+}
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.width70p {
+    width: 70%;
+}
+
+.width50p {
+    width: 50%;
+}
+
+.width30p {
+    width: 30%;
+}
+
+.width20p {
+    width: 20%;
+}
+
+.width10p {
+    width: 10%;
+}

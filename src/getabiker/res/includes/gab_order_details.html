@@ -1,0 +1,299 @@
+<div class="" ng-controller="gab_order_details">
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <ol class="breadcrumb">
+                <li><a class="link" ng-click="route('/')">Dashboard</a></li>
+                <li ng-show="isOwner()"><a class="link" ng-click="route('tracking')">Tracking</a></li>
+
+                <li ng-show="!isOwner() && !isAssigned()"><a class="link" ng-click="route('assignment')">Assignment</a></li>
+                <li ng-show="!isOwner() && isAssigned()"><a class="link" ng-click="route('tracking')">Tracking</a></li>
+
+                <li>Order Details</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 padding-none">
+            <div class="panel type-1">
+                <div class="row">
+                    <h2><i class="fa fa-bicycle"></i>Order <span ng-show="isCompleted()">&nbsp;(Completed)</span></h2>
+                    <p ng-cloak ng-show="isOwner() && !isCanceled() && !isCompleted()">
+                        Assign a coursier, track your order and enjoy.
+                    </p>
+                    <p ng-cloak ng-show="!isOwner() && !isCompleted() && !isCanceled()">
+                        Cover this assignment
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 " ng-show="!isOwner()">
+                        <label>Owner</label>
+                        <input type="text" class="form-control" disabled ng-value="ownerLabel()">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <label>Departure</label>
+                        <input type="text" class="form-control" ng-disabled="isAssigned()||!isOwner()" address model="item" field="from" city="city" department="department" region="region" country="country" post-code="postCode">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <label>code / escalier / étage</label>
+                        <input ng-show="item.info.from" type="text" class="form-control" ng-value="item.info.from">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <label>Arrival</label>
+                        <input type="text" class="form-control" ng-disabled="isAssigned()||!isOwner()" address model="item" field="to" city="city" department="department" region="region" country="country" post-code="postCode">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <label>code / escalier / étage</label>
+                        <input ng-show="item.info.to" type="text" class="form-control" ng-value="item.info.to">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 ">
+                        <label>Distance (Estimate)</label>
+                        <input type="text" class="form-control" ng-disabled="true" ng-value="item.google.distance.text">
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label>Duration (Estimate)</label>
+                        <input type="text" class="form-control" ng-disabled="true" ng-value="item.google.duration.text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <label>When</label>
+                            <input pikaday="item.when" ng-disabled="isAssigned()||!isOwner()" class="form-control" theme="diags" ng-attr-min={{datepicker.minDate}} ng-attr-max={{datepicker.maxDate}} placeholder="departure date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <label for="type">Size*</label>
+                            <div class="btn-group" name="type">
+                                <a 
+                                ng-show="isAssigned()"
+                                class="btn btn-default btn-raised disabled" 
+                                ng-bind="s.item.info.size||'not specified'"></a>
+                                
+                                <a ng-show="!isAssigned()"
+                                href="javascript:void(0)" class="btn btn-default btn-raised disabled" 
+                                ng-bind="dropdownLabel('size',orderSizes)"></a>
+                                <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown"
+                                    ng-disabled="isAssigned()"
+                                    aria-expanded="false"><span class="caret"></span><div class="ripple-container"></div></a>
+                                <ul class="dropdown-menu" ng-show="!isAssigned()">
+                                    <li ng-repeat="(code,label) in orderSizes">
+                                        <a class="link" ng-click="dropdownSelect('size',code,label)" ng-bind="label"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <label>Complement d'info</label>
+                            <textarea ng-disabled="!isOwner()" class="form-control" placeholder="Ex: Ring twice"></textarea>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="!isAssigned()" ng-mouseleave="bikerTableHover=false;" ng-mouseover="bikerTableHover=true;">
+                        <div class="col-xs-12 " ng-show="isOwner()">
+                            <hr>
+                            <h4>Bikers
+                            <span ng-show="bikerTableHover || !hasMouse" class="fnt-9">&nbsp;(Doble click on a row to select a biker)</span>
+                            </h4>
+
+
+
+
+                        </div>
+                        <div class="col-xs-12 col-md-6" ng-show="isOwner()">
+                            <gab-order-bikers></gab-order-bikers>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="item._biker._id" ng-mouseleave="examineBikerHover=false;" ng-mouseover="examineBikerHover=true;">
+                        <div class="col-xs-12 ">
+                            <label>Assigned</label>
+                            <span ng-show="examineBikerHover || !hasMouse" class="fnt-9">&nbsp;(Click to view his profile)</span>
+                            <input ng-disabled="false" readonly ng-click="examineBiker()" class="unselectable link form-control" ng-value="item._biker.nickName" />
+
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="ableToCalculatePrices() || hasPrices()">
+
+                        <div class="col-sm-6 col-md-4 col-lg-4">
+                            <label>GAC Fee</label>
+                            <input ng-disabled="true" class="form-control" ng-value="item.commissionPrice.toFixed(2)+' €'" />
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-4">
+                            <label>Coursier Fee</label>
+                            <input ng-disabled="true" class="form-control" ng-value="item.bikerRevenueHT.toFixed(2)+' €'" />
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-4 ">
+                            <label>Total Price</label>
+                            <input ng-disabled="true" class="form-control" ng-value="item.priceTTC.toFixed(2)+' €'" />
+                        </div>
+
+
+                        <div class="col-sm-2 col-md-3 col-lg-3" ng-show="userHasRole('admin')">
+                            <label>Price HT</label>
+                            <input ng-disabled="true" class="form-control" ng-value="item.priceHT" />
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="debriefMode">
+                        <div class="col-xs-12 ">
+                            <label>Your Review</label>
+                            <div>
+                                <i ng-class="reviewStarCls('r',1)" ng-click="starSelect('r',1)" ng-mouseleave="starHover('r',null)" ng-mouseover="starHover('r',1)" aria-hidden="true"></i>
+                                <i ng-class="reviewStarCls('r',2)" ng-click="starSelect('r',2)" ng-mouseleave="starHover('r',null)" ng-mouseover="starHover('r',2)" aria-hidden="true"></i>
+                                <i ng-class="reviewStarCls('r',3)" ng-click="starSelect('r',3)" ng-mouseleave="starHover('r',null)" ng-mouseover="starHover('r',3)" aria-hidden="true"></i>
+                                <span ng-bind="reviewScoreLabel('r')"></span>
+                            </div>
+                            <textarea class="form-control" ng-model="review" ng-placeholder="reviewPlaceholder()"></textarea>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="row" ng-show="hasDebrief()">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Reviews</h4>
+                    </div>
+                </div>
+                <div class="row" ng-show="item.debriefing.biker">
+                    <div class="col-xs-12 ">
+                        <label ng-bind="bikerLabel()+' (The biker) says:'"></label>
+                        <div>
+                            <i ng-class="reviewStarCls('biker',1,item.debriefing.biker.score)" ng-click="starSelect('biker',1)" ng-mouseleave="starHover('biker',null)" ng-mouseover="starHover('biker',1)" aria-hidden="true"></i>
+                            <i ng-class="reviewStarCls('biker',2,item.debriefing.biker.score)" ng-click="starSelect('biker',2)" ng-mouseleave="starHover('biker',null)" ng-mouseover="starHover('biker',2)" aria-hidden="true"></i>
+                            <i ng-class="reviewStarCls('biker',3,item.debriefing.biker.score)" ng-click="starSelect('biker',3)" ng-mouseleave="starHover('biker',null)" ng-mouseover="starHover('biker',3)" aria-hidden="true"></i>
+                            <span ng-bind="reviewScoreLabel('biker',item.debriefing.biker.score)"></span>
+                        </div>
+                        <textarea class="form-control no-resize" ng-disabled="!isBiker()" ng-model="item.debriefing.biker.content" placeholder=""></textarea>
+                    </div>
+                </div>
+                <div class="row" ng-show="item.debriefing.owner">
+                    <div class="col-xs-12 ">
+                        <label ng-bind="ownerLabel()+' (The owner) says:'"></label>
+                        <div>
+                            <i ng-class="reviewStarCls('owner',1,item.debriefing.owner.score)" ng-click="starSelect('owner',1)" ng-mouseleave="starHover('owner',null)" ng-mouseover="starHover('owner',1)" aria-hidden="true"></i>
+                            <i ng-class="reviewStarCls('owner',2,item.debriefing.owner.score)" ng-click="starSelect('owner',2)" ng-mouseleave="starHover('owner',null)" ng-mouseover="starHover('owner',2)" aria-hidden="true"></i>
+                            <i ng-class="reviewStarCls('owner',3,item.debriefing.owner.score)" ng-click="starSelect('owner',3)" ng-mouseleave="starHover('owner',null)" ng-mouseover="starHover('owner',3)" aria-hidden="true"></i>
+                            <span ng-bind="reviewScoreLabel('owner',item.debriefing.owner.score)"></span>
+                        </div>
+                        <textarea class="form-control no-resize" ng-disabled="!isOwner()" ng-model="item.debriefing.owner.content" placeholder=""></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Labels</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.isPaid">
+                        <span class="label label-success">isPaid</span>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.status=='created'">
+                        <span class="label label-default">Created</span>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.status=='assigned'">
+                        <span class="label label-primary">Assigned</span>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.status=='working'">
+                        <span class="label label-info">Working</span>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.status=='delivered'">
+                        <span class="label label-success">Delivered</span>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.status=='delivered'&&!item.isPaid">
+                        <span class="label label-warning">Unpaid</span>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.status=='completed'">
+                        <span class="label label-success">Completed</span>
+                    </div>
+                    <div class="col-xs-12 col-md-12" ng-show="item.status=='canceled'">
+                        <span class="label label-danger">Canceled</span>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <hr>
+                        <h4>Next action</h4>
+                    </div>
+
+                    <div class="col-xs-12 col-md-12">
+                        <div class="alert  alert-info">
+                            <strong>Heads up!</strong>
+                            <span ng-show="item.isPaid"></span>
+                            <span ng-show="item.status=='created'">The order its created, coursiers has to perform an application and the owner of the order has to choice his coursier.</span>
+                            <span ng-show="item.status=='assigned'">Ther owner of the order has assigned the coursier and its time to show the performance.</span>
+                            <span ng-show="item.status=='delivered'"></span>
+                            <span ng-show="item.status=='delivered'&&!item.isPaid">The coursier did his part. Now we are waiting for the owner of the order to pay.</span>
+                            <span ng-show="item.status=='completed'">Both the coursier and owner of the order did his part. Nice done!.</span>
+                            <span ng-show="item.status=='canceled'">It's a pity, there order was somehow canceled</span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-12" ng-show="successInformation()">
+                        <div class="alert  alert-success">
+                            <strong>Hey you!</strong>
+                            <span ng-show="bikerAssignedNotYetSaved()">You just assigned a coursier, save the order to confirm the assignation and give him a green light.</span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-12" ng-show="dangerInformation()">
+                        <div class="alert  alert-danger">
+                            <strong>To know</strong> &nbsp;
+                            <span ng-show="item.info.cancelMotiveCode" ng-bind="cancelMotive()"></span>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="row margin-top-one">
+                    <div class="col-xs-12 ">
+                        <a ng-show="ableToPay()" class="btn btn-success btn-lg center-block link" ng-disabled="!item._id" ng-click="pay()">Pay</a>
+                    </div>
+                    <div class="col-xs-12 " ng-show="!isOwner() && !hasApplied()">
+                        <a class="btn btn-success btn-lg center-block link" ng-disabled="!item._id" ng-click="apply()">Application for Assignment</a>
+
+
+
+                    </div>
+
+                    <div class="col-xs-12" ng-show="bikerCanDebrief()">
+
+                        <a ng-show="!debriefMode" class="btn btn-success btn-lg center-block link" ng-disabled="!item._id" ng-click="activateDebriefMode()">Finish your assignment (Biker)</a>
+                        <a ng-show="debriefMode" class="btn btn-success btn-lg center-block link" ng-disabled="!item._id" ng-click="saveReview('biker')">Send your review (biker)</a>
+                    </div>
+
+                    <div class="col-xs-12 " ng-show="ownerCanDebrief()">
+
+                        <a ng-show="!debriefMode" class="btn btn-success btn-lg center-block link" ng-disabled="!item._id" ng-click="activateDebriefMode()">Review your order (owner)</a>
+                        <a ng-show="debriefMode" class="btn btn-success btn-lg center-block link" ng-disabled="!item._id" ng-click="saveReview('owner')">Send your review (owner)</a>
+                    </div>
+
+
+
+                    <div class="col-xs-12" ng-show="ableToSave()">
+                        <a class="btn btn-primary btn-lg center-block link" ng-click="save()">Save</a>
+                    </div>
+
+                    <div class="col-xs-12" ng-show="isOwner() && ableToCancel()">
+                        <a class="btn btn-danger btn-lg center-block link" ng-click="cancel()">Cancel</a>
+                    </div>
+
+                    <div class="col-xs-12" ng-show="!ableToSave()">
+                        <a class="btn btn-primary btn-lg center-block link" ng-click="route('tracking')">Back to Tracking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

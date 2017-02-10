@@ -1,0 +1,37 @@
+<!-- HBSIGNORE -->
+<div class="row home">
+
+    <div class="col-md-3 visible-md-block visible-lg-block relative">
+        <img class="layout__icon-top-left" src="/img/icon_hand_in_sac_rotated.png" alt="Icon Commande Envoyee">
+    </div>
+
+
+    <div class="col-sm-12 col-md-6">
+
+        <img src="/img/logo_circle_malibu.jpg" class="start__logo img-responsive">
+        <div class="buttons-block">
+
+            <a ng-click="shopDelivery()" ng-if="(currentAvailability.length <= 0)" class="btn btn-red btn-block btn-lg ">Livrer</a>
+            <span ng-if="(currentAvailability.length > 0)">
+          <p class="home__availability-text">
+            Vous avez <span ng-if='currentAvailability.length > 1'>des</span><span ng-if='currentAvailability.length <= 1'>une</span> disponibilité<span ng-if='currentAvailability.length > 1'>s</span> prévue<span ng-if='currentAvailability.length > 1'>s</span>            {{date}} à
+            <span class="shop">{{currentAvailability[0].shop.name}}</span>
+            </p>
+            </span>
+            <a ng-if="deliveryDate.length <= 0 || !currentDelivery.shop_name" ng-click="scheduleOrder()" class="btn btn-red btn-block btn-lg ">Se faire livrer</a>
+
+            <a ng-click="" class="btn btn-red btn-block btn-lg ">Comparer les Prix</a>
+
+
+            <a ng-click="logout()" class="btn btn-white btn-block btn-lg ">Se déconnecter</a>
+
+
+
+        </div>
+
+        <img class="layout__icon-bottom-right visible-md-block visible-lg-block" src="/img/icon_hero_drinking.png" alt="Icon Hero Drinking Juice">
+    </div>
+    <div class="col-md-3 visible-md-block visible-lg-block relative">
+    </div>
+
+</div>

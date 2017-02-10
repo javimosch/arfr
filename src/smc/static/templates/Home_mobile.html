@@ -1,0 +1,32 @@
+<!-- HBSIGNORE -->
+<ion-view id="home" title="Accueil" hide-back-button="true">
+  <ion-nav-buttons side="right">
+    <notifications></notifications>
+  </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="logo-centered">
+            <img src="/img/logo.png"></i>
+        </div>
+        <!-- <div>
+            <span class="baseline">Vos courses livrées, avec Shop My Courses</p>
+        </div> -->
+        <button class="button button-stable button-block icon-right ion-chevron-right" ng-click="shopDelivery()" ng-if="(currentAvailability.length <= 0)">Livrer</button>
+        <span ng-if="(currentAvailability.length > 0)">
+          <p>
+            Vous avez <span ng-if='currentAvailability.length > 1'>des</span><span ng-if='currentAvailability.length <= 1'>une</span> disponibilité<span ng-if='currentAvailability.length > 1'>s</span> prévue<span ng-if='currentAvailability.length > 1'>s</span> {{date}} à
+            <span class="shop">{{currentAvailability[0].shop.name}}</span>
+          </p>
+        </span>
+        <button class="button button-stable button-block icon-right ion-chevron-right" ng-click="cancelAvailability()" ng-if="(currentAvailability.length > 0)">Annuler <span ng-if='currentAvailability.length <= 1'>cette</span><span ng-if='currentAvailability.length > 1'>ces</span> disponibilité<span ng-if='currentAvailability.length > 1'>s</soan></button>
+        <button class="button button-stable button-block icon-right ion-chevron-right" ng-if="deliveryDate.length <= 0 || !currentDelivery.shop_name" ng-click="scheduleOrder()">Se faire livrer</button>
+        <span ng-if="(deliveryDate.length > 0 && currentDelivery.shop_name)">
+          <p>
+            Vous avez demandé une livraison {{deliveryDate}} correspondant à
+            <span class="shop">{{currentDelivery.shop_name}}</span>
+          </p>
+        </span>
+        <button class="button button-stable button-block icon-right ion-chevron-right" ng-if="deliveryDate.length > 0 && currentDelivery.shop_name" ng-click="cancelDeliveryRequest(currentDelivery.delivery_request_id)">Annuler ma demande</button>
+    </ion-content>
+</ion-view>
+
+
