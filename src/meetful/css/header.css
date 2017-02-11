@@ -9,8 +9,8 @@
 }
 
 .nav__logo {
-    height: 135px;
-    margin-top: -25px;
+    height: 90px;
+    margin-top: 15px;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -31,9 +31,7 @@
     color: white;
 }
 
-.navbar-default .navbar-nav > li > a.btn:hover,
-.navbar-default .navbar-nav > li > a.btn:active:hover
- {
+.navbar-default .navbar-nav > li > a.btn:hover, .navbar-default .navbar-nav > li > a.btn:active:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(51, 51, 51);
     border-color: rgb(51, 51, 51);
@@ -84,6 +82,13 @@
  
     .navbar-nav {
         margin-top: 36px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+ 
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        background-color: transparent;
     }
 }
 
