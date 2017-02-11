@@ -23,6 +23,7 @@ angular.module('app', [
     'directive-user-listview',
     'directive-log-listview',
     'directive-prerender-listview',
+    'directive-static-href',
     
     'service_file-upload',
     'service-app-basic-crud',

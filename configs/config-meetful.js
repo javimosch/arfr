@@ -64,6 +64,14 @@ module.exports = {
             en: "My events",
             es: "Mis eventos"
         },
+        NAV_HOME:{
+          en:"Home",
+          es:"Inicio"
+        },
+        ROUTE_HOME: {
+            en: "home",
+            es: "inicio"
+        },        
         ROUTE_EXPLORE: {
             en: "explore-events",
             es: "explorar-eventos"

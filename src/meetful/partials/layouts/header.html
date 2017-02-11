@@ -13,12 +13,20 @@
                 </div>
                 <div class="collapse navbar-collapse" id="nav">
                     <ul class="nav navbar-nav">
-                        
-                        <li ng-class="{ active: isActive('{{i18n 'ROUTE_EXPLORE'}}')}">
-                            <a href="/{{i18n 'ROUTE_EXPLORE'}}"  class="link">{{i18n 'NAV_EXPLORE'}}</a>
+
+                       
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--
+                        <li ng-class="{ active: isActive('{{i18n 'ROUTE_HOME'}}')}">
+                            <a href="/{{i18n 'ROUTE_HOME'}}" class="link">{{i18n 'NAV_HOME'}}</a>
+                        </li>
+                        -->
+                         <li ng-class="{ active: isActive('{{i18n 'ROUTE_EXPLORE'}}')}">
+                            <a href="/{{i18n 'ROUTE_EXPLORE'}}" class="link">{{i18n 'NAV_EXPLORE'}}</a>
                         </li>
                         <li ng-class="{ active: isActive('about-us')}">
-                            <a ng-click="route('{{i18n 'ROUTE_ABOUT_US'}}')" class="link">{{i18n 'NAV_ABOUT_US'}}</a>
+                            <a href="/{{i18n 'ROUTE_ABOUT_US'}}" static-href="/{{i18n 'ROUTE_ABOUT_US'}}" class="link">{{i18n 'NAV_ABOUT_US'}}</a>
                         </li>
                         <!--
                         <li ng-class="{ active: isActive('{{i18n 'ROUTE_CREATE_EVENT'}}')}">
@@ -31,11 +39,14 @@
                         <li ng-class="{ active: isActive('{{i18n 'ROUTE_GET_IN_TOUCH'}}')}">
                             <a href="/{{i18n 'ROUTE_GET_IN_TOUCH'}}" class="link">{{i18n 'NAV_GET_IN_TOUCH'}}</a>
                         </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                        
                         <li ng-cloak data-active="{{i18n 'ROUTE_SIGN_IN'}}" ng-show="!isLogged()">
-                            <a href="/{{i18n 'ROUTE_SIGN_IN'}}">{{i18n 'NAV_SIGN_IN'}}</a>
+                            <a href="/{{i18n 'ROUTE_SIGN_IN'}}" class="btn btn-primary">{{i18n 'NAV_SIGN_IN'}}</a>
+                            
+                            
                         </li>
+                        
+                        
                         <li ng-class="{ active: isActive('{{i18n 'ROUTE_DASHBOARD'}}')}" ng-cloak ng-show="isLogged()">
                             <a href="/{{i18n 'ROUTE_DASHBOARD'}}">{{i18n 'NAV_DASHBOARD'}}</a>
                         </li>
@@ -48,28 +59,22 @@
         </nav>
     </header>
 </div>
-
-
-
-<script type="text/javascript">
-    /*
-        var defaultRoute = 'about-us';
-
-        function onHashChange() {
-            var n = window.location.href;
-            if (n.charAt(n.length - 1) == '/') n = n.substring(0, n.length - 1);
-            n = n.substring(n.lastIndexOf('/')).replace('/', '');
-            console.log('active-url', n);
-            n = n || defaultRoute;
-            if (n == window.location.href) n = defaultRoute;
-            [].slice.call(document.querySelector('#navbar').querySelectorAll('li')).forEach(function(elem) {
-                if (elem.dataset.active) {
-                    if (elem.dataset.active.toLowerCase() == n) {
-                        elem.className = elem.className.replace('active', '').trim() + ' active';
-                    }
-                }
-            })
-        }
-        onHashChange();
-        $($).bind('onHashChange',onHashChange);*/
-</script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-xs-12">
+            <div class="panel panel-alert">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="alert alert-header">
+                            <h2>Meetful esta llegando !</h2>
+                            <p>
+                                No ves ningun evento o no puedes registrarte ? Todavia estamos arreglando unos detalles.
+                                <br>Si quieres participar no olvides <a href="/suscribite">suscribirte</a> y te mantendremos informado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -59,6 +59,4 @@ angular.module('run-api-meetful-event', []).run(['$rootScope', '$log', 'appUtils
 
     appApi.addController(CONTROLLER_NAME, COLLECTION_NAME, CUSTOM_ACTIONS);
     appApi.addController('meetfulEventMessages', 'meetfulEventMessages');
-
-    $log.debug('DEBUG ', CONTROLLER_NAME, 'CONTROLLER LOADED!');
 }]);

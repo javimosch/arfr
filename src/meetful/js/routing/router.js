@@ -6,6 +6,9 @@ angular.module('config_app_router', []).config(['$routeProvider', '$locationProv
         if(window.__settings && window.__settings.isApp==false) return;
         
         $routeProvider.
+        when('/' + i18n.ROUTE_HOME, {
+            templateUrl: '/includes/home.html'
+        }).
         when('/' + i18n.ROUTE_DASHBOARD, {
             templateUrl: '/includes/dashboard.html'
         }).
@@ -58,12 +61,15 @@ angular.module('config_app_router', []).config(['$routeProvider', '$locationProv
         }).
         when('/task/:id', {
             templateUrl: '/includes/task.html'
-        }).
+        });
         
-        
+        /*
         otherwise({
             redirectTo: '/' + i18n.ROUTE_SIGN_IN
         });
+        */
+        
+        
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
