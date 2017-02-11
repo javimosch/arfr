@@ -202,7 +202,7 @@ module.exports = {
         },
         TEXT_SUBSCRIBE: {
             en: "Subscribe",
-            es: "Suscribete"
+            es: "Suscríbete"
         },
         TEXT_SUBSCRIBE_SUCCESS: {
             en: "Thanks for subscribe, you will receive info when we finish to cook the site",
