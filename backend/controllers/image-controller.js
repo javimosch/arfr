@@ -4,7 +4,7 @@ const del = require('del');
 
 
 
-var Logger = controllers.log.createLogger({
+var Logger = controllers.logs.createLogger({
     name: "API",
     category: "IMAGE"
 });

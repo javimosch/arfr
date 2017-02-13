@@ -8,6 +8,8 @@ var replaceAll = require('./utils').replaceAll;
 var fs = require('fs');
 var co = require('co');
 
+const LOG_CONTROLLER_NAME = 'logs';
+
 var EXPORT = {
     _co: function(coFn, cb, logger) {
         co(coFn).catch(res => {
@@ -23,7 +25,7 @@ var EXPORT = {
 };
 module.exports = EXPORT;
 
-var LoggerController = create('Log').createLogger({
+var LoggerController = create(LOG_CONTROLLER_NAME).createLogger({
     name: "API",
     category: "Controllers"
 });
@@ -150,7 +152,7 @@ function create(name) {
 }
 
 
-var LoggerResponse = create('Log').createLogger({
+var LoggerResponse = create(LOG_CONTROLLER_NAME).createLogger({
     name: "API",
     category: "ACTION/RESPONSE"
 });

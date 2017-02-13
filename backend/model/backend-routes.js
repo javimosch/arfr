@@ -100,7 +100,7 @@ exports.configure = function(app) {
 
         controllers._markAsSchemeless(['email', 'stats', 'css', 'file', 'image']);
         controllers._start().then(function() {
-            Logger = controllers.log.createLogger({
+            Logger = controllers.logs.createLogger({
                 name: "API",
                 category: "ROUTER"
             });

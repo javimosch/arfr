@@ -10,16 +10,13 @@ var Schema = mongoose.Schema;
 var LOCAL = process.env.LOCAL && process.env.LOCAL.toString() == '1' || false;
 var Promise = require('./utils').promise;
 // Build the connection string 
-var dbURI = 'mongodb://root:root@ds011452.mlab.com:11452/manitas';
-
-
-
-if (LOCAL) {
-    dbURI = 'mongodb://localhost:27017/scotchbox';
-}
+var dbURI = null;
 
 if (process.env.dbURI) {
     dbURI = process.env.dbURI || dbURI;
+}else{
+    console.log('dbURI required !');
+    return process.exit(1);
 }
 
 

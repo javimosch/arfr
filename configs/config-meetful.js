@@ -24,6 +24,7 @@ module.exports = {
         //'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js',
         'https://cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js',
         'https://maps.googleapis.com/maps/api/js?libraries=places'
         //&amp;key=AIzaSyB8riHvf4BwR7qOmAARsB3XRcRfueneUOs
     ],

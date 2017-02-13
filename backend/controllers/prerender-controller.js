@@ -5,7 +5,7 @@ const replaceAll = require('../model/utils').replaceAll;
 const Promise = require('../model/utils').promise;
 var sander = require('sander');
 
-var Logger = controllers.log.createLogger({
+var Logger = controllers.logs.createLogger({
     name: "API",
     category: "PRERENDER"
 });

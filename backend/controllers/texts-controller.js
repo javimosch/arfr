@@ -1,28 +1,49 @@
-var ctrl = require('../model/backend-controllers-manager').create;
-var Notification = require('../model/backend-mongoose-wrapper').create('Notification');
-var UserNotifications = require('../model/backend-mongoose-wrapper').create('UserNotifications');
-var User = require('../model/backend-mongoose-wrapper').create('User');
-var Order = require('../model/backend-mongoose-wrapper').create('Order');
-var Log = require('../model/backend-mongoose-wrapper').create('Log');
-var Text = require('../model/backend-mongoose-wrapper').create('Text');
-var Category = require('../model/backend-mongoose-wrapper').create('Category');
+var controllers = require('../model/backend-controllers-manager');
+var sander = require('sander');
 var moment = require('moment');
 var S = require('string');
 var btoa = require('btoa')
 var _ = require('lodash');
 var modelName = 'text';
-var cbHell = require('../model/utils').cbHell;
-var actions = {
-    log: (m) => {
-        console.log(modelName.toUpperCase() + ': ' + m);
-    }
-};
+var path = require('path');
+
+var Logger = controllers.logs.createLogger({
+    name: "API",
+    category: "TEXTS"
+});
+
 module.exports = {
-    reportNotFound: reportNotFound,
-    import: _import,
-    importAll: _importAll
+    setupMultilanguageTexts: setupMultilanguageTexts
 };
 
+function setupMultilanguageTexts(data, cb) {
+    //Grab i18n static text from app config, if any, and save to texts. i18n category required.
+
+    if (!data.appName) return cb('appName required.');
+
+    return controllers.categories.get({
+        code: 'i18n'
+    }, (err, _category) => {
+        if (err) return cb(err);
+        if (!_category) {
+            return cb('i18n category required.');
+        }
+
+        Logger.log('fetching config for ',data.appName);
+        sander.readFile(path.join(process.cwd(), 'configs/config-', data.appName)).then((content) => {
+
+            cb({
+                msg: "Check dev console",
+                config: content
+            });
+        });
+
+
+
+    });
+}
+
+/*
 function _importAll(data, cb) {
     actions.log('IMPORT_ALL:start');
     if (!data.items) return cb('IMPORT_ALL:data.items-expected');
@@ -116,3 +137,4 @@ function reportNotFound(data, cb) {
         }, ['code']);
     }
 }
+*/

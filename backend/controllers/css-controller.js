@@ -1,7 +1,6 @@
-var CTRL = require('../model/backend-controllers-manager');
+var controllers = require('../model/backend-controllers-manager');
 var atob = require('atob');
-var Log = CTRL.log;
-var Logger = Log.createLogger({
+var Logger = controllers.logs.createLogger({
     name: "API",
     category: "CSS"
 });

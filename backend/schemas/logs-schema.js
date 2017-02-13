@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = {
-    name:'log',
+    name:'logs',
     def: {
         category:{
           type:String,

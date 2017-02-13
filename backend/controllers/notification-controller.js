@@ -4,7 +4,7 @@ var User = require('../model/backend-mongoose-wrapper').create('User');
 var Order = require('../model/backend-mongoose-wrapper').create('Order');
 
 const controllers = require('../model/backend-controllers-manager');
-var Log = controllers.log;
+
 
 
 
@@ -22,7 +22,7 @@ var actions = {
 
 var MODULE = 'Notification';
 
-var Logger = Log.createLogger({
+var Logger = controllers.logs.createLogger({
     name: "API",
     category: "NOTIFICATION"
 });

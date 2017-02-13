@@ -24,6 +24,7 @@ angular.module('app', [
     'directive-log-listview',
     'directive-prerender-listview',
     'directive-static-href',
+    'directive-i18n-listview',
     
     'service_file-upload',
     'service-app-basic-crud',
@@ -53,7 +54,9 @@ angular.module('app', [
     'ctrl-bo-home',
     'ctrl-bo-log',
     'ctrl-bo-user',
-    'ctrl-bo-prerender'
+    'ctrl-bo-prerender',
+    'ctrl-bo-i18n',
+    'ctrl-bo-setup'
 ]);
 
 /*global angular*/

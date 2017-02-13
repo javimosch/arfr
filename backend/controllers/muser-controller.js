@@ -1,6 +1,7 @@
 "use strict"
 var User = require('../model/mongorito-schemas').MUser;
 var db = require('../model/backend-database');
+const controllers = require('../model/backend-controllers-manager');
 
 //db.Mongorito.connect(db.dbURI);
 
@@ -13,7 +14,7 @@ module.exports = {
 function saveProfile(data, cb) {
     if (!data.email) return cb('Email required');
     if (!data.password) return cb('Password required');
-    var editables = ['first_name', 'last_name','roles'];
+    var editables = ['first_name', 'last_name', 'roles'];
     db.co(function*() {
         var count = yield User.count({
             email: data.email,
@@ -40,6 +41,34 @@ function saveProfile(data, cb) {
 function signUp(data, cb) {
     if (!data.email) return cb('Email required');
     if (!data.password) return cb('Password required');
+
+    return controllers.muser.model.count({
+        email: data.email
+    }, (err, count) => {
+        if (err) return cb(err);
+        if (!count || count < 1) {
+            controllers.muser.save(data, cb);
+        }
+        else {
+
+            return controllers.muser.get({
+                email: data.email
+            }, (err, _user) => {
+                if (err) return cb(err);
+
+                return cb({
+                    code: 'VALIDATE_EMAIL_IN_USE',
+                    message: 'There is already an account linked to ' + data.email,
+                    count: count,
+                    user: _user
+                });
+            });
+
+
+        }
+
+    });
+
     db.co(function*() {
 
         var count = yield User.count({
@@ -49,7 +78,7 @@ function signUp(data, cb) {
             return cb({
                 code: 'VALIDATE_EMAIL_IN_USE',
                 message: 'There is already an account linked to ' + data.email,
-                count:count
+                count: count
             });
         }
 

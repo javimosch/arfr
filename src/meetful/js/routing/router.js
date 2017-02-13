@@ -2,9 +2,9 @@
 /*global i18n*/
 angular.module('config_app_router', []).config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
-        
-        if(window.__settings && window.__settings.isApp==false) return;
-        
+
+        if (window.__settings && window.__settings.isApp == false) return;
+
         $routeProvider.
         when('/' + i18n.ROUTE_HOME, {
             templateUrl: '/includes/home.html'
@@ -36,23 +36,29 @@ angular.module('config_app_router', []).config(['$routeProvider', '$locationProv
         when('/' + i18n.ROUTE_SUBSCRIBE, {
             templateUrl: '/includes/subscribe.html'
         }).
-        
-         when('/backoffice', {
+
+        when('/backoffice', {
             templateUrl: '/includes/bo-home.html'
         }).
-         when('/backoffice/users/:id', {
+        when('/backoffice/setup', {
+            templateUrl: '/includes/bo-setup.html'
+        }).
+        when('/backoffice/users/:id', {
             templateUrl: '/includes/bo-users.html'
         }).
-         when('/backoffice/logs/:id', {
+        when('/backoffice/logs/:id', {
             templateUrl: '/includes/bo-logs.html'
         }).
-         when('/backoffice/prerenders/:id', {
+        when('/backoffice/prerenders/:id', {
             templateUrl: '/includes/bo-prerenders.html'
         }).
-        
-        
-        
-        
+        when('/backoffice/i18n/:id', {
+            templateUrl: '/includes/bo-i18n.html'
+        }).
+
+
+
+
         when('/project-manager', {
             templateUrl: '/includes/project-manager.html'
         }).
@@ -62,14 +68,14 @@ angular.module('config_app_router', []).config(['$routeProvider', '$locationProv
         when('/task/:id', {
             templateUrl: '/includes/task.html'
         });
-        
+
         /*
         otherwise({
             redirectTo: '/' + i18n.ROUTE_SIGN_IN
         });
         */
-        
-        
+
+
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false

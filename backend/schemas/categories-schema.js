@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = {
+    name:'categories',
     def: {
         _parent: {
             type: Schema.Types.ObjectId,
-            ref: 'Category',
+            ref: 'categories',
             required: false
         },
         code: {

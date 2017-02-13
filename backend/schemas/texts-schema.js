@@ -18,7 +18,7 @@ module.exports = {
             required: false
         },
         content: {
-            type: String,
+            type: {},
             required: true
         },
         updatedByHuman: {

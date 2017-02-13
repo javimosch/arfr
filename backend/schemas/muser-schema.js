@@ -13,15 +13,15 @@ module.exports = {
         },
         first_name: {
             type: String,
-            required: true
+            required: false
         },
         last_name: {
             type: String,
-            required: true
+            required: false
         },
         roles: [{
             type: String,
-            required: true
+            required: false
         }],
         pictures: {
             type: {},

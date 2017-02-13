@@ -6,7 +6,8 @@ angular.module('app_api', ['app_utils']).service('appApi', ['$rootScope', '$log'
 
 
     const CONSTANT = {
-        COMMON_DATABSAE_ACTIONS: ['get', 'getAll', 'save', 'update', 'getById', 'exists', 'removeWhen', 'updateOrPushArrayElement','modelCustom','aggregate']
+        COMMON_DATABASE_ACTIONS: ['get', 'getAll', 'save', 'update', 'getById', 'exists', 'removeWhen', 'updateOrPushArrayElement', 'modelCustom', 'aggregate'],
+        COMMON_DATABASE_CONTROLLERS: ['categories', 'texts']
     };
 
     function getLemonwayMessage(res) {
@@ -99,7 +100,7 @@ angular.module('app_api', ['app_utils']).service('appApi', ['$rootScope', '$log'
     function createActions(collectionName, includeClientSideCustomApiActions) {
         includeClientSideCustomApiActions = includeClientSideCustomApiActions == undefined ? true : includeClientSideCustomApiActions;
         var self = {};
-        var actions = CONSTANT.COMMON_DATABSAE_ACTIONS;
+        var actions = CONSTANT.COMMON_DATABASE_ACTIONS;
 
         for (var x in actions) {
             (function(collectionName, actionName) {
@@ -118,6 +119,10 @@ angular.module('app_api', ['app_utils']).service('appApi', ['$rootScope', '$log'
                 };
             });
         }
+
+        self.custom = (actionName, data) => {
+            return handle(collectionName, actionName, data);
+        };
 
         return self;
     }
@@ -231,6 +236,12 @@ angular.module('app_api', ['app_utils']).service('appApi', ['$rootScope', '$log'
             return handle('muser', 'signIn', data);
         }
     };
+
+    CONSTANT.COMMON_DATABASE_CONTROLLERS.forEach((controllerName) => {
+        self.addController(controllerName, controllerName);
+    });
+
+
     $rootScope._appApi = self;
     return self;
 

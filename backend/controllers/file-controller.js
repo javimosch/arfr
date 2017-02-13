@@ -1,7 +1,7 @@
 var req = (n) => require('../model/' + n);
 var atob = require('atob'); //decode
 var btoa = require('btoa'); //encode
-var ctrl = null;
+var controllers = null;
 var Grid = require('gridfs-stream');
 var fs = require('fs');
 var path = require("path");
@@ -9,7 +9,22 @@ var generatePassword = require("password-maker");
 //var inspect = require('util').inspect;
 var utils = require('../model/utils');
 var modelName = 'file';
-var conn, gfs, mongoose, actions; //Schema
+var conn, gfs, mongoose;
+
+var Logger = null;
+
+var actions = {
+    log: (msg) => {
+        if (!Logger) {
+            Logger = controllers.logs.createLogger({
+                name: "API",
+                category: "FILES"
+            });
+        }
+        Logger.log(msg);
+    }
+};
+
 var configure = (m) => {
     mongoose = m;
     Grid.mongo = mongoose.mongo;
@@ -19,7 +34,7 @@ var configure = (m) => {
 };
 var configureActions = () => {
     actions = req('backend-mongoose-wrapper').create('File', mongoose);
-    ctrl = req('backend-controllers-manager').create;
+    controllers = req('backend-controllers-manager');
 };
 
 module.exports = {
@@ -32,7 +47,7 @@ module.exports = {
     get: get,
     save: save,
     removeAll: removeAll,
-    getAll: getAll,
+    //getAll: getAll,
     stream
 };
 
@@ -114,7 +129,7 @@ function stream(data, cb, req, res) {
 }
 
 function getAll(data, cb) {
-    ctrl('File').find({}, (err, files) => {
+    controllers.files.find({}, (err, files) => {
         if (err) return cb(err);
         ctrl('User').getAll({
             userType: 'diag',

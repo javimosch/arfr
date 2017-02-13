@@ -1,6 +1,6 @@
 /*global angular*/
-angular.module('directive-log-listview', ['directive_dynamic_table'])
-    .directive('logListview', function(
+angular.module('directive-i18n-listview', ['directive_dynamic_table'])
+    .directive('i18nListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi,i18n) {
         return {
             restrict: 'AE',
@@ -11,8 +11,7 @@ angular.module('directive-log-listview', ['directive_dynamic_table'])
             controller: function($scope, $element, $attrs, $transclude) {
                 var r = $rootScope,
                     s = $scope,
-                    dbPaginate = appApiPaginator.createFor('log');
-                
+                    dbPaginate = appApiPaginator.createFor('texts');
                 window._logs = s;
 
 
