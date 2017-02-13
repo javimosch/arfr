@@ -11,7 +11,7 @@ angular.module('directive-log-listview', ['directive_dynamic_table'])
             controller: function($scope, $element, $attrs, $transclude) {
                 var r = $rootScope,
                     s = $scope,
-                    dbPaginate = appApiPaginator.createFor('log');
+                    dbPaginate = appApiPaginator.createFor('logs');
                 
                 window._logs = s;
 

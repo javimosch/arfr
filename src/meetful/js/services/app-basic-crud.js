@@ -10,6 +10,7 @@ angular.module('service-app-basic-crud', []).service('appBasicCrud', ['$rootScop
     };
     var self = function(settings) {
         var s = settings.scope;
+        s.isBasicCrud = true;
         s.data = {};
         s.save = function() {
             //if (!s.data.address) return appGui.warningMessage(MESSAGE.ADDRESS_REQUIRED);
@@ -40,12 +41,22 @@ angular.module('service-app-basic-crud', []).service('appBasicCrud', ['$rootScop
                 return settings.$routeParams && settings.$routeParams.id;
             }
         }
+
+        function onFetchSuccess(result) {
+            s.data = result;
+            appRouter.clearItem();
+        }
+
         var _id = get_id();
         if (_id && _id.toString() != '-1' && _id.toString() != 'new') {
-            appApi.getById(settings.collectionName, _id, Object.assign({}, settings.payloads && settings.payloads.get || {})).then(function(result) {
-                s.data = result;
-                appRouter.clearItem();
-            });
+            var payload = Object.assign({}, settings.payloads && settings.payloads.get || {});
+            if (!settings.get || !settings.get.field) {
+                appApi.getById(settings.collectionName, _id, payload).then(onFetchSuccess);
+            }
+            else {
+                payload[settings.get.field] = _id;
+                appApi.ctrl(settings.collectionName, 'get', payload).then(onFetchSuccess);
+            }
             s._isDetailView = true;
             s.$emit('basic-crud-loaded');
         }

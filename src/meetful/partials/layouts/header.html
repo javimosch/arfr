@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="nav">
     <header>
-        <nav class="navbar navbar-default" id="navbar" ng-controller="nav">
+        <nav class="navbar navbar-default" id="navbar">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
@@ -14,7 +14,7 @@
                 <div class="collapse navbar-collapse" id="nav">
                     <ul class="nav navbar-nav">
 
-                       
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!--
@@ -22,7 +22,7 @@
                             <a href="/{{i18n 'ROUTE_HOME'}}" class="link">{{i18n 'NAV_HOME'}}</a>
                         </li>
                         -->
-                         <li ng-class="{ active: isActive('{{i18n 'ROUTE_EXPLORE'}}')}">
+                        <li ng-class="{ active: isActive('{{i18n 'ROUTE_EXPLORE'}}')}">
                             <a href="/{{i18n 'ROUTE_EXPLORE'}}" class="link">{{i18n 'NAV_EXPLORE'}}</a>
                         </li>
                         <li ng-class="{ active: isActive('about-us')}">
@@ -39,14 +39,14 @@
                         <li ng-class="{ active: isActive('{{i18n 'ROUTE_GET_IN_TOUCH'}}')}">
                             <a href="/{{i18n 'ROUTE_GET_IN_TOUCH'}}" class="link">{{i18n 'NAV_GET_IN_TOUCH'}}</a>
                         </li>
-                        
+
                         <li ng-cloak data-active="{{i18n 'ROUTE_SIGN_IN'}}" ng-show="!isLogged()">
                             <a href="/{{i18n 'ROUTE_SIGN_IN'}}" class="btn btn-primary">{{i18n 'NAV_SIGN_IN'}}</a>
-                            
-                            
+
+
                         </li>
-                        
-                        
+
+
                         <li ng-class="{ active: isActive('{{i18n 'ROUTE_DASHBOARD'}}')}" ng-cloak ng-show="isLogged()">
                             <a href="/{{i18n 'ROUTE_DASHBOARD'}}">{{i18n 'NAV_DASHBOARD'}}</a>
                         </li>
@@ -58,25 +58,26 @@
             </div>
         </nav>
     </header>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12 col-xs-12">
-            <div class="panel panel-alert">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-xs-12">
-                        <div class="alert alert-header">
-                            <h2>Meetful esta llegando !</h2>
-                            <p>
-                                No ves ningun evento o no puedes registrarte ? Todavia estamos arreglando unos detalles.
-                                <br>Si quieres participar no olvides <a href="/{{i18n 'ROUTE_SUBSCRIBE'}}">suscribirte</a> y te mantendremos informado.
-                            </p>
+    <div class="container-fluid" ng-cloak ng-show="!isBackoffice()">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="panel panel-alert">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="alert alert-header">
+                                    <h2>Meetful esta llegando !</h2>
+                                    <p>
+                                        No ves ningun evento o no puedes registrarte ? Todavia estamos arreglando unos detalles.
+                                        <br>Si quieres participar no olvides <a href="/{{i18n 'ROUTE_SUBSCRIBE'}}">suscribirte</a> y te mantendremos informado.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>

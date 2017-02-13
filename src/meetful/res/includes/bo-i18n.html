@@ -6,7 +6,7 @@
                     <a ng-show="isAdmin()" href="/backoffice" class="btn btn-primary">Backoffice</a>
                 </div>
                 <div class="col-xs-6 col-md-2" ng-cloak ng-show="isEdit()">
-                    <a ng-show="isAdmin()" href="/backoffice/logs/-1" class="btn btn-primary">i18n Registries</a>
+                    <a ng-show="isAdmin()" href="/backoffice/i18n/-1" class="btn btn-primary">i18n Registries</a>
                 </div>
             </div>
         </div>
@@ -14,25 +14,21 @@
     <div class="col-lg-12 col-xs-12" ng-cloak ng-show="!isDetailView()">
         <div class="panel">
             <h2>i18n Registries</h2>
-            <log-listview></log-listview>
+            <i18n-listview></i18n-listview>
         </div>
     </div>
     <div class="col-lg-12 col-xs-12" ng-cloak ng-show="isDetailView()">
         <div class="panel">
-            <h2>Log detail</h2>
+            <h2>i18n item details</h2>
             <div class="row">
-                <div class="col-sm-12 col-md-12">
-                    <input ng-readonly="true" type="text" class="form-control input-md" ng-value="'Category '+data.category">
+                <div class="col-sm-12 col-md-6">
+                    <input ng-readonly="false" class="form-control input-md" ng-model="data.code" placeholder="Code (required)">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <textarea ng-readonly="true" class="form-control input-md" ng-bind="data.message|json" placeholder="empty message..."></textarea>
+                    <textarea ng-readonly="false" class="form-control input-md" ng-bind="data.content|json" placeholder="empty message..."></textarea>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <textarea ng-readonly="true" class="form-control input-md" ng-bind="data.data|json" placeholder="empty data..."></textarea>
-                </div>
-
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12">

@@ -6,6 +6,8 @@ angular.module('ctrl_nav', []).controller('nav', ['$scope', '$rootScope', 'appAp
         var target = this;
         return target.replace(new RegExp(search, 'g'), replacement);
     };
+    
+    s.isBackoffice = ()=>appRouter.currentPath.indexOf('backoffice')!==-1;
 
     s.isLogged = function() {
         return appSession.isLogged();

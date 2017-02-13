@@ -3,7 +3,7 @@ angular.module('ctrl-bo-log', []).controller('ctrl-bo-log', ['$scope', '$rootSco
     window.s = s;
 
     appBasicCrud({
-        collectionName:"log",
+        collectionName:"logs",
         scope: s,
         $routeParams:$routeParams,
         actions:{

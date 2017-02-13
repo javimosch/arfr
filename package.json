@@ -97,6 +97,7 @@
     "relative-path": "^1.1.0",
     "remove-html-comments": "^1.0.2",
     "request": "^2.69.0",
+    "require.async": "^0.1.1",
     "sander": "^0.5.1",
     "shortid": "^2.2.6",
     "simple-node-logger": "^0.93.14",

@@ -142,7 +142,7 @@ angular.module('app_api', ['app_utils']).service('appApi', ['$rootScope', '$log'
             }
             self[controllerName] = createActions(collectionName);
         },
-        ctrl: json,
+        ctrl: handle,
         updateAttribute: function(table, _id, attrName, attrValue) {
             var payload = {
                 _id: _id

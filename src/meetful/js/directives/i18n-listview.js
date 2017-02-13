@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('directive-i18n-listview', ['directive_dynamic_table'])
     .directive('i18nListview', function(
-        $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi,i18n) {
+        $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi, i18n) {
         return {
             restrict: 'AE',
             //replace: true,
@@ -12,7 +12,7 @@ angular.module('directive-i18n-listview', ['directive_dynamic_table'])
                 var r = $rootScope,
                     s = $scope,
                     dbPaginate = appApiPaginator.createFor('texts');
-                window._logs = s;
+                window.lvw_i18n = s;
 
 
 
@@ -41,18 +41,9 @@ angular.module('directive-i18n-listview', ['directive_dynamic_table'])
                 }
                 s.model = {
                     init: () => {
-                        if (s.$parent._isEdit !== undefined) {
-                            if (!s.$parent.isEdit()) {
-                                update()
-                            }
-                        }
-                        else {
-                            s.$parent.$on('basic-crud-loaded', () => {
-                                if (!s.$parent.isEdit()) {
-                                    update()
-                                }
-                            });
-                        }
+                        if (!s.$parent.isBasicCrud) return update();
+                        if (!s.$parent.isDetailView()) return update();
+                        s.$parent.$on('basic-crud-loaded', () => !s.$parent.isDetailView() && update());
                     },
                     /*
                     filter: {
@@ -68,7 +59,7 @@ angular.module('directive-i18n-listview', ['directive_dynamic_table'])
                         update(null, cb)
                     },
                     itemHref: (item) => {
-                        return '/backoffice/logs' + '/' + item._id;
+                        return '/backoffice/i18n' + '/' + item.code;
                     },
                     buttons: [{
                         label: i18n.TEXT_REFRESH,
@@ -76,19 +67,16 @@ angular.module('directive-i18n-listview', ['directive_dynamic_table'])
                         click: () => update()
                     }],
                     columns: [{
-                        label: "Category",
-                        name: 'category',
+                        label: "Code",
+                        name: 'code',
                         //format: (v, item) => item.email + "("+item.first_name+' '+item.last_name+')'
                     }, {
                         label: "Message",
-                        name: 'message',
+                        name: 'content',
                         format: (v, item) => {
-                            if (typeof item.message == 'object') item.message = JSON.stringify(item.message);
+                            item.message = JSON.stringify(item.content);
                             return item.message.length > 50 ? item.message.substring(0, 50) + '...' : item.message
                         }
-                    }, {
-                        label: "Level",
-                        name: 'level'
                     }, {
                         label: 'Created',
                         name: 'created_at',
