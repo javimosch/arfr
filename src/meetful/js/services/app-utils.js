@@ -1,6 +1,6 @@
 /*global angular*/
 /*global $*/
-angular.module('app_utils', []).service('appUtils', ['$log', '$http', function($log, $http) {
+angular.module('service-app-utils', []).service('appUtils', ['$log', '$http', function($log, $http) {
 
 
     var store = (() => {

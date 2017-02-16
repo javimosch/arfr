@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('ctrl_nav', []).controller('nav', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', '$location', function(s, r, appApi, appGui, $log, appSession, appRouter, $location) {
+angular.module('ctrl-nav', []).controller('nav', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', '$location', function(s, r, appApi, appGui, $log, appSession, appRouter, $location) {
     window._nav = s;
 
     String.prototype.replaceAll = function(search, replacement) {

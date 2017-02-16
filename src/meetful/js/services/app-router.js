@@ -1,6 +1,6 @@
 /*global angular*/
 /*global _*/
-var app = angular.module('app_router', []).service('appRouter', ['$rootScope', '$log', '$timeout', '$routeParams', '$location', 'appUtils', 'appSettings', 'appSession', function(r, $log, $timeout, $routeParams, $location, appUtils, appSettings, appSession) {
+var app = angular.module('service-app-router', []).service('appRouter', ['$rootScope', '$log', '$timeout', '$routeParams', '$location', 'appUtils', 'appSettings', 'appSession', function(r, $log, $timeout, $routeParams, $location, appUtils, appSettings, appSession) {
 
     var listeners = [];
 

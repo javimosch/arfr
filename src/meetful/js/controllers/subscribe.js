@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('ctrl_subscribe', []).controller('subscribe', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter','i18n', function(s, r, appApi, appGui, $log, appSession, appRouter,i18n) {
+angular.module('ctrl-subscribe', []).controller('subscribe', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter','i18n', function(s, r, appApi, appGui, $log, appSession, appRouter,i18n) {
     window.s = s;
     s.item = {
         email: '',

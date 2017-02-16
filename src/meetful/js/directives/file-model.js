@@ -1,4 +1,4 @@
-angular.module('directive_file-model',[]).directive('fileModel', ['$parse', "$rootScope", function($parse, $rootScope) {
+angular.module('directive-file-model',[]).directive('fileModel', ['$parse', "$rootScope", function($parse, $rootScope) {
     return {
         restrict: 'A',
         scope: {

@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive-user-listview', ['directive_dynamic_table'])
+angular.module('directive-user-listview', ['directive-dynamic-table'])
     .directive('userListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi, appRouter,i18n) {
         return {

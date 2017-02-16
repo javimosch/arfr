@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive-i18n-listview', ['directive_dynamic_table'])
+angular.module('directive-i18n-listview', ['directive-dynamic-table'])
     .directive('i18nListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi, i18n) {
         return {
@@ -29,7 +29,7 @@ angular.module('directive-i18n-listview', ['directive_dynamic_table'])
 
                     };
                     dbPaginate.ctrl(data, s.model).then(res => {
-                        $log.log(res);
+                        //$log.log(res);
                         if (cb) {
                             cb(res.result);
                         }

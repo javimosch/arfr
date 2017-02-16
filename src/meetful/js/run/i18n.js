@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('app_i18n', []).run(function($rootScope,$log) {
+angular.module('service-app-i18n', []).run(function($rootScope,$log) {
     
 }).service('i18n', function($rootScope,$log) {
     

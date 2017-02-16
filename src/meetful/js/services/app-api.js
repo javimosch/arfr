@@ -2,7 +2,7 @@
 /*global _*/
 /*global moment*/
 /*global $U*/
-angular.module('app_api', ['app_utils']).service('appApi', ['$rootScope', '$log', 'appUtils', 'appSettings', 'fileUpload', 'i18n', function($rootScope, $log, appUtils, appSettings, fileUpload, i18n) {
+angular.module('service-app-api', ['service-app-utils']).service('appApi', ['$rootScope', '$log', 'appUtils', 'appSettings', 'fileUpload', 'i18n', function($rootScope, $log, appUtils, appSettings, fileUpload, i18n) {
 
 
     const CONSTANT = {

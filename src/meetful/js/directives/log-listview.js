@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive-log-listview', ['directive_dynamic_table'])
+angular.module('directive-log-listview', ['directive-dynamic-table'])
     .directive('logListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi,i18n) {
         return {

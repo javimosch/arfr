@@ -1,6 +1,6 @@
 /*global angular*/
 /*global _*/
-var app = angular.module('app_session', []).service('appSession', ['$rootScope', '$log', '$timeout', 'appApi', 'appUtils', 'i18n', 'appSettings', function(r, $log, $timeout, appApi, appUtils, i18n, appSettings) {
+var app = angular.module('service-app-session', []).service('appSession', ['$rootScope', '$log', '$timeout', 'appApi', 'appUtils', 'i18n', 'appSettings', function(r, $log, $timeout, appApi, appUtils, i18n, appSettings) {
 
     const CONSTANT = {
         USER_COLLECTION: 'muser',

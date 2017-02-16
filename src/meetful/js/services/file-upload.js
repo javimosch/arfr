@@ -1,6 +1,6 @@
 /*global $*/
 /*global angular*/
-angular.module('service_file-upload', ['ngFileUpload']).service('fileUpload', ['$http', '$log', 'Upload', function($http, $log, Upload) {
+angular.module('service-file-upload', ['ngFileUpload']).service('fileUpload', ['$http', '$log', 'Upload', function($http, $log, Upload) {
     this.single = function(opt, success, err) {
         opt.data = {
             dataAsString: opt.data,

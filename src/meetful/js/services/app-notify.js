@@ -1,7 +1,7 @@
 /*global angular*/
 (function() {
 
-    var app = angular.module('app_notify', []);
+    var app = angular.module('service-app-notify', []);
 
     const NOTIFY_TEMPLATE_URL = '/includes/popups/notify.html'
     const ALERT_TEMPLATE_URL = './views/directives/directive.alert.html';

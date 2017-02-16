@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive_tasks_listview', ['directive_dynamic_table'])
+angular.module('directive-tasks-listview', ['directive-dynamic-table'])
     .directive('tasksListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appRouter, appGui) {
         return {

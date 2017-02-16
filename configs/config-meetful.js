@@ -19,15 +19,24 @@ module.exports = {
         'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js',
     ],
     CDN_APP: [
-        'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.4.0/ui-bootstrap.min.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.4.0/ui-bootstrap-tpls.min.js',
-        //'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js',
         'https://cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js',
         'https://maps.googleapis.com/maps/api/js?libraries=places'
         //&amp;key=AIzaSyB8riHvf4BwR7qOmAARsB3XRcRfueneUOs
     ],
+    staticFolder: {
+        "sobre-nosotros": {
+            languages: ['es']
+        },
+        "how-it-works": {
+            languages: ['en']
+        },
+        "about-us": {
+            languages: ['en']
+        }
+    },
     i18n_config: {
         languages: ['en', 'es'],
         default: 'es',
@@ -65,14 +74,14 @@ module.exports = {
             en: "My events",
             es: "Mis eventos"
         },
-        NAV_HOME:{
-          en:"Home",
-          es:"Inicio"
+        NAV_HOME: {
+            en: "Home",
+            es: "Inicio"
         },
         ROUTE_HOME: {
             en: "home",
             es: "inicio"
-        },        
+        },
         ROUTE_EXPLORE: {
             en: "explore-events",
             es: "explorar-eventos"
@@ -121,45 +130,45 @@ module.exports = {
             en: 'Nos gustaria mantenerte informado sobre el lanzamiento de la plataforma. No dudes en anotarte, prometemos no dejarte spam.',
             es: 'Nos gustaria mantenerte informado sobre el lanzamiento de la plataforma. No dudes en anotarte, prometemos no dejarte spam.'
         },
-        TEXT_DATE:{
-            en:"Date",
-            es:"Fecha"
+        TEXT_DATE: {
+            en: "Date",
+            es: "Fecha"
         },
-        TEXT_ADDRESS:{
-            en:"Address",
-            es:"Direccion"
+        TEXT_ADDRESS: {
+            en: "Address",
+            es: "Direccion"
         },
-        TEXT_STATUS:{
-            en:"Status",
-            es:"Estado"
+        TEXT_STATUS: {
+            en: "Status",
+            es: "Estado"
         },
-        TEXT_LISTVIEW_LABEL_EVENT_NAME:{
-            en:"Event name",
-            es:"Nombre del evento"
+        TEXT_LISTVIEW_LABEL_EVENT_NAME: {
+            en: "Event name",
+            es: "Nombre del evento"
         },
-        TEXT_LISTVIEW_LABEL_EVENT_SHORT_DESCRIPTION:{
-            en:"Brief description",
-            es:"Pequeña descripcion"
+        TEXT_LISTVIEW_LABEL_EVENT_SHORT_DESCRIPTION: {
+            en: "Brief description",
+            es: "Pequeña descripcion"
         },
-        TEXT_DESCRIPTION:{
-          en:"Description"  ,
-          es:"Descripcion"
+        TEXT_DESCRIPTION: {
+            en: "Description",
+            es: "Descripcion"
         },
-        TEXT_LISTVIEW_LABEL_CREATOR:{
-          en:"Creator",
-          es:"Creador"
+        TEXT_LISTVIEW_LABEL_CREATOR: {
+            en: "Creator",
+            es: "Creador"
         },
-        TEXT_LISTVIEW_LABEL_EVENT_CREATED_AT:{
-          en:"Creation date",
-          es:"Fecha de creacion"
+        TEXT_LISTVIEW_LABEL_EVENT_CREATED_AT: {
+            en: "Creation date",
+            es: "Fecha de creacion"
         },
-        TEXT_COMPLETE_PROFILE:{
-          en:"Please, take time to complete your profile :)",
-          es:"Completa tu perfil cuando puedas :)"
+        TEXT_COMPLETE_PROFILE: {
+            en: "Please, take time to complete your profile :)",
+            es: "Completa tu perfil cuando puedas :)"
         },
-        TEXT_VALIDATE_CREDENTIALS:{
-            en:"You forgot your credentials ? :)",
-            es:"Olvidaste tu password ? :)"
+        TEXT_VALIDATE_CREDENTIALS: {
+            en: "You forgot your credentials ? :)",
+            es: "Olvidaste tu password ? :)"
         },
         TEXT_ACCEPT: {
             en: "Accept",
@@ -169,37 +178,37 @@ module.exports = {
             en: "Send",
             es: "Enviar"
         },
-        TEXT_CLOSED:{
-            en:"Closed",
-            es:"Cerrado"
+        TEXT_CLOSED: {
+            en: "Closed",
+            es: "Cerrado"
         },
-        TEXT_ACTION_CLOSE:{
-          en:"Close",
-          es:"Cerrar"
+        TEXT_ACTION_CLOSE: {
+            en: "Close",
+            es: "Cerrar"
         },
-        TEXT_LABEL_EVENT_OWNER:{
-            en:"Created by",
-            es:"Creado por"
+        TEXT_LABEL_EVENT_OWNER: {
+            en: "Created by",
+            es: "Creado por"
         },
-        TEXT_ACTION_JOIN_EVENT:{
-            en:"Join!",
-            es:"Unirse!"
+        TEXT_ACTION_JOIN_EVENT: {
+            en: "Join!",
+            es: "Unirse!"
         },
-        TEXT_ACTION_OPEN:{
-          en:"Open",
-          es:"Abrir"
+        TEXT_ACTION_OPEN: {
+            en: "Open",
+            es: "Abrir"
         },
-        TEXT_OPEN:{
-          en:"Open",
-          es:"Abierto"
+        TEXT_OPEN: {
+            en: "Open",
+            es: "Abierto"
         },
-        TEXT_CREATE:{
-          en:"Create",
-          es:"Nuevo"
+        TEXT_CREATE: {
+            en: "Create",
+            es: "Nuevo"
         },
-        TEXT_SAVE:{
-          en:"Save",
-          es:"Guardar"
+        TEXT_SAVE: {
+            en: "Save",
+            es: "Guardar"
         },
         TEXT_SUBSCRIBE: {
             en: "Subscribe",
@@ -229,13 +238,13 @@ module.exports = {
             en: 'Already registered?,',
             es: 'Ya tenes una cuenta?, '
         },
-        TEXT_REFRESH:{
-          en:"Refresh",
-          es:"Refrescar"
+        TEXT_REFRESH: {
+            en: "Refresh",
+            es: "Refrescar"
         },
-        TEXT_FOLLOW_US_IN:{
-          en:"Follow us in",
-          es:"Siguenos en"  
+        TEXT_FOLLOW_US_IN: {
+            en: "Follow us in",
+            es: "Siguenos en"
         },
         VALIDATE_EMAIL_IN_USE: {
             en: 'Email already registered',

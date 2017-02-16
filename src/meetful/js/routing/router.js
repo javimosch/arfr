@@ -1,6 +1,6 @@
 /*global angular*/
 /*global i18n*/
-angular.module('config_app_router', []).config(['$routeProvider', '$locationProvider',
+angular.module('config-app-router', []).config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
 
         if (window.__settings && window.__settings.isApp == false) return;
@@ -54,6 +54,9 @@ angular.module('config_app_router', []).config(['$routeProvider', '$locationProv
         }).
         when('/backoffice/i18n/:id', {
             templateUrl: '/includes/bo-i18n.html'
+        }).
+         when('/backoffice/pages/:id', {
+            templateUrl: '/includes/bo-pages.html'
         }).
 
 

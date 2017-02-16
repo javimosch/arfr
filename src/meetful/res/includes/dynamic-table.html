@@ -19,8 +19,8 @@
                 <tbody>
 
                     <!--track by $index-->
-                    <tr ng-repeat="(key,item) in model.items" >
-                        
+                    <tr ng-repeat="(key,item) in model.items">
+
                         <!--
                         
                         -->
@@ -43,6 +43,10 @@
                 <tfoot ng-if="model.tfoot" ng-include="model.tfoot">
                 </tfoot>
             </table>
+
+            <paging page="model.pagination.currentPage" page-size="model.pagination.itemsPerPage" total="model.pagination.total" show-prev-next="true" show-first-last="true" paging-action="model.pagination.changed()">
+            </paging>
+
             <uib-pagination ng-show="model.paginate" total-items="model.pagination.total" items-per-page="model.pagination.itemsPerPage" ng-model="model.pagination.currentPage" ng-change="model.pagination.changed()" max-size="model.pagination.maxSize" class="pagination-sm"
                 boundary-links="true"></uib-pagination>
         </div>

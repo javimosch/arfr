@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive_projects_listview', ['directive_dynamic_table'])
+angular.module('directive-projects-listview', ['directive-dynamic-table'])
     .directive('projectsListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appRouter, appGui) {
         return {

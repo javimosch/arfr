@@ -1,18 +1,18 @@
 @font-face {
     font-family: 'Avenir-Light';
-    src: url('../fonts/Avenir-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Avenir-Light.woff') format('woff'), url('../fonts/Avenir-Light.ttf') format('truetype'), url('../fonts/Avenir-Light.svg#Avenir-Light') format('svg');
+    src: url('/fonts/Avenir-Light.eot?#iefix') format('embedded-opentype'), url('/fonts/Avenir-Light.woff') format('woff'), url('/fonts/Avenir-Light.ttf') format('truetype'), url('/fonts/Avenir-Light.svg#Avenir-Light') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Avenir-Black';
-    src: url('../fonts/Avenir-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/Avenir-Black.woff') format('woff'), url('../fonts/Avenir-Black.ttf') format('truetype'), url('../fonts/Avenir-Black.svg#Avenir-Black') format('svg');
+    src: url('/fonts/Avenir-Black.eot?#iefix') format('embedded-opentype'), url('/fonts/Avenir-Black.woff') format('woff'), url('/fonts/Avenir-Black.ttf') format('truetype'), url('/fonts/Avenir-Black.svg#Avenir-Black') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Avenir-Medium';
-    src: url('../fonts/Avenir-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Avenir-Medium.woff') format('woff'), url('../fonts/Avenir-Medium.ttf') format('truetype'), url('../fonts/Avenir-Medium.svg#Avenir-Medium') format('svg');
+    src: url('/fonts/Avenir-Medium.eot?#iefix') format('embedded-opentype'), url('/fonts/Avenir-Medium.woff') format('woff'), url('/fonts/Avenir-Medium.ttf') format('truetype'), url('/fonts/Avenir-Medium.svg#Avenir-Medium') format('svg');
     font-weight: normal;
     font-style: normal;
 }

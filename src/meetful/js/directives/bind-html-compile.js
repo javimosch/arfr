@@ -1,6 +1,6 @@
 /*global angular*/
 /*global $*/
-angular.module('directive_bind_html_compile', []).directive("bindHtmlCompile", ["$compile", function(compile) {
+angular.module('directive-bind-html-compile', []).directive("bindHtmlCompile", ["$compile", function(compile) {
     return {
         restrict: "A",
         link: function(s, el, attrs) {

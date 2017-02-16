@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('ctrl_dashboard', []).controller('dashboard', ['$scope', '$rootScope', 'appApi', 'appGui', '$log','appSession','appRouter','i18n', function(s, r, appApi, appGui, $log,appSession,appRouter,i18n) {
+angular.module('ctrl-dashboard', []).controller('dashboard', ['$scope', '$rootScope', 'appApi', 'appGui', '$log','appSession','appRouter','i18n', function(s, r, appApi, appGui, $log,appSession,appRouter,i18n) {
     window.s = s;
     s.item = {
         email: '',

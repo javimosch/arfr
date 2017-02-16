@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive-prerender-listview', ['directive_dynamic_table'])
+angular.module('directive-prerender-listview', ['directive-dynamic-table'])
     .directive('prerenderListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi,i18n,appSettings,appRouter) {
         return {

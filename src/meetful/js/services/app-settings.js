@@ -1,5 +1,5 @@
 /*global angular*/
-var app = angular.module('app_settings', []).service('appSettings', ['$rootScope', '$log', '$timeout', function(r, $log, $timeout) {
+var app = angular.module('service-app-settings', []).service('appSettings', ['$rootScope', '$log', '$timeout', function(r, $log, $timeout) {
     var self = {
         URL: window.location.origin+'/'
     };

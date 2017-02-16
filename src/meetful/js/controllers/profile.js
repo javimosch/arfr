@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('ctrl_profile', []).controller('profile', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', function(s, r, appApi, appGui, $log, appSession, appRouter) {
+angular.module('ctrl-profile', []).controller('profile', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', function(s, r, appApi, appGui, $log, appSession, appRouter) {
     window.s = s;
     
     s.logout = ()=>appSession.logout();

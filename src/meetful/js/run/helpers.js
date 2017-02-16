@@ -4,7 +4,7 @@
 /*global _*/
 /*global $hasMouse*/
 
-var app = angular.module('app_run_helpers', []);
+var app = angular.module('service-app-run-helpers', []);
 
 var __SHARE_FUNCTIONS = {
     isDevEnv: () => {

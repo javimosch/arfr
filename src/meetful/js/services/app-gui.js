@@ -1,5 +1,5 @@
 /*global angular*/
-var app = angular.module('app_gui', []).service('appGui', ['$rootScope', '$log', '$timeout', function(r, $log, $timeout) {
+var app = angular.module('service-app-gui', []).service('appGui', ['$rootScope', '$log', '$timeout', function(r, $log, $timeout) {
     var self = {};
     self.dom = function(cb, timeout) {
         $timeout(function() {

@@ -1,4 +1,4 @@
-angular.module('app_api_paginator', []).service('appApiPaginator', ['appApi', 'appUtils', function(appApi, appUtils) {
+angular.module('service-app-api-paginator', []).service('appApiPaginator', ['appApi', 'appUtils', '$log', function(appApi, appUtils, $log) {
     function omitKeys(o, keys) {
         var obj = {};
         for (var x in o) {
@@ -12,9 +12,9 @@ angular.module('app_api_paginator', []).service('appApiPaginator', ['appApi', 'a
         self.id = Date.now();
         self.working = false;
         self.ctrl = function(data, model, opt) {
-            var promise = appUtils.Promise((resolve, err, emit) => {
+            var promise = appUtils.Promise((resolve, reject, emit) => {
                 if (!model.pagination) {
-                    err('model.pagination required.');
+                    reject('model.pagination required.');
                     console.warn('$mongoosePaginate model.pagination required.');
                     return;
                 }
@@ -38,6 +38,13 @@ angular.module('app_api_paginator', []).service('appApiPaginator', ['appApi', 'a
                     __lean: true,
                     __page: model.pagination.currentPage
                 }, data)).then(r => {
+                    
+                    r = {
+                        ok:true,
+                        result:r
+                    };
+                    $log.log('appApiPaginator resolve', r.result);
+                    
                     self.working = false;
                     // console.log('$mongoosePaginate:end',self.id,'items',r.result.docs.length);
                     if (!r.ok) {
@@ -46,6 +53,8 @@ angular.module('app_api_paginator', []).service('appApiPaginator', ['appApi', 'a
                     }
                     var numberOfPages = r.result.pages;
                     //                    console.info(model.pagination.currentPage,model.pagination,numberOfPages);
+
+                    
 
                     if (model.pagination) {
                         model.pagination.update({
@@ -62,7 +71,7 @@ angular.module('app_api_paginator', []).service('appApiPaginator', ['appApi', 'a
                     else {
                         resolve(r);
                     }
-                });
+                }).error((_err)=>reject(_err)).on('validate',(msg)=>emit('validate',msg));
 
             });
             //

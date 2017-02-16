@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('ctrl_sign_in', []).controller('signIn', ['$scope', '$rootScope', 'appApi', 'appGui', '$log','appSession','appRouter','i18n', function(s, r, appApi, appGui, $log,appSession,appRouter,i18n) {
+angular.module('ctrl-sign-in', []).controller('signIn', ['$scope', '$rootScope', 'appApi', 'appGui', '$log','appSession','appRouter','i18n', function(s, r, appApi, appGui, $log,appSession,appRouter,i18n) {
     window.s = s;
     s.item = {
         email: '',

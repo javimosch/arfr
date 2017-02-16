@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('ctrl_task', []).controller('task', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', function(s, r, appApi, appGui, $log, appSession, appRouter) {
+angular.module('ctrl-task', []).controller('task', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', function(s, r, appApi, appGui, $log, appSession, appRouter) {
     window.s = s;
 
     s.data = {

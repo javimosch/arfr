@@ -1,6 +1,6 @@
 /*global angular*/
 /*global i18n*/
-angular.module('ctrl_sign_up', []).controller('signUp', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter','i18n', function(s, r, appApi, appGui, $log, appSession, appRouter,i18n) {
+angular.module('ctrl-sign-up', []).controller('signUp', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter','i18n', function(s, r, appApi, appGui, $log, appSession, appRouter,i18n) {
     window.s = s;
     s.item = {
         email: '',

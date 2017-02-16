@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive_event_listview', ['directive_dynamic_table'])
+angular.module('directive-event-listview', ['directive-dynamic-table'])
     .directive('eventListview', function(
         $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi, i18n, appRouter) {
         return {

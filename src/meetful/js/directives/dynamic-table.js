@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('directive_dynamic_table',[]).directive('dynamicTable', function(
+angular.module('directive-dynamic-table', []).directive('dynamicTable', function(
     $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce) {
     return {
         restrict: 'AE',
@@ -10,8 +10,8 @@ angular.module('directive_dynamic_table',[]).directive('dynamicTable', function(
         templateUrl: '/includes/dynamic-table.html',
         link: function(s, elem, attrs) {
             var r = $rootScope;
-            
-            console.log('ATTR',attrs.dynamicTable);
+
+            console.log('ATTR', attrs.dynamicTable);
 
             //
             $rootScope.$watch('hasMouse', (v) => {
@@ -54,7 +54,9 @@ angular.module('directive_dynamic_table',[]).directive('dynamicTable', function(
                 changed: () => {
                     if (s.model.paginate) s.model.paginate(items => {
                         s.model.items = items;
-                        r.dom();
+                        $timeout(() => {
+                            $rootScope.$apply();
+                        });
                     });
                 },
                 update: (p) => {
