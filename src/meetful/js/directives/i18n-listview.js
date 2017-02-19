@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('directive-i18n-listview', ['directive-dynamic-table'])
     .directive('i18nListview', function(
-        $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi, i18n) {
+        $rootScope, $timeout, $compile, $uibModal, $templateRequest, $sce, appApiPaginator, $log, appSession, appApi, i18n, appRouter) {
         return {
             restrict: 'AE',
             //replace: true,
@@ -65,6 +65,10 @@ angular.module('directive-i18n-listview', ['directive-dynamic-table'])
                         label: i18n.TEXT_REFRESH,
                         type: () => "btn btn-primary",
                         click: () => update()
+                    }, {
+                        label: i18n.TEXT_CREATE,
+                        type: () => "btn btn-primary",
+                        click: () => appRouter.to('/backoffice/i18n' + '/new')
                     }],
                     columns: [{
                         label: "Code",

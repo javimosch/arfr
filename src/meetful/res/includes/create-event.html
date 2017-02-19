@@ -40,7 +40,7 @@
 
 
 
-                            <!-- Text input-->
+                            <!-- DATE-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="i18n.TEXT_DATE"></label>
                                 <div class="col-md-8">
@@ -53,7 +53,7 @@
 
 
 
-                            <!-- Text input-->
+                            <!-- ADDRESS-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="i18n.TEXT_ADDRESS"></label>
                                 <div class="col-md-8">
@@ -71,7 +71,7 @@
 
                                 </div>
                             </div>
-                            
+
                             <!-- OWNER-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="i18n.TEXT_LABEL_EVENT_OWNER"></label>
@@ -99,6 +99,16 @@
 
 
                         </fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <label class="col-md-4 control-label" ng-disabled="true" for="status" ng-bind="'Participants'"></label>
+                        </div>
+                        <div class="row">
+                            <div class="ui-list-view-bordered" ui-list-view="user in users | orderBy:'email'">
+                                <a ng-href="{[{profileLink(user)}]}" ng-bind="participantLabel(user)"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>

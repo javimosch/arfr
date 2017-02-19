@@ -18,7 +18,8 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
         });
     }
 
-
+    s.isNew = () => s.data && !s.data._id;
+    s.isEdit = () => s.data && s.data._id;
     s.isOwner = () => {
         //return s.
     };
@@ -43,7 +44,10 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
         postCode: '',
     };
 
-    s.data = {};
+    s.users = [];
+    s.data = {
+        _users: []
+    };
     s.save = function() {
 
         if (!s.data.address) return appGui.warningMessage(MESSAGE.ADDRESS_REQUIRED);
@@ -78,7 +82,7 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
 
         appApi.saveEvent(s.data).then(function(result) {
             appGui.infoMessage('Saved');
-
+            read(result._id);
             $log.debug(result);
 
             appRouter.params({
@@ -153,9 +157,9 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
 
     s.chatMessage = '';
     s.addMessage = function() {
-        
-        if(!s.chatMessage) return appGui.warningMessage('Enter a message');
-        
+
+        if (!s.chatMessage) return appGui.warningMessage('Enter a message');
+
         appApi.meetfulEvent.addMessage({
             _event: s.data._id,
             message: s.chatMessage
@@ -168,8 +172,9 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
     };
 
     function getChatUserLabel(_user) {
+        //_user (id)
         if (!_user._id) {
-            _user = s.data._users.filter(v => v._user._id == _user)[0]._user;
+            _user = s.data._users.filter(v => v._id == _user)[0];
         }
         return _user.first_name || _user.email;
     }
@@ -194,7 +199,7 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
 
     s.currentUserIsJoined = () => {
         return s.data && s.data._users && s.data._users.filter(u =>
-            u._user._id == appSession()._id
+            u._id == appSession()._id
         ).length > 0;
     };
 
@@ -203,11 +208,11 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
     };
 
     s.isOwner = () => {
-        if (!s.data || !s.data._owner || !s.data._owner._id) return false;
-        return appSession()._id == s.data._owner._id;
+        if (!s.data || !s.data._owner) return false;
+        return appSession()._id == (s.data._owner && s.data._owner._id || s.data._owner);
     };
     s.showSave = () => {
-        return s.isOwner();
+        return s.isNew() || (s.isEdit() && s.isOwner());
     };
     s.showClose = () => {
         return s.isOwner() && s.data._id && s.data.status != 'closed';
@@ -216,7 +221,19 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
         return s.isOwner() && s.data._id && s.data.status != 'open';
     };
     s.showJoin = () => {
-        return !s.isOwner() && !s.currentUserIsJoined();
+        return s.isEdit() && !s.isOwner() && !s.currentUserIsJoined();
+    };
+
+    s.participantLabel = (user) => {
+        return (user.first_name + ' ' + user.last_name) || user.email;
+    };
+    s.profileLink = (user) => {
+        if (user.url) {
+            return "/profile/" + user.url;
+        }
+        else {
+            return "/profile/id/" + user._id;
+        }
     };
 
     s.statusLabel = () => {
@@ -244,36 +261,31 @@ angular.module('ctrl-event', []).controller('ctrl-event', ['$scope', '$rootScope
     var _id = get_id();
 
     if (_id) {
-        /*
-        {
-                _owner: "first_name email",
-                _users:"_user enabled",
-                "_users._user":"email"
-            }*/
+        read();
+    }
 
-        appApi.getEvent(_id, {
+    function read(id) {
+        appApi.getEvent(_id || id, {
             __populate: [{
                 model: "muser",
                 path: '_owner'
             }, {
-                model: 'meetfulEventUser',
-                path: "_users",
-                populate: {
-                    model: 'muser',
-                    path: "_user"
-                }
+                model: 'muser',
+                path: "_users"
             }, {
                 model: "meetfulEventMessages",
-                path: "_messages"//,
-                //populate: {
-                //  model: "muser",
-                //path: "_user",
-                //select: "email"
-                //}
+                path: "_messages" //,
+                    //populate: {
+                    //  model: "muser",
+                    //path: "_user",
+                    //select: "email"
+                    //}
             }]
         }).then(function(result) {
             s.data = result;
-
+            if (s.data._users) {
+                s.users = s.data._users;
+            }
             s.tags = s.data.tags;
             for (var x in s.tags) {
                 if (x == 0) continue;

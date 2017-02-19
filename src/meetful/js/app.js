@@ -8,6 +8,7 @@ angular.module('app', [
     'vsGoogleAutocomplete',
     'cloudinary',
     
+    
     'cloudinary-config',
     'config-replace-brackets',
     'config-app-router',
@@ -15,6 +16,9 @@ angular.module('app', [
     'run-route-change-middleware',
     'run-api-meetful-event',
     'run-api-meetful-user',
+    
+    /*THIRD PARTY DIRECTIVES*/
+    'ui-listView',
     
     'directive-event-listview',
     'directive-projects-listview',
