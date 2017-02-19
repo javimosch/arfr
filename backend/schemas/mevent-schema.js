@@ -2,20 +2,21 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = {
+    name: 'mevent',
     def: {
         _owner: {
             type: Schema.Types.ObjectId,
             ref: 'muser',
-            required:true
+            required: true
         },
-        _users:[{
-            type:Schema.Types.ObjectId,
-            ref:'meetfulEventUser'
+        _users: [{
+            type: Schema.Types.ObjectId,
+            ref: 'muser'
         }],
-        _messages:[{
-            type:Schema.Types.ObjectId,
-            ref:'meetfulEventMessages',
-            default:[]
+        _messages: [{
+            type: Schema.Types.ObjectId,
+            ref: 'meetfulEventMessages',
+            default: []
         }],
         name: {
             type: String,
@@ -29,8 +30,20 @@ module.exports = {
             type: String,
             required: true
         },
+        address: {
+            type: String,
+            required: false
+        },
+        date: {
+            type: String,
+            required: false
+        },
         tags: {
             type: {},
+            required: true
+        },
+        status: {
+            type: String,
             required: true
         }
     }
