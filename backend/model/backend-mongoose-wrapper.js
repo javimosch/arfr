@@ -148,7 +148,15 @@ exports.create = function(modelName, m) {
         return Promise(function(resolve, error, emit) {
             check(data, requiredKeys || [], (err, r) => {
                 if (err) return rta(err, null);
+                
+                matchData = matchData || {};
+                
                 if (data._id) {
+                    
+                    matchData._id = data._id;
+                    delete data._id;
+                    
+                    /*
                     data.updatedAt = new Date();
                     var _id = data._id;
                     delete data._id;
@@ -158,10 +166,12 @@ exports.create = function(modelName, m) {
                     }), removeSpecialFields(data)).exec((err, r) => {
                         if (err) return rta(err, null);
                         if (!r) return rta(modelName + '= ' + _id + ' do not belong to any item.', null);
+                        console.log('WRAPPER: SAVE UPDATE');
                         return rta(err, r);
                     });
+                    */
                 }
-                matchData = matchData || {};
+                
 
                 //log('createUpdate:matchData=' + JSON.stringify(requiredKeys));
 
