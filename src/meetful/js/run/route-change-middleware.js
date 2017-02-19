@@ -11,6 +11,14 @@ angular.module('run-route-change-middleware', []).run(['$timeout', '$rootScope',
          }
          
          */
+         
+         if (next == i18n.ROUTE_PROFILE && !appSession.isLogged()) {
+            appRouter.to(i18n.ROUTE_SIGN_IN, {
+                //userMustSignInToViewHisProfile: true
+            }, 500);
+            $log.debug('SHOULD BE LOGGED, ROUTE TO SIGN_IN');
+            return false;
+        }
 
         if (next == i18n.ROUTE_CREATE_EVENT && !appSession.isLogged()) {
             appRouter.to(i18n.ROUTE_SIGN_IN, {
