@@ -24,6 +24,14 @@ angular.module('config-app-router', []).config(['$routeProvider', '$locationProv
         when('/' + i18n.ROUTE_PROFILE, {
             templateUrl: '/includes/profile.html'
         }).
+        
+        when('/profile/id/:id', {
+            templateUrl: '/includes/profile.html'
+        }).
+        when('/profile/:url', {
+            templateUrl: '/includes/profile.html'
+        }).
+        
         when('/' + i18n.ROUTE_EDIT_EVENT + '/:id', {
             templateUrl: '/includes/create-event.html'
         }).

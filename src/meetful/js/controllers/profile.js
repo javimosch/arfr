@@ -1,10 +1,12 @@
 /*global angular*/
-angular.module('ctrl-profile', []).controller('profile', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', function(s, r, appApi, appGui, $log, appSession, appRouter) {
+angular.module('ctrl-profile', []).controller('profile', ['$scope', '$rootScope', 'appApi', 'appGui', '$log', 'appSession', 'appRouter', '$routeParams', function(s, r, appApi, appGui, $log, appSession, appRouter, $routeParams) {
     window.s = s;
-    
-    s.logout = ()=>appSession.logout();
 
-    s.item = appSession();
+    s.logout = () => appSession.logout();
+
+    s.item = {};
+    
+    s.showSave = ()=> appSession() && appSession()._id == s.item._id;
     s.save = function() {
         if (!isValid()) return;
         appApi.saveProfile(s.item).then(function(result) {
@@ -39,21 +41,21 @@ angular.module('ctrl-profile', []).controller('profile', ['$scope', '$rootScope'
             s.item.pictures[name] = {
                 public_id: res.cloudinary.public_id,
                 label: label,
-                version:res.cloudinary.version
+                version: res.cloudinary.version
             };
-            
-            appApi.updateAttribute('muser',s.item._id,'pictures',s.item.pictures);
-            
+
+            appApi.updateAttribute('muser', s.item._id, 'pictures', s.item.pictures);
+
         }).on('validate', (msg) => {
             appGui.warningMessage(msg);
         });
     };
-    s.openInTab=function(name){
-      var url = 'https://res.cloudinary.com/paris7510/image/upload/v{{version}}/{{public_id}}.jpg'
-      url = url.replace('{{version}}',s.item.pictures[name].version);
-      url = url.replace('{{public_id}}',s.item.pictures[name].public_id);
-      var win = window.open(url, '_blank');
-                        win.focus();
+    s.openInTab = function(name) {
+        var url = 'https://res.cloudinary.com/paris7510/image/upload/v{{version}}/{{public_id}}.jpg'
+        url = url.replace('{{version}}', s.item.pictures[name].version);
+        url = url.replace('{{public_id}}', s.item.pictures[name].public_id);
+        var win = window.open(url, '_blank');
+        win.focus();
     };
     s.hasPictures = function() {
         return s.item && s.item.pictures != undefined;
@@ -65,9 +67,9 @@ angular.module('ctrl-profile', []).controller('profile', ['$scope', '$rootScope'
         if (s.hasPicture(name)) return s.item.pictures[name].label;
         return name + ' ...';
     };
-    
-    s.selectImage = function(n){
-        if(s._selectedImage == n) return (s._selectedImage='');
+
+    s.selectImage = function(n) {
+        if (s._selectedImage == n) return (s._selectedImage = '');
         s._selectedImage = n;
     };
 
@@ -81,11 +83,23 @@ angular.module('ctrl-profile', []).controller('profile', ['$scope', '$rootScope'
         return true;
     };
 
-    appApi.ctrl('muser', 'get', {
-        _id: s.item._id
-    }).then(function(res) {
-        if (res.ok && res.result) s.item = res.result;
-    });
+    read();
+
+    function read(id) {
+        var getPayload = {
+            _id: appSession()._id
+        };
+        if ($routeParams.id) {
+            getPayload._id = $routeParams.id;
+        }
+        if ($routeParams.url) {
+            getPayload.url = $routeParams.url;
+        }
+        appApi.ctrl('muser', 'get', getPayload).then(function(res) {
+            $log.log(res);
+            s.item = res;
+        });
+    }
 
 
 
