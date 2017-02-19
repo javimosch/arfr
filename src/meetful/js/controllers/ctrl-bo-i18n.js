@@ -62,7 +62,10 @@ angular.module('ctrl-bo-i18n', []).controller('ctrl-bo-i18n', ['$scope', '$rootS
     appApi.texts.custom('i18nConfig', {
         appName: appSettings.appName
     }).then(config => {
-        $log.log('config', config);
+        //$log.log('config', config);
+        if(config && config.languages){
+            s.languages = config.languages;
+        }
     }).on('validate', (msg) => {
         appGui.warningMessage(msg);
     });

@@ -9,4 +9,12 @@ angular.module('service-app-i18n', []).run(function($rootScope,$log) {
     
     //$log.debug('i18n service started',$rootScope.i18n);
     return $rootScope.i18n;
+})
+.service('i18nConfig', function($rootScope,$log) {
+    var self = {};
+    Object.assign(self,window.i18n_config||{});
+    delete window.i18n_config;
+    r.i18nConfig = self;
+    return self;
 });
+
