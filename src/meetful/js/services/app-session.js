@@ -60,7 +60,7 @@ var app = angular.module('service-app-session', []).service('appSession', ['$roo
     }
     self.isLogged = function() {
         var _session = self();
-        return _session._id !== null;
+        return _session._id !== undefined;
     };
 
     self.hasRole = function(role) {
