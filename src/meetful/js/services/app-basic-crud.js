@@ -13,14 +13,28 @@ angular.module('service-app-basic-crud', []).service('appBasicCrud', ['$rootScop
         s.isBasicCrud = true;
         s.data = {};
         s.save = function() {
-            //if (!s.data.address) return appGui.warningMessage(MESSAGE.ADDRESS_REQUIRED);
-            appApi.saveCollection(settings.collectionName, s.data).then(function(result) {
-                appGui.infoMessage(TEXT.DATA_SAVED);
-            }).error(function(res) {
-                appGui.errorMessage(TEXT.GENERIC_ERROR);
-            }).on('validate', function(msg) {
-                appGui.warningMessage(TEXT.WARNING_ERROR || msg);
-            });
+
+            if (settings && settings.validate && settings.validate.save) {
+                settings.validate.save(s.data, () => {
+                    _save();
+                });
+            }
+            else {
+                $log.warn('no-validate', settings);
+                _save();
+            }
+
+            function _save() {
+                //if (!s.data.address) return appGui.warningMessage(MESSAGE.ADDRESS_REQUIRED);
+                appApi.saveCollection(settings.collectionName, s.data).then(function(result) {
+                    s.data = result;
+                    appGui.infoMessage(TEXT.DATA_SAVED);
+                }).error(function(res) {
+                    appGui.errorMessage(TEXT.GENERIC_ERROR);
+                }).on('validate', function(msg) {
+                    appGui.warningMessage(TEXT.WARNING_ERROR || msg);
+                });
+            }
         };
         s.isEdit = () => {
             return s.data && s.data._id;
