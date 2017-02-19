@@ -132,12 +132,20 @@ function register(modelName) {
 
     }
     var _actions = createCommonActions(modelName);
+    
+    var _coreActions = null;
     if (isMongooseCollection(modelName)) {
-        Object.assign(_actions, createMongooseWrapperActions(modelName));
+        _coreActions = createMongooseWrapperActions(modelName);
+        Object.assign(_actions, _coreActions);
     }
+    
     var _customActions = {};
     _customActions = require(getControllerPath(modelName));
     Object.assign(_actions, _customActions);
+    
+    if(_coreActions){
+        _actions.core = _coreActions;
+    }
 
     if (_actions._configure && !_actions._configuredFlag) {
         _actions._configuredFlag = true
