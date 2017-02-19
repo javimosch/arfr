@@ -27,7 +27,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <textarea ng-readonly="false" class="form-control input-md" ng-bind="data.content|json" placeholder="empty message..."></textarea>
+                    <textarea ng-readonly="false" class="form-control input-md" ng-model="data.content" placeholder="empty message..."></textarea>
                 </div>
             </div>
             <div class="row">
@@ -38,6 +38,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <a ng-cloak ng-show="showSave()" ng-click="save()" class="btn btn-primary" ng-bind="i18n.TEXT_SAVE"></a>
+                     <a ng-cloak  ng-click="encode()" class="btn btn-primary" ng-bind="'Encode'"></a>
+                     <a ng-cloak  ng-click="decode()" class="btn btn-primary" ng-bind="'Decode'"></a>
                 </div>
             </div>
         </div>
