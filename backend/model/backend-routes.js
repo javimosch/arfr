@@ -1,21 +1,22 @@
-const Promise = require('../model/utils').promise;
-var mime = require('mime-types')
-var mongoose = require('./backend-database').mongoose;
-var _ = require('lodash');
-var controllers = require('./backend-controllers-manager');
-var multer = require('multer')
+var Promise = require('promise');
+
 var path = require('path');
+var resolver = require(path.join(process.cwd(), 'lib/resolver'));
+
+//upload feature
+var multer = require('multer')
 var multer_upload = multer({
     dest: path.join(process.cwd(), 'backend', 'temp')
 });
-var path = require('path');
+
 var Logger, NOTIFICATION, File;
 
 exports.configure = function(app) {
-    return Promise(function(resolve, reject, emit) {
+    return new Promise(function(resolve, reject, emit) {
+        var controllers = require('./backend-controllers-manager');
+        var logger = resolver.logger().get('SERVER', 'BACKEND-ROUTES');
 
-
-
+        logger.debug('Creating handler for /api/:controller/:action');
         app.post('/ctrl/:controller/:action', handleControllerAction);
         app.post('/api/:controller/:action', handleControllerAction);
 
@@ -104,7 +105,10 @@ exports.configure = function(app) {
         });
         NOTIFICATION = controllers.notification.NOTIFICATION;
         File = controllers.file;
-
+        
+        
+        logger.debug('OK');
+        resolve();
     });
 
 };
