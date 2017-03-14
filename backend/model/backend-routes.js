@@ -98,16 +98,12 @@ exports.configure = function(app) {
         });
 
 
-        controllers._markAsSchemeless(['email', 'stats', 'css', 'file', 'image']);
-        controllers._start().then(function() {
-            Logger = controllers.logs.createLogger({
-                name: "API",
-                category: "ROUTER"
-            });
-            NOTIFICATION = controllers.notification.NOTIFICATION;
-            File = controllers.file;
-            resolve();
+        Logger = controllers.logs.createLogger({
+            name: "API",
+            category: "ROUTER"
         });
+        NOTIFICATION = controllers.notification.NOTIFICATION;
+        File = controllers.file;
 
     });
 

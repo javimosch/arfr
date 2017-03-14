@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = {
+    name:'texts',
     def: {
         _category: {
             type: Schema.Types.ObjectId,

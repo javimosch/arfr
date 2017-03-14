@@ -39,8 +39,11 @@ module.exports = {
     },
     i18n_config: {
         languages: ['en', 'es'],
-        default: 'es',
-    },
+        default: 'en',
+    }
+}
+
+/*,
     i18n: {
         NAV_ABOUT_US: {
             en: 'About Us',
@@ -253,6 +256,4 @@ module.exports = {
         VALIDATE_PERSONAL_ID: {
             en: "Personal ID already registered",
             es: "ID Personal ya registrado"
-        }
-    }
-};
+        }*/

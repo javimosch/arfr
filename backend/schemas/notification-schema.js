@@ -3,11 +3,6 @@ var Schema = mongoose.Schema;
 
 module.exports = {
     def: {
-        _config: {
-            type: Schema.Types.ObjectId,
-            ref: 'UserNotifications',
-            required: true
-        },
         _user: {
             type: Schema.Types.ObjectId,
             ref: 'User',

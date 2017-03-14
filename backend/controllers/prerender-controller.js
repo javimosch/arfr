@@ -1,6 +1,7 @@
 const path = require('path');
 const controllers = require('../model/backend-controllers-manager');
-const coreUtils = require(path.join(process.cwd(), 'lib', 'core', 'utils'));
+const resolver = require(path.join(process.cwd(), 'lib/resolver'));
+const coreUtils = resolver.generatorUtils();
 const replaceAll = require('../model/utils').replaceAll;
 const Promise = require('../model/utils').promise;
 var sander = require('sander');
@@ -16,7 +17,7 @@ module.exports = {
     exists: exists
 };
 
-function normalizeViewName(p){
+function normalizeViewName(p) {
     p = replaceAll(p, '/', '--');
     p = replaceAll(p, '.json', '');
     return p;
@@ -36,7 +37,7 @@ function savePrerender(data, cb) {
         name: normalizeViewName(data.path),
         content: data.content
     };
-    Logger.debug('SAVE',payload);
+    Logger.debug('SAVE', payload);
     payload.__match = {
         appName: payload.appName,
         name: payload.name

@@ -28,7 +28,9 @@
         <div class="col-sm-4">
         </div>
         <div class="col-sm-4">
-            <p class="muted pull-right footer__text">© 2016 Meetful</p>
+            <p class="muted pull-right footer__text">Languages:
+                <span ng-repeat="lang in i18nConfig.languages"><a class="link" ng-click="appRouter.to('/'+lang+'/'+(appRouter.currentPath||i18n.ROUTE_DASHBOARD),{},0,true)" ng-cloak ng-bind="lang"></a>&nbsp;</span>
+            </p>
         </div>
     </div>
 </div>

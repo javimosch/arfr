@@ -40,6 +40,7 @@ function everyAdmin(cb, selectFields) {
 var EXPORT_ACTIONS = {
 
     M_SUBSCRIBE: M_SUBSCRIBE,
+    M_USER_NEW_ACCOUNT:M_USER_NEW_ACCOUNT,
 
     BA_ADMIN_CONTACT_FORM: BA_ADMIN_CONTACT_FORM,
 
@@ -154,7 +155,7 @@ function send(opt, resCb) {
                 if (err) {
                     return LogSave('notification getById fail in function send');
                 }
-                if (!_.includes(_notification._config.disabledTypes, _notification.type)) {
+               // if (!_.includes(_notification._config.disabledTypes, _notification.type)) {
 
                     if (process.env.disableMailing === '1') {
                         actions.log('send:mailing-disabled');
@@ -175,7 +176,7 @@ function send(opt, resCb) {
                         _send(_notification);
                     }
 
-
+/*
                 }
                 else {
 
@@ -189,7 +190,7 @@ function send(opt, resCb) {
                     if (resCb) {
                         resCb('SENDING_DISABLED_TYPE', "");
                     }
-                }
+                }*/
             });
         }
 
@@ -304,6 +305,23 @@ function M_SUBSCRIBE(data, cb) {
         to: 'arancibiajav@gmail.com',
         subject: 'Meeatful - A new subscriber !!',
         templateName: 'M_ADMIN_EMAIL_SUBCRIBE',
+        templateReplace: replaceData,
+        cb: cb
+    });
+}
+function M_USER_NEW_ACCOUNT(data,cb){
+    actions.log('M_USER_NEW_ACCOUNT=START');
+    moment.locale('es')
+    var replaceData = {
+        '$EMAIL': data.email || '[]',
+    };
+    send({
+        attachment: data.attachment || null,
+        __notificationType: 'M_USER_NEW_ACCOUNT',
+        _user: data._user,
+        to: data._user.email,
+        subject: 'Thank you for subscribing and welcome to Meetful community !',
+        templateName: 'M_USER_NEW_ACCOUNT',
         templateReplace: replaceData,
         cb: cb
     });
@@ -754,7 +772,7 @@ function htmlOrderSelectedDiagsList(_order) {
 
 
 function LogSave(msg, type, data) {
-    controllers.log.save({
+    controllers.logs.save({
         message: msg,
         type: type,
         data: data

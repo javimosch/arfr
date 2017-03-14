@@ -77,6 +77,13 @@ angular.module('directive-event-listview', ['directive-dynamic-table'])
                         type: () => "btn btn-primary",
                         click: () => update(),
                         show: () => true
+                    }, {
+                        label: i18n.NAV_CREATE_EVENT,
+                        type: () => "btn btn-primary",
+                        click: () => {
+                            appRouter.to("/" + i18n.ROUTE_CREATE_EVENT + '');
+                        },
+                        show: () => true
                     }],
                     columns: [{
                         label: i18n.TEXT_LISTVIEW_LABEL_EVENT_NAME,
@@ -126,11 +133,13 @@ angular.module('directive-event-listview', ['directive-dynamic-table'])
                 };
 
                 if (appSession.hasRole('admin')) {
+                    /*
                     s.model.remove = (item, index) => {
                         if (confirm('Sure?')) {
                             appApi.delete('mevent', item._id).then(update());
                         }
                     };
+                    */
                 }
 
             }

@@ -27,9 +27,12 @@ var Logger = controllers.logs.createLogger({
     category: "NOTIFICATION"
 });
 
+//r._appApi.ctrl('Notification','M_USER_NEW_ACCOUNT',{_user:_appSession()});
+
 var NOTIFICATION = {
-    
+
     BA_ADMIN_CONTACT_FORM: 'BA_ADMIN_CONTACT_FORM',
+    M_USER_NEW_ACCOUNT: 'M_USER_NEW_ACCOUNT',
 
     ADMIN_BOOKING_MISSING_DEPARTMENT: 'ADMIN_BOOKING_MISSING_DEPARTMENT',
     ADMIN_BOOKING_MISSING_DEPARTMENT_REQUEST: 'ADMIN_BOOKING_MISSING_DEPARTMENT_REQUEST',
@@ -56,7 +59,7 @@ var NOTIFICATION = {
     LANDLORD_ORDER_PAYMENT_SUCCESS: 'LANDLORD_ORDER_PAYMENT_SUCCESS',
 
     USER_PASSWORD_RESET: 'USER_PASSWORD_RESET',
-    M_SUBSCRIBE:'M_SUBSCRIBE'
+    M_SUBSCRIBE: 'M_SUBSCRIBE'
 };
 
 var _actions = {
@@ -72,7 +75,7 @@ Object.keys(NOTIFICATION).forEach(KEY => {
 module.exports = _actions;
 
 function LogSave(msg, type, data) {
-    Log.save({
+    controllers.logs.save({
         message: msg,
         type: type || 'error',
         data: data
@@ -81,23 +84,23 @@ function LogSave(msg, type, data) {
 
 function trigger(name, data, cb) {
     //try {
-        //actions.log('trigger=' + JSON.stringify(data));
-        actions.log('trigger ',name, data, cb);
-        if (!name) return cb && cb("name required");
-        if (!NOTIFICATION[name]) {
-            LogSave('Notification trigger name not found: ' + name, 'error', data);
-            return cb && cb("trigger notification not found: " + name);
-        }
-        //actions.log('trigger:routing-' + name + '=' + JSON.stringify(data));
-        data.__notificationType = name;
-        
-        //Logger.debug(Object.keys(CTRL));
-        
-        return controllers.email[name](data, cb);
+    //actions.log('trigger=' + JSON.stringify(data));
+    actions.log('trigger ', name, data, cb);
+    if (!name) return cb && cb("name required");
+    if (!NOTIFICATION[name]) {
+        LogSave('Notification trigger name not found: ' + name, 'error', data);
+        return cb && cb("trigger notification not found: " + name);
+    }
+    //actions.log('trigger:routing-' + name + '=' + JSON.stringify(data));
+    data.__notificationType = name;
+
+    //Logger.debug(Object.keys(CTRL));
+
+    return controllers.email[name](data, cb);
     //} catch (err) {
     //    LogSave("Notification triggering error", 'error', err);
     //    return cb && cb(err);
-   // }
+    // }
 }
 
 
@@ -106,11 +109,11 @@ function save(data, cb) {
     var _user = data._user;
     var _userID = _user && _user._id || _user;
 
-    if(typeof _user === 'object' && !_user._id){
-        return console.log(MODULE,"save",'data._user needs to have an _id property.',{
+    if (typeof _user === 'object' && !_user._id) {
+        return console.log(MODULE, "save", 'data._user needs to have an _id property.', {
             type: data.type,
-            subject:data.subject,
-            to:data.to
+            subject: data.subject,
+            to: data.to
         });
     }
 
@@ -120,45 +123,20 @@ function save(data, cb) {
         return;
     }
 
-    //data: html,from,to,subject
-    UserNotifications.get({
-        _user: _userID
-    }, (err, _config) => {
-        if (err) {
-            return LogSave('Unable to retreive UserNotifications', {
-                user: _user.email,
-                description: err
-            });
-        }
-        if (!_config) {
-            //backend-databaselog("UserNotifications not found for " + _user.email + '.', 'info');
-            UserNotifications.create({
-                _user: _userID
-            }, (err, _config) => {
-                if (err) return LogSave('UserNotifications create fail for user ' + _user.email);
-                saveNotificationOn(_config);
-            })
-        } else {
-            saveNotificationOn(_config);
-        }
+
+    controllers.notification.create({
+        _user: _userID,
+        type: data.type || 'no-type',
+        to: data.to || 'not-specified',
+        subject: data.subject || 'not specified',
+        contents: data.html || '',
+    }, (err, _notification) => {
+        if (err) return LogSave('saveNotification fail when creating a notification for user ' + _user.email + ' : ' + JSON.stringify(err));
+        if (cb) cb(_notification);
+
+        // _config.notifications.push(_notification);
+        // _config.save();
     });
-
-    function saveNotificationOn(_config) {
-        Notification.create({
-            _config: _config.id,
-            _user: _userID,
-            type: data.type || 'no-type',
-            to: data.to || 'not-specified',
-            subject: data.subject || 'not specified',
-            contents: data.html || '',
-        }, (err, _notification) => {
-            if (err) return LogSave('saveNotification fail when creating a notification for user ' + _user.email + ' : ' + JSON.stringify(err));
-            if (cb) cb(_notification);
-
-            _config.notifications.push(_notification);
-            _config.save();
-        });
-    }
 }
 
 

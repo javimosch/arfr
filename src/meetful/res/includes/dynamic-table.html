@@ -8,11 +8,11 @@
     <div class="row">
         <div class="table-reponsive unselectable">
             <table class="table-dynamic table dynamic-table">
-                <!-- <caption ng-show="caption">{{caption}}</caption> -->
+                
                 <thead>
                     <tr>
                         <th ng-show="model.remove"></th>
-                        <th ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" ng-class="c.labelCls&&c.labelCls()||{}">{{c.label||c}}</th>
+                        <th ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" ng-class="c.labelCls&&c.labelCls()||{}" ng-bind="c.label||c"></th>
                     </tr>
                 </thead>
                 <!--ng-click="!hasMouse && console.log(hasMouse)"-->
@@ -33,7 +33,7 @@
                             <a ng-href="{[{model.itemHref(item)}]}">
                                 <out ng-if="!c.format" ng-show="c.show==undefined||c.show(item)" html-content html="item[c.name||c]"></out>
                                 <out ng-if="c.format" ng-show="c.show==undefined||c.show(item)" bind-html-scope="model" bind-html-compile="c.format(item[c.name||c],item)">
-                                    <!--{{c.format(item[c.name||c],item);}}-->
+                                    
                                 </out>
                             </a>
                         </td>
@@ -53,15 +53,15 @@
         <div ng-show="model.records && model.records.show" class="margin-bottom-one ">
             <ul class="form-tiny labelx2 center-block dynamic-table__records">
                 <li>
-                    <label>{{model.records.label}}</label>
+                    <label ng-bind="model.records.label"></label>
                     <input disabled ng-value="model.pagination.total" class="max-w-60">
                 </li>
         </div>
 
         <div ng-if="buttons" class="button-group dynamic-table__buttons">
-            <a ng-repeat="(k,v) in buttons" ng-href="{{v.href()}}" ng-if="v.show==undefined || v.show==true || v.show()" ng-class="v.type({
+            <a ng-repeat="(k,v) in buttons" ng-href="{[{v.href()}]}" ng-if="v.show==undefined || v.show==true || v.show()" ng-class="v.type({
             $index:$index,$first:$first
-        })||''" ng-click="v.click()">{{v.label}}</a>
+        })||''" ng-click="v.click()" ng-bind="v.label"></a>
             <out ng-if="model.buttonsTpl" ng-include="model.buttonsTpl" include-replace></out>
             <!--
             <i ng-show="model.hideTooltip == undefined || model.hideTooltip != true" class="fa fa-question" tooltip-placement="top" uib-tooltip="Double click on a row to edit"></i>

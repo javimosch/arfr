@@ -12,14 +12,14 @@ const LOG_CONTROLLER_NAME = 'logs';
 
 var EXPORT = {
     _co: function(coFn, cb, logger) {
-        co(coFn).catch(res => {
+        return co(coFn).catch(res => {
             cb(res);
             if (logger) return logger.error(res);
             if (LoggerController) return LoggerController.error(res);
             return console.log("DEBUG ERROR CO CATCH", res);
-        })
+        });
     },
-    _start: readFolterAndRegister,
+    _start: readFolderAndRegister,
     _markAsSchemeless: markAsSchemeless,
     _normalizeControllerName: normalizeControllerName
 };
@@ -34,7 +34,7 @@ var LoggerController = create(LOG_CONTROLLER_NAME).createLogger({
 var schemelessModels = [];
 
 
-function readFolterAndRegister() {
+function readFolderAndRegister() {
     return Promise(function(resolve, error, emit) {
         var readDirFiles = require('read-dir-files');
         readDirFiles.list(path.join(process.cwd(), 'backend', 'controllers'), function(err, filenames) {
@@ -95,6 +95,9 @@ function normalizeControllerName(name) {
 }
 
 function registerController(name, actions) {
+    if(LoggerController){
+        //LoggerController.debug('Register',normalizeControllerName(name));
+    }
     EXPORT[normalizeControllerName(name)] = actions;
 }
 

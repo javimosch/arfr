@@ -3,7 +3,7 @@
         <div class="panel">
             <h2 ng-bind="i18n.TEXT_PROFILE"></h2>
 
-            <form class="form-horizontal" ng-controller="profile">
+            <form class="form-horizontal" ng-controller="profile"  autocomplete="off">
                 <div class="row">
                     <div class="col-sm-12 col-lg-6">
                         <fieldset>
@@ -14,9 +14,9 @@
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" ng-disabled="true" for="textinput">Email</label>
+                                <label class="col-md-4 control-label" ng-disabled="true" for="email">Email</label>
                                 <div class="col-md-8">
-                                    <input id="textinput" name="textinput" type="text" ng-model="item.email" placeholder="" class="form-control input-md" required="">
+                                    <input  type="text" ng-model="item.email" placeholder="" class="form-control input-md" required="">
 
                                 </div>
                             </div>
@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="password">Password</label>
                                 <div class="col-md-8">
-                                    <input id="password" ng-model="item.password" name="password" type="password" placeholder="" class="form-control input-md" required="">
+                                    <input ng-model="item.password"  type="password" placeholder="" class="form-control input-md" required="">
 
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
     -->                                
                                     <a ng-show="isAdmin()" href="/backoffice" class="btn btn-primary">Backoffice</a>
 
-                                    <button id="logout" ng-click="logout()" name="logout" class="btn btn-primary">Logout</button>
+                                    <button id="logout" ng-click="logout()" name="logout" class="btn btn-primary" ng-bind="'{{i18n 'TEXT_LOGOUT'}}'"></button>
                                 </div>
 
                             </div>

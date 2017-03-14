@@ -1,4 +1,5 @@
 var controllers = require('../model/backend-controllers-manager');
+var Promise = require('promise');
 var sander = require('sander');
 var moment = require('moment');
 var S = require('string');
@@ -14,16 +15,38 @@ var Logger = controllers.logs.createLogger({
 
 module.exports = {
     setupMultilanguageTexts: setupMultilanguageTexts,
-    i18nConfig:i18nConfig
+    i18nConfig: i18nConfig,
+    getAllByCategory:getAllByCategory
 };
+
+
+function getAllByCategory(category, cb) {
+    if (cb) return cb('Not available');
+    return new Promise((resolve, reject) => {
+        controllers.categories.get({
+            code: category
+        }, function(err, cat) {
+            if (err)
+                if (err) return reject(err);
+            controllers.texts.getAll({
+                _category: cat._id,
+                __select: "content code"
+            }, function(err, _texts) {
+                if (err) return reject(err);
+                return resolve(_texts);
+            });
+        });
+    });
+}
 
 function i18nConfig(data, cb) {
     if (!data.appName) return cb('appName required.');
     var _requirePath = path.join(process.cwd(), 'configs/config-' + data.appName);
     require.async(_requirePath, function(config) {
         if (config.i18n_config) {
-            cb(null,config.i18n_config);
-        }else{
+            cb(null, config.i18n_config);
+        }
+        else {
             cb('i18n_config required inside project configuration file');
         }
     });

@@ -8,13 +8,14 @@ var configureGridFS = requireController('file').configure;
 var configureGridFSActions = requireController('file').configureActions;
 var Schema = mongoose.Schema;
 var LOCAL = process.env.LOCAL && process.env.LOCAL.toString() == '1' || false;
-var Promise = require('./utils').promise;
+var Promise = require('promise');
 // Build the connection string 
 var dbURI = null;
 
 if (process.env.dbURI) {
     dbURI = process.env.dbURI || dbURI;
-}else{
+}
+else {
     console.log('dbURI required !');
     return process.exit(1);
 }
@@ -33,33 +34,34 @@ exports.connect = function*() {
 // Create the database connection 
 //console.log('using',dbURI);
 mongoose.Promise = global.Promise;
-mongoose.connect(dbURI);
 
-// CONNECTION EVENTS
-// When successfully connected
-mongoose.connection.on('connected', function() {
-    console.log('Mongoose default connection open to ' + dbURI);
-});
-
-// If the connection throws an error
-mongoose.connection.on('error', function(err) {
-    console.log('Mongoose default connection error: ' + err);
-});
-
-// When the connection is disconnected
-mongoose.connection.on('disconnected', function() {
-    console.log('Mongoose default connection disconnected');
-});
-
-// If the Node process ends, close the Mongoose connection 
-process.on('SIGINT', function() {
-    mongoose.connection.close(function() {
-        console.log('Mongoose default connection disconnected through app termination');
-        process.exit(0);
+exports.initialize = () => {
+    return new Promise((resolve, reject) => {
+        mongoose.connection.on('connected', function() {
+            configureGridFS(mongoose);
+            //console.log('Mongoose default connection open to ' + dbURI);
+            resolve();
+        });
+        mongoose.connection.on('error', function(err) {
+            //console.log('Mongoose default connection error: ' + err);
+            reject();
+        });
+        mongoose.connection.on('disconnected', function() {
+            console.log('Mongoose default connection disconnected');
+        });
+        process.on('SIGINT', function() {
+            mongoose.connection.close(function() {
+                console.log('Mongoose default connection disconnected through app termination');
+                process.exit(0);
+            });
+        });
+        mongoose.connect(dbURI)
     });
-});
+}
 
-configureGridFS(mongoose);
+
+
+
 
 
 
@@ -77,7 +79,7 @@ exports.getSchema = (n) => schemas[n];
 exports.mongoose = mongoose;
 
 function registerSchemasAutomagically() {
-    return Promise(function(resolve, error, emit) {
+    return new Promise(function(resolve, error) {
         var readDirFiles = require('read-dir-files');
         readDirFiles.list(path.join(process.cwd(), 'backend', 'schemas'), function(err, filenames) {
             if (err) {
@@ -88,16 +90,16 @@ function registerSchemasAutomagically() {
                 fileName = fileName.substring(fileName.lastIndexOf('/') + 1).replace('.js', '');
                 if (fileName.indexOf('ignore') != -1) return;
                 if (!fileName) return;
-                
+
 
                 var schemaPath = path.join(process.cwd(), "backend", "schemas", fileName + '.js');
 
                 if (fs.existsSync(schemaPath)) {
                     try {
                         var schemaFile = require(schemaPath);
-                        if(schemaFile.name){
-                            model(schemaFile.name,schemaFile.def,false);
-                            //console.log("DB SCHEMA REGISTER", fileName,'as',schemaFile.name);
+                        if (schemaFile.name) {
+                            model(schemaFile.name, schemaFile.def, false);
+                            //console.log("DATABASE Schema", fileName,'as',schemaFile.name);
                         }
                     }
                     catch (e) {};

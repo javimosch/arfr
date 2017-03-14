@@ -24,14 +24,14 @@ angular.module('config-app-router', []).config(['$routeProvider', '$locationProv
         when('/' + i18n.ROUTE_PROFILE, {
             templateUrl: '/includes/profile.html'
         }).
-        
+
         when('/profile/id/:id', {
             templateUrl: '/includes/profile.html'
         }).
         when('/profile/:url', {
             templateUrl: '/includes/profile.html'
         }).
-        
+
         when('/' + i18n.ROUTE_EDIT_EVENT + '/:id', {
             templateUrl: '/includes/create-event.html'
         }).
@@ -63,7 +63,7 @@ angular.module('config-app-router', []).config(['$routeProvider', '$locationProv
         when('/backoffice/i18n/:id', {
             templateUrl: '/includes/bo-i18n.html'
         }).
-         when('/backoffice/pages/:id', {
+        when('/backoffice/pages/:id', {
             templateUrl: '/includes/bo-pages.html'
         }).
 
@@ -78,13 +78,13 @@ angular.module('config-app-router', []).config(['$routeProvider', '$locationProv
         }).
         when('/task/:id', {
             templateUrl: '/includes/task.html'
+        }).
+
+
+        otherwise({
+            redirectTo: '/' + i18n.ROUTE_DASHBOARD
         });
 
-        /*
-        otherwise({
-            redirectTo: '/' + i18n.ROUTE_SIGN_IN
-        });
-        */
 
 
         $locationProvider.html5Mode({

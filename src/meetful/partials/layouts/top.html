@@ -2,24 +2,26 @@
 <html>
 
 <head>
-    {{>head}}
-    {{>css}}
-    
-    {{#each CDN_HEAD}}
-<script type="text/javascript" src="{{this}}"></script>
-{{/each}}
+    {{>head}} {{>css}} {{#each CDN_HEAD}}
+    <script type="text/javascript" src="{{this}}"></script>
+    {{/each}}
 </head>
 
 <body>
-    
-    
-    
+
+
+
     <!-- Wrap all page content here -->
-<div id="wrap">
+    <div id="wrap">
 
-    <!-- Begin page content -->
-    <div class="container-fluid">
-    {{>header}}
+        <!-- Begin page content -->
+        <div class="container-fluid">
+            {{>header}}
 
-<div class="container wrap__content">
-    
+            <div class="row">
+                <div class="col-sm-12">
+                    <my-alerts add="notify" class="notify " directive="notify" stacked="false" settings="{clickDismissable:false,scroll:true}"></my-alerts>
+                </div>
+            </div>
+
+            <div class="container wrap__content">

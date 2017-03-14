@@ -4,16 +4,15 @@
     margin: 0px;
     background-color: transparent;
     height: 60px;
-    position: fixed;
+    position: absolute;
     width: 100%;
     left: 0px;
     bottom: 0px;
     border: 0px;
 }
 
-
-.notify .alert-dismissable .close{
-    right: 10px!important;
+.notify .close {
+    right: 10px !important;
 }
 
 .notify .alert {

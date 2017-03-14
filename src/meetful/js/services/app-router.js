@@ -18,7 +18,10 @@ var app = angular.module('service-app-router', []).service('appRouter', ['$rootS
         return path;
     }
 
-    function html5RouteTo(path) {
+    function html5RouteTo(path,external) {
+        if(external){
+            return window.location.href = path;
+        }
         var link = document.createElement('a');
         link.href = "" + path;
         //$log.debug('ROUTING (HTML5) to ', link.href);
@@ -32,12 +35,12 @@ var app = angular.module('service-app-router', []).service('appRouter', ['$rootS
         onChange: function(listener) {
             listeners.push(listener);
         },
-        to: function(name, params, delay) {
+        to: function(name, params, delay,external) {
             if (name && name.charAt(0) != '/') name = "/" + name;
 
             self.params(params);
             $timeout(() => {
-                html5RouteTo(name);
+                html5RouteTo(name,external);
             }, delay || 0);
             //r.route(name, delay);
         },
@@ -90,6 +93,6 @@ var app = angular.module('service-app-router', []).service('appRouter', ['$rootS
         //$log.warn(normalizePath(next.$$route.originalPath),'SUCCESS!');
     });
 
-    window._appRouter = self;
+    r.appRouter = self;
     return self;
 }]);

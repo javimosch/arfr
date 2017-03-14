@@ -6,7 +6,8 @@ var setModel = require('./backend-database').setModel;
 var getSchema = require('./backend-database').getSchema;
 var validate = require('./validator').validate;
 var Promise = require('./utils').promise;
-
+var path = require('path');
+var resolver = require(path.join(process.cwd(), 'lib/resolver'));
 
 
 var __hookData = {};
@@ -77,15 +78,7 @@ exports.create = function(modelName, m) {
     };
 
     function log(x) {
-        console.log(''); //enter
-        //
-        var args = arguments;
-        var msg = '';
-        Object.keys(args).forEach((arg, i) => {
-            if (msg === '') msg += args[arg] && args[arg].toString().toUpperCase() || '';
-            else msg += ", " + (args[arg] && args[arg].toString()) || '';
-        });
-        console.log(modelName.toUpperCase() + ': ' + msg);
+        resolver.logger().get('SERVER','DATABASE').debug(Array.prototype.slice.call(arguments));
     }
 
 
@@ -148,14 +141,14 @@ exports.create = function(modelName, m) {
         return Promise(function(resolve, error, emit) {
             check(data, requiredKeys || [], (err, r) => {
                 if (err) return rta(err, null);
-                
+
                 matchData = matchData || {};
-                
+
                 if (data._id) {
-                    
+
                     matchData._id = data._id;
                     delete data._id;
-                    
+
                     /*
                     data.updatedAt = new Date();
                     var _id = data._id;
@@ -171,7 +164,7 @@ exports.create = function(modelName, m) {
                     });
                     */
                 }
-                
+
 
                 //log('createUpdate:matchData=' + JSON.stringify(requiredKeys));
 
@@ -256,13 +249,14 @@ exports.create = function(modelName, m) {
     }
 
     function getAll(data, cb) {
+        cb = cb || ((_err, res) => {});
         return Promise(function(resolve, reject, emit) {
-            
+
             var projection = undefined;
-            if(data.__projection) projection = data.__projection;
+            if (data.__projection) projection = data.__projection;
             delete data.__projection;
-            
-            var query = Model.find(toRules(data),projection)
+
+            var query = Model.find(toRules(data), projection)
             if (data.__select) {
                 query = query.select(data.__select);
             }
@@ -273,13 +267,14 @@ exports.create = function(modelName, m) {
                 query = query.sort(data.__sort);
             }
             query.exec(function(err, res) {
-                cb && cb(err, res);
                 if (err) {
                     reject(err);
                 }
                 else {
                     resolve(res);
+
                 }
+                cb(err, res);
             });
         });
     }
@@ -372,21 +367,25 @@ exports.create = function(modelName, m) {
     }
 
     function get(data, cb) {
-        log('get=' + JSON.stringify(data));
-        //check(data, ['_id'], (err, r) => {
-        //  if (err) return cb(err, r);
-        var query = Model.findOne(toRules(data))
-        if (data.__select) {
-            query = query.select(data.__select);
-        }
-        if (data.__populate) {
-            query = populate(query, data.__populate);
-        }
-        query.exec((err, r) => {
-            if (err) return cb(err, r);
-            cb(null, r);
+        return Promise(function(resolve, reject, emit) {
+            log('get=' + JSON.stringify(data));
+            //check(data, ['_id'], (err, r) => {
+            //  if (err) return cb(err, r);
+            var query = Model.findOne(toRules(data))
+            if (data.__select) {
+                query = query.select(data.__select);
+            }
+            if (data.__populate) {
+                query = populate(query, data.__populate);
+            }
+            query.exec((err, r) => {
+                resolve((err != undefined) ? err : r);
+                if (!cb) return;
+                if (err) return cb && cb(err, r);
+                cb && cb(null, r);
+
+            });
         });
-        //});
     }
 
     function check(data, fields, cb) {
@@ -466,7 +465,12 @@ exports.create = function(modelName, m) {
 
         rules = removeSpecialFields(rules);
 
-        log('toRules:' + JSON.stringify(rules));
+        try {
+            log('toRules:' + JSON.stringify(rules));
+        }
+        catch (e) {
+            log('toRules: circular JSON', Object.keys(rules));
+        }
         return rules;
     }
 
@@ -602,7 +606,7 @@ exports.create = function(modelName, m) {
     }
 
     return {
-        aggregate:aggregate,
+        aggregate: aggregate,
         modelCustom: modelCustom,
         schema: schema,
         model: Model,
