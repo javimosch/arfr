@@ -5,25 +5,24 @@ var controllers = null;
 var Grid = require('gridfs-stream');
 var fs = require('fs');
 var path = require("path");
+var resolver = require(path.join(process.cwd(), 'lib/resolver'));
 var generatePassword = require("password-maker");
 //var inspect = require('util').inspect;
 var utils = require('../model/utils');
 var modelName = 'file';
 var conn, gfs, mongoose;
+var Promise = require('promise');
+var _logger = null;
 
-var Logger = null;
-
-var actions = {
-    log: (msg) => {
-        if (!Logger) {
-            Logger = controllers.logs.createLogger({
-                name: "API",
-                category: "FILES"
-            });
-        }
-        Logger.log(msg);
+function logger() {
+    if (!_logger) {
+        _logger = controllers.logs.createLogger({
+            name: "API",
+            category: "FILES"
+        });
     }
-};
+    return _logger;
+}
 
 var configure = (m) => {
     mongoose = m;
@@ -33,7 +32,7 @@ var configure = (m) => {
     gfs = Grid(conn.db);
 };
 var configureActions = () => {
-    actions = req('backend-mongoose-wrapper').create('File', mongoose);
+    //actions = req('backend-mongoose-wrapper').create('File', mongoose);
     controllers = req('backend-controllers-manager');
 };
 
@@ -48,11 +47,62 @@ module.exports = {
     save: save,
     removeAll: removeAll,
     //getAll: getAll,
-    stream
+    stream,
+    uploadFromFileSystem: uploadFromFileSystem
 };
 
+var sander = require('sander');
+
+
+function uploadFromFileSystem(data, cb) {
+    //logger().debug('uploadFromFileSystem from', data.path);
+    if (cb) return 'Not available';
+    return new Promise((resolve, reject) => {
+        //var stats = sander.fstatSync(sander.openSync(_path, 'r'));
+        resolver.utils().detectMimeType(data.path).then(mimeType => {
+            //logger().debug('mimeType is ', mimeType);
+            var stream = fs.createReadStream(data.path, {
+                flag: 'r',
+                encoding: 'utf-8'
+            });
+            stream.on('open', function() {
+                saveStream({
+                    stream: stream,
+                    filename: data.filename,
+                    mimetype: mimeType
+                }).then(file => {
+                    //logger().debug('written', file);
+                    resolve(file);
+                }).catch('error', function(err) {
+                    reject(err);
+                });
+            });
+            stream.on('error', function(err) {
+                reject(err);
+            });
+        });
+    });
+}
+
+function saveStream(data, cb) {
+    if (cb) return cb('No available');
+    //valid stream (opened) required;
+    return new Promise((resolve, reject) => {
+        data.stream.pipe(gfs.createWriteStream({
+            filename: data.filename,
+            mode: 'w',
+            chunkSize: 1024,
+            content_type: data.mimetype
+        })).on('close', function(file) {
+            resolve(file);
+        }).on('error', function(err) {
+            reject(err);
+        });
+    });
+}
+
 function dbToHD(data, cb) {
-    actions.log('dbToHD:start=' + JSON.stringify(data));
+    logger().debug('dbToHD:start=' + JSON.stringify(data));
     var fs_write_stream = fs.createWriteStream(data.path);
     var readstream = gfs.createReadStream({
         _id: data._id
@@ -60,7 +110,7 @@ function dbToHD(data, cb) {
 
     readstream.on('close', function(file) {
         //var msg = file.filename + ' written to ' + data.path;
-        actions.log('dbToHD:success');
+        logger().debug('dbToHD:success');
         find({
             _id: data._id
         }, (err, _file) => {
@@ -181,7 +231,7 @@ function getAll(data, cb) {
 
 
 function read(data, cb) {
-    actions.log('read:start=' + JSON.stringify(data));
+    logger().debug('read:start=' + JSON.stringify(data));
     var fs_write_stream = fs.createWriteStream('file_' + data.name + '_' + generatePassword(8) + '_.txt');
     var readstream = gfs.createReadStream({
         filename: data.name
@@ -189,13 +239,13 @@ function read(data, cb) {
     readstream.pipe(fs_write_stream);
     fs_write_stream.on('close', function() {
         var msg = 'read:rta=file ' + data.name + ' has been written fully!';
-        actions.log(msg);
+        logger().debug(msg);
         cb(null, msg);
     });
 }
 
 function get(data, cb) {
-    actions.log('get:start=' + JSON.stringify(data));
+    logger().debug('get:start=' + JSON.stringify(data));
     if (!data._id) return cb({
         message: '_id required!'
     });
@@ -230,7 +280,7 @@ function get(data, cb) {
                 console.log('An error occurred!', err);
                 throw err;
             });
-            actions.log('get:end=' + JSON.stringify(file));
+            logger().debug('get:end=' + JSON.stringify(file));
             file.stream = readstream;
             cb(null, file);
         }
@@ -238,7 +288,7 @@ function get(data, cb) {
 }
 
 function _streamToDb(data, cb) {
-    actions.log('save:_streamToDb=' + JSON.stringify(Object.keys(data)));
+    logger().debug('save:_streamToDb=' + JSON.stringify(Object.keys(data)));
     data.file.pipe(gfs.createWriteStream({
         filename: data.name,
         mode: 'w',
@@ -246,7 +296,7 @@ function _streamToDb(data, cb) {
         content_type: data.mimetype
     })).on('close', function(file) {
         var msg = file.filename + ' written To DB';
-        actions.log(msg);
+        logger().debug(msg);
         cb(null, {
             result: file,
             message: msg
@@ -256,7 +306,7 @@ function _streamToDb(data, cb) {
 
 //save a file (type=file need to be the last item of the form.)
 function save(data, cb, req, res) {
-    actions.log('save:start=' + JSON.stringify(data));
+    logger().debug('save:start=' + JSON.stringify(data));
     if (req.busboy) {
         var requiredFileds = ['name', 'mimetype', 'file'];
 
@@ -266,7 +316,7 @@ function save(data, cb, req, res) {
             var success = true;
             requiredFileds.forEach((k) => {
                 if (!data[k]) {
-                    actions.log('save:waiting for property ' + k + ' in data.');
+                    logger().debug('save:waiting for property ' + k + ' in data.');
                     success = false;
                 }
             });
@@ -292,25 +342,25 @@ function save(data, cb, req, res) {
         //console.info('body',req.body);
     }
     else {
-        actions.log('save:error= busboy required.');
+        logger().debug('save:error= busboy required.');
         return cb('busboy requried', null);
     }
 }
 
 function exists(data, cb) {
-    actions.log('exists:start=' + JSON.stringify(data));
+    logger().debug('exists:start=' + JSON.stringify(data));
     var options = {
         filename: data.name
     }; //can be done via _id as well
     gfs.exist(options, function(err, found) {
         if (err) return cb(err, null);
-        actions.log('exists:rta=' + found);
+        logger().debug('exists:rta=' + found);
         cb(null, (found ? true : false));
     });
 }
 
 function find(data, cb) {
-    actions.log('find:start=' + JSON.stringify(data));
+    logger().debug('find:start=' + JSON.stringify(data));
     var opt = {};
     if (data.name) {
         opt = {
@@ -326,7 +376,7 @@ function find(data, cb) {
             _id: opt._id
         }, function(err, file) {
             if (err) return cb(err, null);
-            actions.log('find:rta=' + JSON.stringify(file));
+            logger().debug('find:rta=' + JSON.stringify(file));
             cb(null, file);
         });
     }
@@ -337,7 +387,7 @@ function find(data, cb) {
                 _id: f._id,
                 filename: f.filename
             }));
-            actions.log('find:rta=' + JSON.stringify(ff));
+            logger().debug('find:rta=' + JSON.stringify(ff));
             cb(null, files);
         });
     }
@@ -346,7 +396,7 @@ function find(data, cb) {
 }
 
 function remove(data, cb) {
-    actions.log('remove:start=' + JSON.stringify(data));
+    logger().debug('remove:start=' + JSON.stringify(data));
     var opt = {};
     if (data._id) opt._id = data._id;
     else if (data.name) opt.filename = data.name;
@@ -355,13 +405,13 @@ function remove(data, cb) {
     });
     gfs.remove(opt, (err) => {
         if (err) return cb(err, null);
-        actions.log('remove:rta=' + JSON.stringify(true));
+        logger().debug('remove:rta=' + JSON.stringify(true));
         cb(null, true);
     });
 }
 
 function removeAll(data, cb) {
-    actions.log('removeAll:start=' + JSON.stringify({}));
+    logger().debug('removeAll:start=' + JSON.stringify({}));
     find({}, (err, files) => {
         if (err) return cb(err, files);
         files.forEach(file => {
