@@ -16,7 +16,7 @@ var Logger = controllers.logs.createLogger({
 module.exports = {
     setupMultilanguageTexts: setupMultilanguageTexts,
     i18nConfig: i18nConfig,
-    getAllByCategory:getAllByCategory
+    getAllByCategory: getAllByCategory
 };
 
 
@@ -26,8 +26,9 @@ function getAllByCategory(category, cb) {
         controllers.categories.get({
             code: category
         }, function(err, cat) {
-            if (err)
-                if (err) return reject(err);
+            if (err) return reject(err);
+            //if(!cat) return reject('Category not available ('+category+')');
+            if (!cat) return resolve([]);
             controllers.texts.getAll({
                 _category: cat._id,
                 __select: "content code"
