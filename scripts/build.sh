@@ -9,10 +9,10 @@ else
 fi
 
 echo BUILDING $1
-PROD=1 node ./node_modules/concurrently/src/main.js --kill-others 'node ./lib/entry_point.js'
-echo COPYING CONFIG
-sleep 2;
-node ./lib/tasks/generateReleaseConfig.js;
+PROD=1 node ./node_modules/concurrently/src/main.js --kill-others 'node ./lib/server.js'
+#echo COPYING CONFIG
+#sleep 2;
+#node ./lib/tasks/generateReleaseConfig.js;
 #echo COPYING RESOURCES
 #sh ./scripts/install-prod.sh $1;
 #echo CREATING VERSION FILE
