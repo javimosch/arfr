@@ -13,7 +13,7 @@
     "version": "./scripts/generate-version.sh",
     "deploy": "./scripts/ftp_deploy.sh",
     "server": "node ./lib/server.js",
-    "release": "./scripts/build.sh",
+    "release": "node ./lib/server.js",
     "push": "git push heroku debugging:master",
     "herokudeploy": "DEPLOY_PRESERVE_FILES=1 ./scripts/ftp_deploy.sh",
     "heroku": "npm run release",
