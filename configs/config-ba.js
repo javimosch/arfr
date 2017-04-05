@@ -12,5 +12,9 @@ module.exports = {
     CDN: [
         "https://code.jquery.com/jquery-2.2.2.min.js",
         "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-    ]
+    ],
+    i18n_config: {
+        languages: ['en', 'es'],
+        default: 'en',
+    }
 };

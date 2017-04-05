@@ -22,21 +22,18 @@
 }
 
 @media only screen and (min-width: 768px) {
- 
     .container {
         width: inherit;
     }
 }
 
 @media only screen and (min-width: 992px) {
- 
     .container {
         width: 970px;
     }
 }
 
 @media only screen and (min-width: 1200px) {
- 
     .container {
         width: 1170px;
     }
@@ -56,6 +53,7 @@ html, body {
     height: auto;
     margin: 0px auto -100px;
     padding: 0px 0px 100px;
+    background: url("/img/bg.jpg") 0% 0% / cover;
 }
 
 #footer {

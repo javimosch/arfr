@@ -1,5 +1,21 @@
 header {
-    height: 100px;
+    padding-top: 10px;
+}
+
+.header__col {
+    background-color: white;
+    padding-left: 20px;
+    border-radius: 50px;
+    width: 250px;
+}
+
+.header__quote {
+    color: black;
+    font-family: Nunito, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    padding: 40px 50px 0px;
+    font-weight: 100;
 }
 
 .header__logo {
@@ -14,9 +30,14 @@ header {
     color: black;
     font-family: Nunito, sans-serif;
     font-size: 14px;
-    font-weight: lighter;
-    margin: 19px 0px 0px;
     padding: 0px 15px 0px 10px;
+    line-height: 100px;
+    margin: 0px;
+    font-weight: bolder;
+}
+
+.header__text__alternate {
+    font-weight: 100;
 }
 
 .header__brand:hover {
@@ -33,10 +54,10 @@ header {
     color: black;
     padding-top: 0px;
     padding-left: 20px;
+    font-weight: bolder;
 }
 
 @media only screen and (min-width: 320px) {
- 
     .header__brand p {
     }
 
@@ -44,13 +65,11 @@ header {
     }
 
     .header__text {
-        margin: 28px 0px 0px;
         font-size: 15px;
     }
 }
 
 @media only screen and (min-width: 480px) {
- 
     .header__brand p {
     }
 
@@ -60,13 +79,11 @@ header {
 
     .header__text {
         font-size: 20px;
-        margin: 26px 0px 0px;
         padding: 0px 29px 0px 20px;
     }
 }
 
 @media only screen and (min-width: 768px) {
- 
     .header__brand p {
     }
 
@@ -75,13 +92,11 @@ header {
     }
 
     .header__text {
-        margin: 18px 0px 0px;
         font-size: 25px;
     }
 }
 
 @media only screen and (min-width: 992px) {
- 
     .header__brand p {
         display: inline-block;
     }
@@ -96,7 +111,6 @@ header {
 }
 
 @media only screen and (min-width: 1200px) {
- 
     .header__brand p {
     }
 
@@ -104,6 +118,5 @@ header {
     }
 
     .header__text {
-        margin: 35px 0px 0px;
     }
 }
