@@ -16,7 +16,7 @@
     "release": "node ./lib/server.js",
     "push": "git push heroku debugging:master",
     "herokudeploy": "DEPLOY_PRESERVE_FILES=1 ./scripts/ftp_deploy.sh",
-    "heroku": "npm run release",
+    "heroku": "node /app/lib/server.js",
     "serve": "npm-run-parallel release server",
     "git": "ungit --port 8082"
   },
