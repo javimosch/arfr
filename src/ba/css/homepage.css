@@ -5,6 +5,8 @@
     max-width: 280px;
     background: azure;
     border-radius: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .home-menu__item {

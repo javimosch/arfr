@@ -7,6 +7,8 @@ header {
     padding-left: 20px;
     border-radius: 50px;
     width: 250px;
+    position: relative;
+    z-index: 2;
 }
 
 .header__quote {

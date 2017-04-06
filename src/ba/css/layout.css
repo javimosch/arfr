@@ -58,5 +58,7 @@ html, body {
 
 #footer {
     height: 100px;
+}
+.footer {
     background-color: rgb(240, 248, 255);
 }
