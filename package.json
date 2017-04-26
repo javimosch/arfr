@@ -29,6 +29,9 @@
     "express",
     "ssg"
   ],
+  "engines": {
+    "npm": "7.8.0"
+  },
   "author": "Javier Arancibia",
   "license": "ISC",
   "bugs": {
@@ -38,9 +41,10 @@
   "dependencies": {
     "angularfire": "^1.2.0",
     "atob": "^2.0.3",
-    "babel-core": "^6.23.1",
+    "babel-core": "^6.24.1",
     "babel-plugin-transform-strict-mode": "^6.6.5",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "body-parser": "^1.16.0",
     "bower": "^1.7.9",
     "btoa": "^1.1.2",
@@ -67,6 +71,8 @@
     "ftp-deploy": "^1.1.0",
     "getmac": "^1.2.1",
     "gridfs-stream": "^1.1.1",
+    "gulp-better-rollup": "^1.1.1",
+    "gulp-file": "^0.3.0",
     "gulp-watch": "^4.3.5",
     "handlebars": "^4.0.5",
     "html-minifier": "^3.3.1",
@@ -74,7 +80,7 @@
     "http": "0.0.0",
     "jasmine-node": "^1.14.5",
     "jsdom": "^9.6.0",
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.4",
     "mailcomposer": "^3.6.2",
     "mailgun-js": "^0.7.7",
     "mime-types": "^2.1.11",
@@ -104,6 +110,8 @@
     "remove-html-comments": "^1.0.2",
     "request": "^2.69.0",
     "require.async": "^0.1.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
     "sander": "^0.5.1",
     "shortid": "^2.2.6",
     "simple-node-logger": "^0.93.14",
@@ -115,7 +123,13 @@
     "urlencode": "^1.1.0",
     "urlencode2": "^1.0.1",
     "watch": "^0.17.1",
+    "webpack": "^2.3.3",
+    "webpack-stream": "^3.2.0",
     "yargs": "^4.7.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "rollup-stream": "^1.19.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }

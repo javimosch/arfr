@@ -7,12 +7,19 @@ function configure(app) {
         var logger = resolver.logger().get('SERVER','BACKEND-GENERAL');
         resolver.backendRoutes().configure(app).then(() => {
         
+            logger.debug('Guessing temp folder name');
             var tempFolderPath = process.env.tempFolderPath || '/backend/temp/';
-            resolver.utils().ensureDirectory(process.cwd() + tempFolderPath);
+            logger.debug('Ensuring temp directory');
+            try{
+                resolver.utils().ensureDirectory(process.cwd() + tempFolderPath);
+            }catch(err){
+                logger.warn('Temp directory issue',err,'Path',process.cwd() + tempFolderPath);
+            }
             
             logger.debug('Running programmed tasks');
             resolver.backendTasks().configure(app);
             resolve();
+            
         }).catch(err=>{
             logger.error('Unable to set routes',err);
         });
