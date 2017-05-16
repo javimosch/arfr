@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = {
-    name:'categories',
+    name: 'categories',
     def: {
         _parent: {
             type: Schema.Types.ObjectId,
@@ -17,5 +17,6 @@ module.exports = {
             type: String,
             required: false
         }
-    }
+    },
+    configure: (schema) => schema
 };

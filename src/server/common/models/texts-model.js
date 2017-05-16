@@ -34,5 +34,6 @@ module.exports = {
             type: Date,
             default: Date.now
         }
-    }
+    },
+    configure: schema => schema
 };

@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = {
-    name:'logs',
+    name: 'logs',
     def: {
-        category:{
-          type:String,
-          default:'other'
+        category: {
+            type: String,
+            default: 'other'
         },
         level: {
             type: String,
@@ -27,5 +27,6 @@ module.exports = {
             type: Date,
             default: Date.now
         }
-    }
+    },
+    configure: schema => schema
 };
