@@ -103,6 +103,7 @@
     "oauth2-server": "^2.4.1",
     "password-maker": "^1.1.2",
     "path": "^0.12.7",
+    "path-exists": "^3.0.0",
     "promise": "^7.1.1",
     "public-ip": "^2.0.1",
     "query-selector": "^1.0.9",
