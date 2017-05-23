@@ -1,0 +1,39 @@
+{{>footer}} {{>auto-reload}} {{>css-update-button}}
+
+<script src="/vendor/rellax.min.js"></script>
+<script>
+    /*global Rellax*/
+    var rellax = new Rellax('.rellax');
+</script>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    /*global $*/
+    $(window).scroll(function() {
+        var s = $(window).scrollTop();
+        if (s > 50) {
+            $('.arrow').fadeOut();
+        }
+        else {
+            $('.arrow').fadeIn();
+        }
+    });
+
+    function adjustLatBackground() {
+        var bgs = ['bg-0', 'bg-1', 'bg-2', 'bg-3']; //, 'bg-4'
+        var height = 0;
+        for (var n in bgs) height += $('.' + bgs[n]).outerHeight(true);
+        $('.bg-5').css('min-height', $('#wrap').outerHeight(true) - height);
+    }
+
+    $(window).resize(function() {
+        $('.backgrounds div').width($(window).width());
+        $('.bg-0').css('min-height', $(window).height())
+        adjustLatBackground();
+    });
+    adjustLatBackground();
+    $('.bg-0').css('min-height', $(window).height())
+    $('.backgrounds div').width($(window).width());
+</script>
+
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=591bf5380a922e00129f425d&product=sticky-share-buttons"></script>

@@ -86,8 +86,10 @@
     "jasmine-node": "^1.14.5",
     "jsdom": "^9.6.0",
     "lodash": "^4.17.4",
+    "mailchimp-api-v3": "^1.7.0",
     "mailcomposer": "^3.6.2",
     "mailgun-js": "^0.7.7",
+    "md5": "^2.2.1",
     "mime-types": "^2.1.11",
     "minify-content": "^1.0.0",
     "minimatch": "^3.0.0",
@@ -137,13 +139,15 @@
     "watch": "^0.17.1",
     "webpack": "^2.3.3",
     "webpack-stream": "^3.2.0",
-    "yargs": "^4.7.1"
-  },
-  "devDependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
+    "yargs": "^4.7.1",
     "gulp": "^3.9.1",
     "rollup-stream": "^1.19.0",
     "uglify-js-harmony": "^2.7.7",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "devDependencies": {
+
+  },
+  "devDependencies": {}
 }

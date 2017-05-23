@@ -1,0 +1,46 @@
+{{> top}} {{> landing-page}} {{> bottom}}
+
+<script type="text/javascript">
+    /*global $,alertify*/
+
+    alertify.defaults.transition = "slide";
+    alertify.defaults.theme.ok = "btn btn-primary";
+    alertify.defaults.theme.cancel = "btn btn-danger";
+    alertify.defaults.theme.input = "form-control";
+
+    var btn = $('.subscribe-form__submit');
+
+    btn.on('click', function() {
+        var email = $('.subcribe-form__email').val();
+        if (!email) return alertify.warning('You forgot to write an email',5);
+        $.ajax({
+            url: '/api/newsletter/add',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                "email": email
+            },
+            success: function(data) {
+
+                if (!data.ok) {
+                    if (data.err.status === 400) {
+                        return alertify.warning(data.err.detail,10);
+                    }
+                    alertify.warning('Something was wrong. You can try later. We will take a look!',10);
+                    return console.log('warning', data.err);
+                }
+
+                alertify.success('Thanks for subscribing',10);
+                console.log('success', data);
+            },
+            error: function(err) {
+                alertify.error('Something was wrong, can you try later ?',10);
+                console.log('error', err);
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

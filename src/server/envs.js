@@ -1,7 +1,7 @@
 module.exports = {
-    
-    FILE_LOGGING_LEVEL:process.env.FILE_LOGGING_LEVEL || "DEBUG",
-    
+
+    FILE_LOGGING_LEVEL: process.env.FILE_LOGGING_LEVEL || "DEBUG",
+
     DB_URI: process.env.dbURI,
 
     SOCKETS_PORT: 8081,
@@ -11,6 +11,9 @@ module.exports = {
     SSH_PWD: process.env.SSH_PWD,
 
     GITLAB_API_KEY: process.env.GITLAB_API_KEY,
+
+    MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY,
+    MAILCHIMP_LIST_ID: process.env.MAILCHIMP_LIST_ID,
 
     PROD: process.env.PROD && process.env.PROD.toString() == '1' || false,
     PORT: process.env.PORT || 3000,

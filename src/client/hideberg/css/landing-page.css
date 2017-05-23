@@ -1,0 +1,297 @@
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0px auto -100px;
+    padding: 0px 0px 100px;
+    /*
+            background: url(/img/bg.jpg) 0% 0%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            */
+    background-color: transparent;
+    z-index: 1;
+    position: relative;
+}
+
+#footer {
+    height: 100px;
+    min-width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1;
+    position: relative;
+}
+
+#footer .logo {
+    height: 50px;
+    padding-top: 25px;
+    line-height: 100px;
+}
+
+.header-logo {
+    padding-top: 250px;
+}
+
+.logo {
+    margin: 0 auto;
+    display: block;
+}
+
+.rellax {
+    min-width: 100%;
+}
+
+.wrapper-block-1 {
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 50px;
+}
+
+.wrapper-block-2 {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 50px;
+}
+
+.wrapper-block-3 {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    background-color: #324C9A;
+    padding: 25px;
+}
+
+.wrapper-block-3-transparent {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+    padding: 50px;
+}
+
+.image-medium-center {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+@media only screen and (min-width: 992px) {
+    .image-medium-center {
+        max-width: 800px;
+    }
+}
+
+.wrapper-block-logo {
+    min-height: 700px;
+}
+
+.text-block {
+    text-align: center;
+    font-family: Cabin, serif;
+    margin: 0 auto;
+    display: block;
+    color: white;
+    margin-top: 10px;
+    word-spacing: 2px;
+    line-height: 22px;
+}
+
+.subscribe-form {
+    max-width: 500px;
+    margin: 0 auto;
+    /* background: red; */
+    min-height: 50px;
+}
+
+.subcribe-form__email {
+    max-width: 300px;
+    width: 100%;
+    min-height: 50px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: #333333;
+    text-align: center;
+    border: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    margin: 0 auto;
+}
+
+.subscribe-form__submit {
+    width: 100%;
+    max-width: 300px;
+    border: 0px;
+    min-height: 50px;
+    padding: 0px;
+    position: relative;
+    left: 0px;
+    margin: 0px;
+    background-color: #36418E;
+    color: white;
+    font-size: 1.2rem;
+    line-height: 50px;
+    margin: 0 auto;
+    top: 0px;
+}
+
+@media only screen and (min-width: 768px) {
+    .subcribe-form__email {
+        margin: 0px;
+        float: left;
+        padding-left: 10px;
+        text-align: left;
+    }
+    .subscribe-form__submit {
+        float: left;
+        top: 0px;
+        margin: 0px;
+        max-width: 186px;
+    }
+}
+
+.subscribe-form__submit:focus {
+    outline: none;
+}
+
+.subscribe-form__submit:hover,
+.subscribe-form__submit:active {
+    outline: none;
+    background-color: blueviolet;
+    cursor: pointer;
+}
+
+.subscribe-form>input,
+.subscribe-form>button {
+    font-family: Cabin, serif;
+    display: block;
+}
+
+@media only screen and (min-width: 768px) {
+    .subscribe-form>input,
+    .subscribe-form>button {
+        display: inline;
+    }
+}
+
+.hidden {
+    display: none!important;
+}
+
+.logo__quote {
+    font-family: Cabin, serif;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    padding: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .logo__quote {
+        font-size: 2rem;
+    }
+}
+
+.arrow {
+    margin: 0 auto;
+    padding-top: 20px;
+    display: block;
+}
+
+.arrow-block {
+    min-height: 30px;
+}
+
+.section-title {
+    font-family: Cabin, serif;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bolder;
+    color: white;
+    margin: 0px;
+}
+
+.backgrounds {
+    z-index: 0;
+    position: absolute;
+}
+
+.bg-child {
+    min-width: 100%;
+    position: relative;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    display: block;
+}
+
+.bg-0 {
+    min-height: 600px;
+    background: url(/img/bg.jpg) 0% 0%;
+}
+
+.bg-1 {
+    /*
+            Se puede variar la alturo de cualquiera de los cuatro bloques bg-1 bg-2 bg-4 bg-5
+            Pero la suma total de ser la misma que ahora: 600+1200+600+507px
+            A exception de que se agregue mas contenido a la pagina.
+            */
+    min-height: 600px;
+    background: url(/img/bg-1.jpg) 0% 0%;
+}
+
+.bg-2 {
+    min-height: 910px;
+    background: url(/img/bg-2.jpg) 0% 0%;
+}
+
+.bg-5 {
+    /*el min height el minimo alto, que este caso seria el maximo alto, por que no hay contenido
+            este ultimo esta en 507px para que corresponda con el inicio del footer*/
+    min-height: 507px;
+    background: url(/img/bg-3.jpg) 0% 0%;
+}
+
+.alertify-notifier {
+    position: fixed;
+    width: 0;
+    overflow: visible;
+    z-index: 999999;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.alertify-notifier .ajs-message.ajs-success {
+    color: white;
+    background: darkslateblue;
+    text-shadow: none;
+    font-family: Cabin, serif;
+    font-size: large;
+    border: 0px;
+}
+
+.alertify-notifier .ajs-message.ajs-warning {
+    color: white;
+    background: chocolate;
+    text-shadow: none;
+    font-family: Cabin, serif;
+    font-size: smaller;
+    border: 0px;
+}
+
+.alertify-notifier .ajs-message.ajs-error {
+    color: white;
+    background: indianred;
+    text-shadow: none;
+    font-family: Cabin, serif;
+    font-size: smaller;
+    border: 0px;
+}
