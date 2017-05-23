@@ -1,14 +1,22 @@
 "use strict";
 import "babel-polyfill";
 import "./routes";
-import co from "co";
-var a = 1;
+import resolver from "../../common/js/resolver";
+
+resolver.co.wrap(function*() {
 
 
-var asd = co.wrap(function*(){
-    return Promise.resolve('HOLA  4!');
-})();
+    //Configuration phase
+    resolver.angularModules.appModule.configure({
+        routes: [
+            ['/', "/includes/default.html"],
+            ['default', '/']
+        ]
+    });
+
+    //Boostrap
+    yield resolver.angularModules.appModule.bootstrap();
 
 
-console.log(a);
-console.log(asd.then(console.info));
+    return Promise.resolve('Bootstrap success');
+})().then(console.info);
