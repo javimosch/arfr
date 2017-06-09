@@ -1,5 +1,6 @@
 module.exports = {
     title: "MisitioBA",
+    htmlTitle:"JA/MisitioBA - javascript freelance paris",
     firebaseURL: 'meeatful',
     serviceAccount: 'meeatful-firebase-adminsdk-sgkyv-9c21097936.json',
     databaseURL: 'https://meeatful.firebaseio.com/',

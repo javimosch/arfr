@@ -23,13 +23,22 @@
 }
 
 .social-panel {
-    padding: 20px;
-    background-color:white;
+    background: white;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    /* top: -5px; */
 }
 
 .social-icon {
     margin-top: 20px;
+    display: inline-block;
     image-rendering: -webkit-optimize-contrast;
+}
+
+.social-icon-wrapper {
+    width: 143px;
+    background: transparent;
+    margin: 0 auto;
 }
 
 @media only screen and (min-width: 768px) {

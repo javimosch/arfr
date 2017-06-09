@@ -39,6 +39,30 @@
     particlesJS.load('particles-js', '/files/particles.json', function() {
         console.log('callback - particles.js config loaded');
     });
+
+    var range = (min, max) => Math.round(Math.random() * (max - min) + min);
+    var repeat = 0;
+    var bgChange = setInterval(function() {
+        if (repeat == 0) {
+            window.$(".gw").css({
+                transition: 'background-color 2s ease-in-out',
+                'background-image': "url('/img/city.jpg')",
+                //'background-position-x': '-600px'
+            });
+            repeat = 0;
+            clearInterval(bgChange);
+            return;
+        }
+        repeat++;
+        var color = 'rgb(rr,gg,bb)';
+        color = color.replace('rr', range(0, 255));
+        color = color.replace('gg', range(0, 255));
+        color = color.replace('bb', range(0, 255));
+        window.$(".gw").css({
+            transition: 'background-color 2s ease-in-out',
+            'background-color': color,
+            'background-image': 'none'
+        });
+        console.log(color, window.$(".gw").length);
+    }, 0);
 </script>
-
-

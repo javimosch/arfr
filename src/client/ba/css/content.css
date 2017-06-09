@@ -49,57 +49,62 @@
     background-color: white;
 }
 
+.article-title, .jumbotron h1.article-title {
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: deepskyblue;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
+.panel-stack {
+    margin: 0px;
+}
+
+.jumbotron {
+    background: azure;
+}
+
 @media only screen and (min-width: 320px) {
-    .centered-title {
-    }
-
-    .big-centered-logo {
-    }
-
-    .content-wrapper {
-    }
+    .centered-title {}
+    .big-centered-logo {}
+    .content-wrapper {}
 }
 
 @media only screen and (min-width: 480px) {
-    .centered-title {
-    }
-
-    .big-centered-logo {
-    }
-
-    .content-wrapper {
-    }
+    .centered-title {}
+    .big-centered-logo {}
+    .content-wrapper {}
 }
 
 @media only screen and (min-width: 768px) {
-    .centered-title {
-    }
-
-    .big-centered-logo {
-    }
-
-    .content-wrapper {
+    .centered-title {}
+    .big-centered-logo {}
+    .content-wrapper {}
+    .panel-sm {
+        background: transparent;
+        border: 0px;
+        box-shadow: none;
     }
 }
 
 @media only screen and (min-width: 992px) {
-    .centered-title {
-    }
-
-    .big-centered-logo {
-    }
-
+    .centered-title {}
+    .big-centered-logo {}
     .content-wrapper {
+        padding-left: 20px!important;
+        padding-right: 20px!important;
+    }
+    .panel {
+        border-radius: 4px;
     }
 }
 
 @media only screen and (min-width: 1200px) {
-    .centered-title {
-    }
-
-    .big-centered-logo {
-    }
-
-    .content-wrapper {
-    }
+    .centered-title {}
+    .big-centered-logo {}
+    .content-wrapper {}
 }
