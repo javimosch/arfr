@@ -1,5 +1,6 @@
 /*global angular*/
 import angular from 'angular';
+import 'angular-route';
 const appName = 'app';
 export default {
     configure: (options) => {

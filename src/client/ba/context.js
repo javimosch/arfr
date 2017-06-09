@@ -10,8 +10,11 @@ module.exports = {
         'manitas.css'
     ],
     CDN: [
-        "https://code.jquery.com/jquery-2.2.2.min.js",
-        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js",
+        //"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        //"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js",
+        'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'
     ],
     i18n_config: {
         languages: ['en', 'es'],
