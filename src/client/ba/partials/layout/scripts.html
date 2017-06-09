@@ -13,7 +13,8 @@
     ga('send', 'pageview');
 </script>
 
-{{>auto-reload}} {{>css-update-button}}
+{{#if logged}} {{else}} {{>auto-reload}} {{>css-update-button}} {{/if}}
+
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
@@ -37,33 +38,6 @@
 <script type="text/javascript" src="/vendor/particles.min.js"></script>
 <script type="text/javascript">
     particlesJS.load('particles-js', '/files/particles.json', function() {
-        console.log('callback - particles.js config loaded');
+        
     });
-
-/*
-    var range = (min, max) => Math.round(Math.random() * (max - min) + min);
-    var repeat = 0;
-    var bgChange = setInterval(function() {
-        if (repeat == 0) {
-            window.$(".gw").css({
-                transition: 'background-color 2s ease-in-out',
-                'background-image': "url('/img/city.jpg')",
-                //'background-position-x': '-600px'
-            });
-            repeat = 0;
-            clearInterval(bgChange);
-            return;
-        }
-        repeat++;
-        var color = 'rgb(rr,gg,bb)';
-        color = color.replace('rr', range(0, 255));
-        color = color.replace('gg', range(0, 255));
-        color = color.replace('bb', range(0, 255));
-        window.$(".gw").css({
-            transition: 'background-color 2s ease-in-out',
-            'background-color': color,
-            'background-image': 'none'
-        });
-        console.log(color, window.$(".gw").length);
-    }, 0);*/
 </script>

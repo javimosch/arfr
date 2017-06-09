@@ -1,6 +1,7 @@
 module.exports = {
 
     FILE_LOGGING_LEVEL: process.env.FILE_LOGGING_LEVEL || "DEBUG",
+    EXPRESS_VERBOSE: process.env.toString()==='1' || false,
 
     DB_URI: process.env.dbURI,
 
