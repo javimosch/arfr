@@ -108,7 +108,8 @@ body {
     height: auto;
     margin: 0px auto -100px;
     padding: 0px 0px 100px;
-    /*background: url("/img/bg.jpg") 0% 0% / cover;*/
+    background-image: url('/img/city.jpg');
+    background-size: cover;
 }
 
 #footer {
