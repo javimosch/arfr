@@ -121,6 +121,7 @@
     "relative-path": "^1.1.0",
     "remove-html-comments": "^1.0.2",
     "request": "^2.69.0",
+    "require-reload": "^0.2.2",
     "require.async": "^0.1.1",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
