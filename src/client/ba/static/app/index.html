@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{>common-metas}}
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="container-fluid">
+            {{> bo-header}}
+        </div>
+        <div class="container view-wrapper" ng-view>
+            
+        </div>
+        <div class="container-fluid">
+            {{> bo-footer}}
+        </div>
+    </div>
+    {{>bo-scripts}}
+</body>
+
+</html>
