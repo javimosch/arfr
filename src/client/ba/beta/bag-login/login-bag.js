@@ -1,0 +1,1 @@
+var loginBag = 0;

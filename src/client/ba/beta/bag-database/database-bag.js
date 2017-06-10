@@ -1,0 +1,1 @@
+console.log("Abstract bag for database operations");

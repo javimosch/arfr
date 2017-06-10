@@ -1,0 +1,64 @@
+p.brand-rt1 .negative{
+    color:yellow;
+}
+p.brand-rt1 {
+    color: snow;
+    @media (min-width: 320px) {
+        text-align: center;
+    }
+    @media (min-width: 480px) {
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        text-align: center;
+    }
+    @media (min-width: 992px) {
+        text-align: center;
+        line-height: 82px;
+        font-size: x-large;
+        float: right;
+    }
+    @media (min-width: 1200px) {
+        text-align: center;
+    }
+}
+
+h1.brand-rt1 {
+    font-size: -webkit-xxx-large;
+    color: snow;
+    @media (min-width: 320px) {
+        text-align: center;
+    }
+    @media (min-width: 480px) {
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        text-align: center;
+    }
+    @media (min-width: 992px) {
+        text-align: center;
+    }
+    @media (min-width: 1200px) {
+        text-align: center;
+    }
+}
+
+a.brand-rt1 {
+    text-align: center;
+    text-decoration: none;
+    @media (min-width: 320px) {
+        text-align: center;
+    }
+    @media (min-width: 480px) {
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        text-align: center;
+    }
+    @media (min-width: 992px) {
+        text-align: center;
+    }
+    @media (min-width: 1200px) {
+        text-align: center;
+    }
+}

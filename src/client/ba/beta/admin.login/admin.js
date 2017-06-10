@@ -1,0 +1,1 @@
+console.log("This is an ES6 code who comes with the view / module / whatever");
