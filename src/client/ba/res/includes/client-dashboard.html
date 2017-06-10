@@ -3,12 +3,12 @@
         <div class="panel-rt1">
             <h2 class="panel-rt1">Dashboard</h2>
             <hr class="panel-rt1">
-            <p class="panel-rt1">Welcome home</p>
-            <button class="panel-rt1">My invoices</button>
-            <button class="panel-rt1">My balance</button>
-            <button class="panel-rt1">Our Missions</button>
-            <button class="panel-rt1">Track tasks</button>
-            <button class="panel-rt1">Logout</button>
+            <p class="panel-rt1" ng-bind="welcomeMessage()"></p>
+            <button class="panel-rt1" ng-click="viewInvoices()">My invoices</button>
+            <button class="panel-rt1" ng-click="viewBalance()">My balance</button>
+            <button class="panel-rt1" ng-click="trackProjects()">Our Missions</button>
+            <button class="panel-rt1" ng-click="trackTasks()">Track tasks</button>
+            <button class="panel-rt1" ng-click="logout()">Logout</button>
         </div>
     </div>
 </div>

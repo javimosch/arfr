@@ -20,7 +20,9 @@
 .big-centered-logo {
     width: 100px;
     filter: contrast(1.55);
-    margin-bottom: 40px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 40px!important;
 }
 
 .centered-title {
@@ -49,7 +51,8 @@
     background-color: white;
 }
 
-.article-title, .jumbotron h1.article-title {
+.article-title,
+.jumbotron h1.article-title {
     font-size: 50px;
     margin-top: 0px;
     margin-bottom: 20px;

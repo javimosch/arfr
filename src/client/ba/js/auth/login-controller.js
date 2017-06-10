@@ -11,8 +11,8 @@ export default function() {
                 });
                 $notify.set("You are in !");
                 $session.saveCredentials($scope.email, $scope.pwd);
-                if (data.account) {
-                    $session.updateWith(data.account);
+                if (data._token) {
+                    $session.updateWith(data._token,data.account);
                 }
                 $timeout(function() {
                     $location.path('/dashboard');

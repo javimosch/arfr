@@ -1,13 +1,19 @@
+a.panel-rt1,
+h2.panel-rt1 {
+    position: relative;
+    z-index: 2;
+}
+
 div.panel-rt1 {
     text-align: left;
     background: snow;
-    padding: 10px 0px 50px 0px;
+    padding: 40px 0px 50px 0px;
     @media (min-width: 320px) {
         text-align: left;
     }
     @media (min-width: 480px) {
         text-align: left;
-        padding: 10px 10px 50px 10px;
+        padding: 40px 10px 50px 10px;
     }
     @media (min-width: 768px) {
         text-align: left;
@@ -17,6 +23,7 @@ div.panel-rt1 {
     @media (min-width: 992px) {
         text-align: left;
         min-height: 400px;
+        padding: 40px 30px 50px 30px;
     }
     @media (min-width: 1200px) {
         text-align: left;
@@ -41,6 +48,49 @@ h2.panel-rt1 {
         text-align: left;
         margin: 15px auto;
         padding: 20px 0px;
+    }
+    @media (min-width: 1200px) {
+        text-align: left;
+    }
+}
+
+ul.panel-rt1 {
+    text-align: left;
+    padding: 0px;
+    padding-left: 30px;
+    margin-top: 15px;
+    @media (min-width: 320px) {
+        text-align: left;
+    }
+    @media (min-width: 480px) {
+        text-align: left;
+    }
+    @media (min-width: 768px) {
+        text-align: left;
+    }
+    @media (min-width: 992px) {
+        text-align: left;
+        font-size: medium;
+    }
+    @media (min-width: 1200px) {
+        text-align: left;
+    }
+}
+
+ul.panel-rt1>li {
+    text-align: left;
+    @media (min-width: 320px) {
+        text-align: left;
+    }
+    @media (min-width: 480px) {
+        text-align: left;
+    }
+    @media (min-width: 768px) {
+        text-align: left;
+    }
+    @media (min-width: 992px) {
+        text-align: left;
+        font-size: medium;
     }
     @media (min-width: 1200px) {
         text-align: left;
