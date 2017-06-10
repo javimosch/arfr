@@ -11,12 +11,13 @@
             {{> bo-header}}
         </div>
         <div class="container view-wrapper" ng-view>
-            
-        </div>
-        <div class="container-fluid">
-            {{> bo-footer}}
+
         </div>
     </div>
+    <div id="footer" class="">
+        {{>footer}}
+    </div>
+    <span us-spinner="{radius:30, width:8, length: 16,opacity:0.5}" spinner-key="spinner-1"></span>
     {{>bo-scripts}}
 </body>
 

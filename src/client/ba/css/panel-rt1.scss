@@ -1,0 +1,126 @@
+div.panel-rt1 {
+    text-align: left;
+    background: snow;
+    padding: 10px 0px 50px 0px;
+    @media (min-width: 320px) {
+        text-align: left;
+    }
+    @media (min-width: 480px) {
+        text-align: left;
+        padding: 10px 10px 50px 10px;
+    }
+    @media (min-width: 768px) {
+        text-align: left;
+        min-height: 200px;
+        margin-top: 50px;
+    }
+    @media (min-width: 992px) {
+        text-align: left;
+        min-height: 400px;
+    }
+    @media (min-width: 1200px) {
+        text-align: left;
+    }
+}
+
+h2.panel-rt1 {
+    text-align: center;
+    font-size: xx-large;
+    background: snow;
+    padding: 20px 0px 0px 0px;
+    @media (min-width: 320px) {
+        text-align: center;
+    }
+    @media (min-width: 480px) {
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        text-align: center;
+    }
+    @media (min-width: 992px) {
+        text-align: left;
+        margin: 15px auto;
+        padding: 20px 0px;
+    }
+    @media (min-width: 1200px) {
+        text-align: left;
+    }
+}
+
+p.panel-rt1 {
+    padding: 0px 10px;
+    text-align: left;
+    line-height: 28px;
+    display: block;
+    margin: 0px;
+    font-size: medium;
+    font-weight: 300;
+    word-spacing: 1px;
+    letter-spacing: 1.2px;
+    @media (min-width: 320px) {
+        text-align: left;
+    }
+    @media (min-width: 480px) {
+        text-align: left;
+        padding: 0px 0px;
+    }
+    @media (min-width: 768px) {
+        text-align: left;
+    }
+    @media (min-width: 992px) {
+        text-align: left;
+    }
+    @media (min-width: 1200px) {
+        text-align: left;
+    }
+}
+
+hr.panel-rt1 {
+    min-width: 100%;
+    max-width: 100%;
+    border: 5px solid oldlace;
+    margin-top: 0px;
+    @media (min-width: 320px) {
+        min-width: 50%;
+    }
+    @media (min-width: 480px) {
+        min-width: 20%;
+        max-width: 100%;
+    }
+    @media (min-width: 768px) {
+        max-width: 100%;
+    }
+    @media (min-width: 992px) {
+        max-width: 100%;
+    }
+    @media (min-width: 1200px) {
+        max-width: 100%;
+    }
+}
+
+button.panel-rt1 {
+    display: block;
+    margin: 0 auto;
+    min-width: 100%;
+    min-height: 50px;
+    margin-top: 20px;
+    border-color: snow;
+    font-size: larger;
+    @media (min-width: 320px) {
+        text-align: center;
+    }
+    @media (min-width: 480px) {
+        text-align: center;
+        min-width: 60%;
+    }
+    @media (min-width: 768px) {
+        max-width: 50%;
+    }
+    @media (min-width: 992px) {
+        text-align: center;
+        min-width: 240px;
+    }
+    @media (min-width: 1200px) {
+        text-align: center;
+    }
+}

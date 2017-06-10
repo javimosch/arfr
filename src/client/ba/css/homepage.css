@@ -9,8 +9,7 @@
     z-index: 2;
 }
 
-.home-menu__item {
-}
+.home-menu__item {}
 
 .home-menu__item p {
     text-align: center;
@@ -28,87 +27,46 @@
     outline: rgba(0, 0, 0, 0.0980392) dashed 1px;
 }
 
+.home-menu__item-client-login {
+    background: yellow;
+}
+
 @media only screen and (min-width: 320px) {
-    .home-menu {
-    }
-
-    .home-menu__item {
-    }
-
-    .home-menu__item p {
-    }
-
-    .home-menu__item a {
-    }
-
-    .home-menu__item a:hover {
-    }
+    .home-menu {}
+    .home-menu__item {}
+    .home-menu__item p {}
+    .home-menu__item a {}
+    .home-menu__item a:hover {}
 }
 
 @media only screen and (min-width: 480px) {
-    .home-menu {
-    }
-
-    .home-menu__item {
-    }
-
-    .home-menu__item p {
-    }
-
-    .home-menu__item a {
-    }
-
-    .home-menu__item a:hover {
-    }
+    .home-menu {}
+    .home-menu__item {}
+    .home-menu__item p {}
+    .home-menu__item a {}
+    .home-menu__item a:hover {}
 }
 
 @media only screen and (min-width: 768px) {
-    .home-menu {
-    }
-
-    .home-menu__item {
-    }
-
-    .home-menu__item p {
-    }
-
-    .home-menu__item a {
-    }
-
-    .home-menu__item a:hover {
-    }
+    .home-menu {}
+    .home-menu__item {}
+    .home-menu__item p {}
+    .home-menu__item a {}
+    .home-menu__item a:hover {}
 }
 
 @media only screen and (min-width: 992px) {
-    .home-menu {
-    }
-
-    .home-menu__item {
-    }
-
-    .home-menu__item p {
-    }
-
-    .home-menu__item a {
-    }
-
-    .home-menu__item a:hover {
-    }
+    .home-menu {}
+    .home-menu__item {}
+    .home-menu__item p {}
+    .home-menu__item a {}
+    .home-menu__item a:hover {}
 }
 
 @media only screen and (min-width: 1200px) {
-    .home-menu {
-    }
-
-    .home-menu__item {
-    }
-
-    .home-menu__item p {
-    }
-
-    .home-menu__item a {
-    }
-
-    .home-menu__item a:hover {
-    }
+    .home-menu {}
+    .home-menu__item {}
+    .home-menu__item p {}
+    .home-menu__item a {}
+    .home-menu__item a:hover {}
 }

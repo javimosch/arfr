@@ -1,12 +1,22 @@
 /*global angular*/
 import angular from 'angular';
 import 'angular-route';
+import angularSanatize from 'angular-sanitize';
+import 'angular-spinner';
+import spinnerConfig from '../config/spinner-config';
 const appName = 'app';
 export default {
     configure: (options) => {
-        angular.module(appName, ['ngRoute']).controller('appController', function($log) {
-            $log.info('app-controller');
-        });
+
+        var dependencies = ['ngRoute', angularSanatize, 'angularSpinner'];
+        if (options.dependencies) {
+            dependencies = dependencies.concat(options.dependencies);
+
+            dependencies = dependencies.filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
+            });
+        }
+        const mainModule = angular.module(appName, dependencies);
 
         if (options.routes) {
             angular.module(appName).config(['$routeProvider', '$locationProvider',
@@ -33,6 +43,28 @@ export default {
                 }
             ]);
         }
+
+        mainModule.config(spinnerConfig());
+
+        if (options.configBlocks) {
+            options.configBlocks.forEach(config => mainModule.config(config));
+        }
+
+        if (options.services) {
+            options.services.forEach(service => mainModule.service(service.name, service.def));
+        }
+
+        if (options.runBlocks) {
+            options.runBlocks.forEach(run => mainModule.run(run));
+        }
+
+        if (options.controllers) {
+            options.controllers.forEach(def => mainModule.controller(def[0], def[1]()));
+        }
+
+
+
+
 
     },
     bootstrap: () => {

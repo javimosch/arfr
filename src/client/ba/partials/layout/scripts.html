@@ -38,6 +38,20 @@
 <script type="text/javascript" src="/vendor/particles.min.js"></script>
 <script type="text/javascript">
     particlesJS.load('particles-js', '/files/particles.json', function() {
-        
+
     });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.3/howler.core.min.js"></script>
+<script type="text/javascript">
+    setTimeout(function() {
+        var sound = new Howl({
+            src: ['/files/sound.mp3'],
+            autoplay: true,
+            loop: false,
+            volume: 0.2,
+            onend: function() {
+            }
+        });
+    }, 30000);
 </script>
