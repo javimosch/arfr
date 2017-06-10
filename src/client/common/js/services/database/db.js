@@ -5,15 +5,16 @@ export default function() {
             '$http', '$log', 'usSpinnerService',
             function($http, $log, usSpinnerService) {
                 var self = {};
-                var requests = 0;
-                var sessionToken = '';
+                var requests = 0,
+                    token;
+                self.setToken = (t) => token = t;
                 self.isBusy = () => requests == 0;
                 self.getRequests = () => requests;
                 self.addController = (n, actions) => {
                     self[n] = {};
                     actions.forEach(action => {
                         self[n][action] = (data) => {
-                            if (sessionToken) data._token = sessionToken;
+                            if (token) data._token = token;
                             return new Promise((resolve, reject) => {
                                 usSpinnerService.spin('spinner-1');
                                 requests++;
@@ -40,12 +41,6 @@ export default function() {
                             else {
                                 $log.info('DB', data.result);
                                 data = data.result;
-
-                                if (data._token && isAuth) {
-                                    sessionToken = data._token;
-                                    delete data._token;
-                                    $log.info('Token set !');
-                                }
                             }
                         }
                         else {

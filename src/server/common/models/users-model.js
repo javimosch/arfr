@@ -11,6 +11,8 @@ module.exports = {
             type: String,
             required: true
         },
+        firstName: String,
+        lastName: String,
         role: {
             type: String,
             required: true,

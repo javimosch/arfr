@@ -37,6 +37,58 @@ function handleInvalidEmail(email) {
     };
 }
 
+function refreshToken(data) {
+    return resolver.coWrapExec(function*() {
+
+        var userId;
+
+        if (data.userId) {
+            userId = data.userId;
+        }
+        else {
+            if (!data.token) {
+                return resolver.Promise.reject({
+                    //code: 150,
+                    msg: "Token required!"
+                });
+            }
+            else {
+                var tokenObject = decodeObject(data.token);
+                userId = tokenObject.user_id;
+            }
+        }
+
+        logger.debugTerminal('Generating token');
+        var expireAt = Date.now() + 1000 * 60 * 60 * 2;
+        var token = encodeObject({
+            expireAt: expireAt,
+            user_id: userId,
+        });
+        logger.debugTerminal('Generating token / done', token);
+        var sessionData = {
+            _user: userId,
+            token: token,
+            expireAt: expireAt
+        };
+        logger.debugTerminal('Generating session / finding');
+        var sessionDoc = yield resolver.model().sessions.findOneAndUpdate({
+            _user: userId,
+        });
+
+        if (!sessionDoc) {
+            logger.debugTerminal('Generating session / creating');
+            yield resolver.model().sessions.create(sessionData);
+        }
+        else {
+            logger.debugTerminal('Generating session / updating');
+            yield sessionDoc.update(sessionData);
+        }
+        return resolver.Promise.resolve({
+            token: token
+        });
+    });
+}
+
 function generatePassword(data) {
     return resolver.coWrapExec(function*() {
         if (!data.email) return resolver.Promise.reject(handleEmailRequired());
@@ -109,38 +161,18 @@ function login(data) {
         }
 
 
-        logger.debugTerminal('Generating token');
-        var expireAt = Date.now() + 1000 * 60 * 60 * 2;
-        var token = encodeObject({
-            expireAt: expireAt,
-            user_id: doc._id,
-            //email: doc.email,
-            //pwd: decodePassword(doc.pwd)
-        });
-        logger.debugTerminal('Generating token / done',token);
-        var sessionData = {
-            _user: doc._id,
-            token: token,
-            expireAt: expireAt
-        };
-        logger.debugTerminal('Generating session / finding');
-        var sessionDoc = yield resolver.model().sessions.findOneAndUpdate({
-            _user: doc._id,
+        var obj = yield refreshToken({
+            userId: doc._id
         });
 
-        if (!sessionDoc) {
-            logger.debugTerminal('Generating session / creating');
-            yield resolver.model().sessions.create(sessionData);
-        }
-        else {
-            logger.debugTerminal('Generating session / updating');
-            yield sessionDoc.update(sessionData);
-        }
 
-        
         return resolver.Promise.resolve({
-            _token: token,
-            msg: "We are working to improve this shit",
+            _token: obj.token,
+            account: {
+                email: doc.email,
+                firstName: doc.firstName,
+                lastName: doc.lastName
+            }
         });
     });
 }

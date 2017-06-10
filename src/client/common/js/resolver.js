@@ -21,5 +21,10 @@ export default {
     angularRunBlocks: {
         configureCommonApiControllers: configureCommonApiControllers
     },
-    Promise: Promise
+    Promise: Promise,
+    expose: (n, v) => {
+        if (window.location.href.indexOf('c9') !== -1 || window.location.href.indexOf('heroku') !== -1) {
+            window[n] = v;
+        }
+    }
 };

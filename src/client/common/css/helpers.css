@@ -779,8 +779,11 @@ table.minimal td {
   display: flex;
 }
 
+.justify {
+  text-align: justify!important;
+}
 .text-left {
-  text-align: justify;
+  text-align: justify!important;
 }
 
 .text-right {
