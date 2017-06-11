@@ -3,7 +3,7 @@
 /*global _*/
 /*global localStorage*/
 /* global localStorage */
-/*global SS*/
+
 "use strict";
 
 
@@ -75,7 +75,6 @@
     }
 
     function expose(path, v) {
-        if (SS && SS.PROD) return;
         setVal(window, path, v);
     }
 
