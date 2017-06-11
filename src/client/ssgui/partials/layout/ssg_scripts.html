@@ -14,8 +14,8 @@
 {{#each VENDOR}}
     <script src="/vendor/{{this}}"></script>
 {{/each}}
-{{#each LIB}}
-    <script src="/src/lib/{{this}}"></script>
+{{#each COMMON_JS}}
+    <script src="/common/js/{{this}}"></script>
 {{/each}}
 
 <!--/VENDOR-JS-->
@@ -23,11 +23,11 @@
 
 <!--BUNDLE_JS_2-->
 {{#each BUNDLE_JS_COMMON}}
-<script type="text/javascript" src="/src/js/frontstuff/{{this}}.js"></script>
+<script type="text/javascript" src="/raw/projects/frontstuff/js/{{this}}.js"></script>
 {{/each}}
 <!--/BUNDLE_JS_2-->
 
-<script type="text/javascript" src="{{root}}js/app.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
 
 
 <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>

@@ -1201,7 +1201,7 @@
             scope: {
                 model: "=model"
             },
-            templateUrl: SS.ROOT+'templates/common/fs.ng.dynamic-table.html',
+            templateUrl: '/includes/common/fs.ng.dynamic-table.html',
             link: function(s, elem, attrs) {
                 var r = $rootScope;
 
