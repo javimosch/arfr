@@ -1,15 +1,16 @@
 module.exports = {
     title: "MisitioBA",
     htmlTitle: "JA/MisitioBA - javascript freelance paris",
-    firebaseURL: 'meeatful',
-    serviceAccount: 'meeatful-firebase-adminsdk-sgkyv-9c21097936.json',
-    databaseURL: 'https://meeatful.firebaseio.com/',
-    signalName: 'bastack',
-    CSS: [
-        'bijou.css',
-        'helper.css',
-        'manitas.css'
-    ],
+    firebase: {
+        apiKey: "AIzaSyA0VOtzgsCAhWAjPtExM04ODD93FsWH09M",
+        authDomain: "misitioba.firebaseapp.com",
+        databaseURL: "https://misitioba.firebaseio.com",
+        projectId: "misitioba",
+        storageBucket: "misitioba.appspot.com",
+        messagingSenderId: "531480696048",
+        serviceAccount: 'src/client/ba/misitioba-firebase-adminsdk-jnnax-9f0a0219b6.json',
+        rootPath:'bastack'
+    },
     CDN: [
         "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js",
         //"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"

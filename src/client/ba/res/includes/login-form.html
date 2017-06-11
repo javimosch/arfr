@@ -9,7 +9,7 @@
             <input class="form-rt1" ng-model="pwd" placeholder="Password" type="password" autocomplete="new-password">
             <a class="form-rt1 link" ng-click="recoverPwd()">Recover password</a>
             <a class="form-rt1" href="/create-account">Create a new account</a>
-            <button ng-disable="isBusy()" class="form-rt1" ng-click="submit()">Login</button>
+            <button ng-disabled="isBusy()" class="form-rt1" ng-click="!isBusy() && submit()">Login</button>
         </form>
     </div>
 </div>

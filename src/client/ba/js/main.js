@@ -14,6 +14,7 @@ resolver.co.wrap(function*() {
             ['/clients', "/includes/login-form.html"],
             ['/create-account', "/includes/create-client-account.html"],
             ['/dashboard', "/includes/client-dashboard.html"],
+            ['/manage-users', "/includes/manage-users.html"],
             ['default', '/clients']
         ],
         controllers: [
@@ -40,7 +41,24 @@ resolver.co.wrap(function*() {
                     html: true
                 });
             }]
-        ]
+        ],
+        directives: [{
+            name: "dbState",
+            def: ['$db', '$log', '$timeout', function($db, $log, $timeout) {
+                return {
+                    restrict: "A",
+                    scope: true,
+                    template: "<input ng-model='pendingTransactions'>",
+                    link: function(scope, element, attr) {
+                        scope.pendingTransactions = 0;
+                        setInterval(function() {
+                            scope.pendingTransactions = $db.getRequests();
+                            $timeout(() => scope.$apply());
+                        }, 100);
+                    }
+                };
+            }]
+        }]
     });
     //Boostrap
     yield resolver.angularModules.appModule.bootstrap();

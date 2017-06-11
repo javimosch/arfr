@@ -47,6 +47,11 @@ a.form-rt1 {
     }
 }
 
+button.form-rt1:disabled {
+    display: block;
+    background: cadetblue;
+}
+
 button.form-rt1 {
     display: block;
     margin: 0 auto;
