@@ -12,10 +12,10 @@ angular.module('fs_ng_checkbox', [])
                 template: "@template",
                 click: "=click"
             },
-            templateUrl: SS.ROOT + "templates/common/fs.ng.checkbox.html",
+            templateUrl: "/includes/common/fs.ng.checkbox.html",
             link: function(scope, el, attrs) {
 
-                var url = SS.ROOT + "templates/common/fs.ng.checkbox.html"
+                var url = "/includes/common/fs.ng.checkbox.html"
                 if (scope.template) {
                     url = url.replace('.html', '-') + scope.template + '.html';
                 }

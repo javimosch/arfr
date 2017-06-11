@@ -14,33 +14,18 @@
 {{#each VENDOR}}
     <script src="/vendor/{{this}}"></script>
 {{/each}}
-{{#each LIB}}
-    <script src="/src/lib/{{this}}"></script>
+{{#each COMMON_SCRIPTS}}
+    <script src="/common/{{this}}"></script>
 {{/each}}
 
 <!--/VENDOR-JS-->
 
-<script>
-  /*global firebase*/
-  var config = {
-    apiKey: "AIzaSyDSJsNkVjN1qQrEJ7xtH56kvlHRsQ_8RiQ",
-    authDomain: "frontstuff-e4c86.firebaseapp.com",
-    databaseURL: "https://frontstuff-e4c86.firebaseio.com",
-    storageBucket: "frontstuff-e4c86.appspot.com",
-  };
-  firebase.initializeApp(config);
-</script>
-
 
 <!--BUNDLE_JS_2-->
 {{#each BUNDLE_JS_COMMON}}
-<script type="text/javascript" src="/src/js/frontstuff/{{this}}.js"></script>
+<script type="text/javascript" src="/raw/projects/frontstuff/js/{{this}}.js"></script>
 {{/each}}
 <!--/BUNDLE_JS_2-->
 
 <script type="text/javascript" src="{{root}}js/app.js"></script>
 
-
-
-
-{{> live-sync}}

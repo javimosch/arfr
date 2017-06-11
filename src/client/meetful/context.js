@@ -1,9 +1,15 @@
 module.exports = {
     title: "Meeatful",
-    firebaseURL: 'meeatful',
-    serviceAccount: 'meeatful-firebase-adminsdk-sgkyv-9c21097936.json',
-    databaseURL: 'https://meeatful.firebaseio.com/',
-    signalName: 'live-sync',
+    firebase: {
+        apiKey: "AIzaSyB8riHvf4BwR7qOmAARsB3XRcRfueneUOs",
+        authDomain: "meeatful.firebaseapp.com",
+        databaseURL: "https://meeatful.firebaseio.com",
+        projectId: "meeatful",
+        storageBucket: "meeatful.appspot.com",
+        messagingSenderId: "520596335619",
+        serviceAccount: 'src/client/meetful/meeatful-firebase-adminsdk-sgkyv-9c21097936.json',
+        rootPath: 'bastack'
+    },
     CSS: [
         "https://fonts.googleapis.com/css?family=Nothing+You+Could+Do",
         "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
@@ -40,10 +46,7 @@ module.exports = {
     i18n_config: {
         languages: ['en', 'es'],
         default: 'en',
-    }
-}
-
-/*,
+    },
     i18n: {
         NAV_ABOUT_US: {
             en: 'About Us',
@@ -256,4 +259,6 @@ module.exports = {
         VALIDATE_PERSONAL_ID: {
             en: "Personal ID already registered",
             es: "ID Personal ya registrado"
-        }*/
+        }
+    }
+};

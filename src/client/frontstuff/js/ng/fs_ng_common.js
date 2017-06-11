@@ -801,7 +801,7 @@
             },
             restrict: 'AE',
             replace: true,
-            templateUrl: SS.ROOT + 'templates/common/fs.ng.spinner.html',
+            templateUrl: '/includes/common/fs.ng.spinner.html',
             link: function(scope, elem, attrs) {
                 //console.log('directive.spinner.linked');
             }

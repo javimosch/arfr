@@ -64,7 +64,7 @@
                     <div class="row">
                         <div class="col-xs-12 ">
                             <label>When</label>
-                            <input pikaday="item.when" ng-disabled="isAssigned()||!isOwner()" class="form-control" theme="diags" ng-attr-min={{datepicker.minDate}} ng-attr-max={{datepicker.maxDate}} placeholder="departure date">
+                            <input pikaday="item.when" ng-disabled="isAssigned()||!isOwner()" class="form-control" theme="diags" ng-attr-min={[{datepicker.minDate}]} ng-attr-max={[{datepicker.maxDate}]} placeholder="departure date">
                         </div>
                     </div>
                     <div class="row">

@@ -10,15 +10,15 @@
 
             <h5 class="visible-xxs-block padding-left-one">
              <span
-             ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" >{{c.label||c}} &nbsp;</span>
+             ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" >{[{c.label||c}]} &nbsp;</span>
              </h5>
 
             <table class="table-dynamic table">
-                <!-- <caption ng-show="caption">{{caption}}</caption> -->
+                <!-- <caption ng-show="caption">{[{caption}]}</caption> -->
                 <thead>
                     <tr>
                         <th ng-if="model.remove"></th>
-                        <th ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" ng-class="c.labelCls&&c.labelCls()||{}">{{c.label||c}}</th>
+                        <th ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" ng-class="c.labelCls&&c.labelCls()||{}">{[{c.label||c}]}</th>
                     </tr>
                 </thead>
                 <!--ng-click="!hasMouse && console.log(hasMouse)"-->
@@ -33,7 +33,7 @@
                         <td ng-repeat="c in columns | filter: model.columnFilter || { disabled: undefined }" ng-class="{link:true,'text-left':c.align==='left','text-right':c.align==='right','text-center':c.align==='center'}">
                             <out ng-if="!c.format" html-content html="item[c.name||c]"></out>
                             <out ng-if="c.format" bind-html-compile="c.format(item[c.name||c],item)">
-                                <!--{{c.format(item[c.name||c],item);}}-->
+                                <!--{[{c.format(item[c.name||c],item);}]}-->
                             </out>
                         </td>
 
@@ -48,7 +48,7 @@
         <div ng-show="model.records && model.records.show" class="margin-bottom-one">
             <ul class="form-tiny labelx2 center-block">
                 <li>
-                    <label>{{model.records.label}}</label>
+                    <label>{[{model.records.label}]}</label>
                     <input disabled ng-value="model.pagination.total" class="form-control max-w-60">
                 </li>
         </div>
@@ -56,7 +56,7 @@
         <div ng-if="buttons" class="button-group">
             <button ng-repeat="(k,v) in buttons" ng-disabled="v.disabled && v.disabled()||false" ng-if="v.show==undefined || v.show==true" ng-class="v.type({
             $index:$index,$first:$first
-        })||''" ng-click="v.click()">{{v.label}}</button>
+        })||''" ng-click="v.click()">{[{v.label}]}</button>
             <out ng-if="model.buttonsTpl" ng-include="model.buttonsTpl" include-replace></out>
             <i ng-show="model.hideTooltip == undefined || model.hideTooltip != true" class="fa fa-question" tooltip-placement="top" uib-tooltip="Double click on a row to edit"></i>
         </div>
