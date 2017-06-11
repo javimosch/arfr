@@ -5,7 +5,7 @@ export default function() {
             'users', 'pages', 'auth', 'texts'
         ];
         var actions = [
-            'save', 'update', 'get', 'getAll', 'login', 'isTokenExpired', 'updateToken', 'createAccount', 'generatePassword'
+            'save', 'update', 'get', 'getAll', 'login', 'isTokenExpired', 'updateToken', 'createAccount', 'generatePassword', 'refreshToken'
         ];
 
         controllers.forEach(controller => {

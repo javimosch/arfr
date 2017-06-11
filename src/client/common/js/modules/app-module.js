@@ -4,6 +4,15 @@ import 'angular-route';
 import angularSanatize from 'angular-sanitize';
 import 'angular-spinner';
 import spinnerConfig from '../config/spinner-config';
+import manageUsers from '../controllers/manageUsers';
+import {
+    userTable
+}
+from '../controllers/manageUsers';
+import {
+    maquetteTable
+}
+from '../services/maquetteTable';
 const appName = 'app';
 export default {
     configure: (options) => {
@@ -50,14 +59,21 @@ export default {
             options.configBlocks.forEach(config => mainModule.config(config));
         }
 
+        mainModule.service(maquetteTable.name, maquetteTable.def);
         if (options.services) {
             options.services.forEach(service => mainModule.service(service.name, service.def));
+        }
+
+        mainModule.directive(userTable.name, userTable.def);
+        if (options.directives) {
+            options.directives.forEach(directive => mainModule.directive(directive.name, directive.def));
         }
 
         if (options.runBlocks) {
             options.runBlocks.forEach(run => mainModule.run(run));
         }
 
+        mainModule.controller('manage-users', manageUsers())
         if (options.controllers) {
             options.controllers.forEach(def => mainModule.controller(def[0], def[1]()));
         }

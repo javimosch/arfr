@@ -1,33 +1,25 @@
 {
   "name": "bastack",
   "version": "1.0.0",
-  "description": "Fullstack Application (Angular / NodeJs / Mongo)",
+  "description": "Fullstack Application (Angular / Maquettejs / NodeJs / Mongo)",
   "main": "",
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install",
-    "test": "jasmine-node spec",
-    "install-safe": "npm i --save $1 --no-bin-links",
-    "gitlog": "git log --graph --pretty=oneline --abbrev-commit",
-    "clear": "node ./lib/tasks/task.clear.js",
-    "local": "nodemon -e js,jade,html,css,scss,json ./lib/server.js --watch ./lib --watch ./src/server --watch .env --watch ./src/client/context.js",
-    "version": "./scripts/generate-version.sh",
-    "deploy": "./scripts/ftp_deploy.sh",
-    "server": "node ./lib/server.js",
-    "release": "node ./lib/server.js",
-    "push": "git push heroku debugging:master",
-    "herokudeploy": "DEPLOY_PRESERVE_FILES=1 ./scripts/ftp_deploy.sh",
-    "heroku": "node /app/lib/server.js",
-    "serve": "npm-run-parallel release server",
-    "git": "ungit --port 8082"
+    "start": "node /app/lib/server.js",
+    "dev": "npm-run-parallel dev:server dev:client",
+    "dev:server": "nodemon -e js,jade,html,css,scss,json ./lib/server.js --watch ./lib --watch ./src/server --watch .env --watch ./package.json",
+    "dev:client": "nodemon -e js,jade,html,css,scss,json ./lib/client.js --watch ./lib --watch .env --watch ./package.json",
+    "test": "jasmine-node spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/shopmycourses/shopmycourses-web.git"
+    "url": "git+https://github.com/javimosch/bastack.git"
   },
   "keywords": [
     "handlebars",
     "express",
-    "ssg"
+    "ssg",
+    "static site",
+    "hot reload"
   ],
   "engines": {
     "node": "7.8.0"
@@ -54,7 +46,6 @@
     "babel-preset-stage-3": "^6.24.1",
     "babel-runtime": "^6.23.0",
     "body-parser": "^1.16.0",
-    "bower": "^1.7.9",
     "btoa": "^1.1.2",
     "busboy": "^0.2.12",
     "clean-css": "^4.0.7",
@@ -98,6 +89,7 @@
     "mailchimp-api-v3": "^1.7.0",
     "mailcomposer": "^3.6.2",
     "mailgun-js": "^0.7.7",
+    "maquette": "^2.5.1",
     "marked": "^0.3.6",
     "md5": "^2.2.1",
     "mime-types": "^2.1.11",
@@ -135,6 +127,7 @@
     "rollup-plugin-uglify": "^1.0.2",
     "rollup-stream": "^1.19.0",
     "sander": "^0.5.1",
+    "shelljs": "^0.7.8",
     "shortid": "^2.2.6",
     "simple-node-logger": "^0.93.14",
     "simple-ssh": "^0.9.0",

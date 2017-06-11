@@ -25,6 +25,9 @@ export default {
     expose: (n, v) => {
         if (window.location.href.indexOf('c9') !== -1 || window.location.href.indexOf('heroku') !== -1) {
             window[n] = v;
+            console.info('Exposed',n);
+        }else{
+            console.warn('Exposed disable',n);
         }
     }
 };

@@ -12,14 +12,16 @@ export default function() {
                 return {
                     email: data.email || '',
                     firstName: data.firstName || '',
-                    lastName: data.lastName || ''
+                    lastName: data.lastName || '',
+                    role: data.role || ''
                 };
             }
 
             var self = {
                 setToken: (t) => {
+                    $log.info('Token set!',t);
                     self.token = t;
-                    $log.info('Token set!');
+                    self.saveMetadata('token',self.token)
                 },
                 logout: () => {
                     delete self.token;

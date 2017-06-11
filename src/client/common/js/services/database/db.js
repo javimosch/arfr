@@ -2,13 +2,14 @@ export default function() {
     return {
         name: '$db',
         def: [
-            '$http', '$log', 'usSpinnerService',
-            function($http, $log, usSpinnerService) {
+            '$http', '$log', 'usSpinnerService', '$resolver',
+            function($http, $log, usSpinnerService, $resolver) {
                 var self = {};
+                $resolver.expose('$db', self);
                 var requests = 0,
                     token;
                 self.setToken = (t) => token = t;
-                self.isBusy = () => requests == 0;
+                self.isBusy = () => requests > 0;
                 self.getRequests = () => requests;
                 self.addController = (n, actions) => {
                     self[n] = {};
@@ -26,9 +27,11 @@ export default function() {
                 };
 
                 function handleResponse(resolve, reject, isAuth) {
-                    requests--;
-                    setTimeout(() => usSpinnerService.stop('spinner-1'), 1000);
                     return function(data, status, headers, config) {
+
+                        requests--;
+                        setTimeout(() => usSpinnerService.stop('spinner-1'), 1000);
+
                         reject = reject || resolve;
                         var handler = resolve;
 

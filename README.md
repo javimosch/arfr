@@ -1,6 +1,6 @@
 #BA STACK
 
-Bastack is a project playground.
+Bastack is a project playground for MisitioBA.
 
  - Develop using npm run local
  - Generate a release version using npm run release
@@ -15,11 +15,16 @@ Bastack is a project playground.
  - Heroku compatible. Just push the app and is working.
  - i18n
  - Mongoose wrapper (client side controllers!)
+ - SCSS (SaaS compiler)
  
 ## Work in progress
 
- - GUI for developing
- - Token security (for angular apps)
+ - Development GUI
+ - Token security (API / Angular components)
+ - Enviromental variables 'Hot reload'
+ - CSS 'Hot reload'
+ - JS  'Hot reload' (angular / redom)
+ - HTML 'Hot reload' (static files injection via firebase)
 
 ## Enviromental vars
 

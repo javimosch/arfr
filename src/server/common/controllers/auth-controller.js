@@ -13,7 +13,8 @@ var logger = resolver.logger().get("CONTROLLER", "AUTH");
 module.exports = {
     login: login,
     createAccount: createAccount,
-    generatePassword: generatePassword
+    generatePassword: generatePassword,
+    refreshToken:refreshToken
 };
 
 var encodePassword = (pwd) => resolver.getFacade('cipher').encodePassword(pwd);
@@ -53,7 +54,9 @@ function refreshToken(data) {
                 });
             }
             else {
+                logger.debugTerminal('Decoding token / ', data.token);
                 var tokenObject = decodeObject(data.token);
+                logger.debugTerminal('Decoding token / done ', tokenObject);
                 userId = tokenObject.user_id;
             }
         }
@@ -171,7 +174,8 @@ function login(data) {
             account: {
                 email: doc.email,
                 firstName: doc.firstName,
-                lastName: doc.lastName
+                lastName: doc.lastName,
+                role: doc.role
             }
         });
     });
