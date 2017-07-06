@@ -1,6 +1,6 @@
 module.exports = {
     title: "MisitioBA",
-    htmlTitle: "JA/MisitioBA - javascript freelance paris",
+    htmlTitle: "MisitioBA - javascript freelance paris barcelona",
     firebase: {
         apiKey: "AIzaSyA0VOtzgsCAhWAjPtExM04ODD93FsWH09M",
         authDomain: "misitioba.firebaseapp.com",

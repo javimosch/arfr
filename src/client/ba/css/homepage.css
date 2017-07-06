@@ -9,6 +9,10 @@
     z-index: 2;
 }
 
+.light{
+        font-weight: 100!important;
+}
+
 .home-menu__item {}
 
 .home-menu__item p {
