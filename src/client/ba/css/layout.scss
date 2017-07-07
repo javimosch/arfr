@@ -113,6 +113,26 @@ body {
     background-size: cover;
 }
 
+.content-wrapper {
+    padding: 0px 0px;
+    @media (min-width: 320px) {
+        border: 0px;
+    }
+    @media (min-width: 480px) {
+        border: 0px;
+    }
+    @media (min-width: 768px) {
+        border: 0px;
+    }
+    @media (min-width: 992px) {
+        border: 0px;
+        padding: 30px 0px;
+    }
+    @media (min-width: 1200px) {
+        border: 0px;
+    }
+}
+
 #footer {
     height: 100px;
     background-color:white;

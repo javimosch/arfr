@@ -1,6 +1,4 @@
-.content-wrapper {
-    padding: 30px 0px;
-}
+
 
 .paragraph {
     font-size: 20px;
@@ -9,6 +7,7 @@
     padding: 40px 30px;
     border-radius: 20px;
 }
+
 
 .paragraph-layout {
     font-size: 20px;
@@ -25,18 +24,7 @@
     margin-bottom: 40px!important;
 }
 
-.centered-title {
-    max-width: 580px;
-    line-height: 29px;
-    text-align: center;
-    display: block;
-    color: oldlace;
-    font-family: Nunito, sans-serif;
-    padding: 20px 0px 0px;
-    font-size: 35px;
-    font-weight: 900;
-    margin: 0px auto 40px;
-}
+
 
 .left-subtitle {
     line-height: 29px;

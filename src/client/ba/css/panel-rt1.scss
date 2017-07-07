@@ -18,7 +18,7 @@ div.panel-rt1 {
     @media (min-width: 768px) {
         text-align: left;
         min-height: 200px;
-        margin-top: 50px;
+        margin-top: 0px;
     }
     @media (min-width: 992px) {
         text-align: left;
@@ -98,15 +98,19 @@ ul.panel-rt1>li {
 }
 
 p.panel-rt1 {
-    padding: 0px 10px;
+       padding: 0px 10px;
     text-align: left;
-    line-height: 28px;
+    line-height: 26px;
     display: block;
     margin: 0px;
     font-size: medium;
     font-weight: 300;
     word-spacing: 1px;
-    letter-spacing: 1.2px;
+    text-align: justify;
+    text-align: justify;
+    word-break: break-all;
+    word-wrap: break-word;
+    letter-spacing: 2px;
     @media (min-width: 320px) {
         text-align: left;
     }

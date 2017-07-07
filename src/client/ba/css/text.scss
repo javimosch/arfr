@@ -1,0 +1,141 @@
+.unstyled-list {
+    list-style: none;
+    padding: 0px;
+}
+
+.italic-centered-text {
+    text-align: center;
+    font-style: italic;
+    @media (min-width: 320px) {
+        border: 0px;
+    }
+    @media (min-width: 480px) {
+        border: 0px;
+    }
+    @media (min-width: 768px) {
+        border: 0px;
+    }
+    @media (min-width: 992px) {
+        border: 0px;
+        text-align: left;
+    }
+    @media (min-width: 1200px) {
+        border: 0px;
+    }
+}
+
+.cronology-list {
+    text-align: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    @media (min-width: 320px) {
+        border: 0px;
+    }
+    @media (min-width: 480px) {
+        border: 0px;
+    }
+    @media (min-width: 768px) {
+        border: 0px;
+    }
+    @media (min-width: 992px) {
+        border: 0px;
+        text-align: left;
+    }
+    @media (min-width: 1200px) {
+        border: 0px;
+    }
+}
+
+.cronology-year {
+    text-align: center;
+    padding: 0px;
+    margin: 15px 0px 0px 0px;
+    font-weight: bold;
+    @media (min-width: 320px) {
+        border: 0px;
+    }
+    @media (min-width: 480px) {
+        border: 0px;
+    }
+    @media (min-width: 768px) {
+        border: 0px;
+    }
+    @media (min-width: 992px) {
+        border: 0px;
+        text-align: left;
+    }
+    @media (min-width: 1200px) {
+        border: 0px;
+    }
+}
+
+.centered-title {
+    max-width: 580px;
+    line-height: 38px;
+    text-align: center;
+    display: block;
+    color: oldlace;
+    font-family: Nunito, sans-serif;
+    padding: 20px 0px 20px 0px;
+    font-size: 35px;
+    font-weight: 900;
+    background: black;
+    margin: 0px auto 0px;
+    @media (min-width: 320px) {
+        border: 0px;
+    }
+    @media (min-width: 480px) {
+        border: 0px;
+    }
+    @media (min-width: 768px) {
+        border: 0px;
+    }
+    @media (min-width: 992px) {
+        border: 0px;
+        text-align: left;
+        padding: 10px 30px;
+        width: 100%;
+        display: block;
+        margin: 0px;
+        max-width: none;
+    }
+    @media (min-width: 1200px) {
+        border: 0px;
+    }
+}
+
+.back-btn:active,
+.back-btn:hover {
+    text-decoration: none;
+}
+
+.back-btn {
+    border: 0px;
+    background: white;
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: 800;
+    color: black;
+    text-shadow: none;
+    @media (min-width: 320px) {
+        border: 0px;
+    }
+    @media (min-width: 480px) {
+        border: 0px;
+    }
+    @media (min-width: 768px) {
+        border: 0px;
+    }
+    @media (min-width: 992px) {
+        border: 0px;
+        text-align: left;
+    }
+    @media (min-width: 1200px) {
+        border: 0px;
+    }
+}

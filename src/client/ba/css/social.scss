@@ -17,7 +17,7 @@
 }
 
 .icon-linkedin {
-    background: url(/img/social.png) -97px -55px / 10em;
+    background: url(/img/social.png) -97px -54px / 10em;
     min-height: 30px;
     width: 33px;
 }
@@ -39,6 +39,10 @@
     width: 143px;
     background: transparent;
     margin: 0 auto;
+    margin-bottom: 20px;
+    @media (min-width: 992px) {
+        margin-bottom: 0px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
